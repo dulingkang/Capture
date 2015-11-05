@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var gdtSplashAds:GDTSplashAd?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -40,6 +41,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func addGDTSplashAds() {
+        if (gdtSplashAds == nil) {
+            
+        }
+    }
+    
+//    - (void)addGDTSplashAds {
+//    if (gdtSplashAds == nil) {
+//    gdtsp
+//    _gdtSplashAds = [[GDTSplashAd alloc] initWithAppkey:GDTAdsId placementId:GDTFlashID];
+//    }
+//    _gdtSplashAds.delegate = self;//设置代理
+//    //针对不同设备尺寸设置不同的默认图片，拉取广告等待时间会展示该默认图片。
+//    _gdtSplashAds.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"LaunchImage"]];
+//    //设置开屏拉取时长限制，若超时则不再展示广告
+//    _gdtSplashAds.fetchDelay = 6;
+//    //拉取并展示
+//    [_gdtSplashAds loadAdAndShowInWindow:self.window];
+//    }
 
 
 }

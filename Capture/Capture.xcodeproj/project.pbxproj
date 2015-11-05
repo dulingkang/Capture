@@ -8,20 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		3A5C84621BEB186000712ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84611BEB186000712ED1 /* AppDelegate.swift */; };
-		3A5C84671BEB186000712ED1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5C84651BEB186000712ED1 /* Main.storyboard */; };
-		3A5C84691BEB186000712ED1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5C84681BEB186000712ED1 /* Assets.xcassets */; };
-		3A5C846C1BEB186000712ED1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5C846A1BEB186000712ED1 /* LaunchScreen.storyboard */; };
 		3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84791BEB1B1600712ED1 /* HomeViewController.swift */; };
+		3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */; };
+		3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F811BEB9A530089DE57 /* OpenShare+QQ.m */; };
+		3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F831BEB9A530089DE57 /* OpenShare+Renren.m */; };
+		3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F851BEB9A530089DE57 /* OpenShare+Weibo.m */; };
+		3AE29F951BEB9A530089DE57 /* OpenShare+Weixin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F871BEB9A530089DE57 /* OpenShare+Weixin.m */; };
+		3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F891BEB9A530089DE57 /* OpenShare.m */; };
+		3AE29F971BEB9A530089DE57 /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE29F901BEB9A530089DE57 /* libGDTMobSDK.a */; };
+		3AE29FA11BEB9B530089DE57 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA01BEB9B530089DE57 /* Info.plist */; };
+		3AE29FA31BEB9B570089DE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA21BEB9B570089DE57 /* Assets.xcassets */; };
+		3AE29FA81BEB9B910089DE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA41BEB9B910089DE57 /* LaunchScreen.storyboard */; };
+		3AE29FA91BEB9B910089DE57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA61BEB9B910089DE57 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A5C845E1BEB186000712ED1 /* Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5C84611BEB186000712ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A5C84661BEB186000712ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A5C84681BEB186000712ED1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A5C846B1BEB186000712ED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3A5C846D1BEB186000712ED1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5C84791BEB1B1600712ED1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3AE29F7E1BEB9A530089DE57 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
+		3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
+		3AE29F801BEB9A530089DE57 /* OpenShare+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+QQ.h"; sourceTree = "<group>"; };
+		3AE29F811BEB9A530089DE57 /* OpenShare+QQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+QQ.m"; sourceTree = "<group>"; };
+		3AE29F821BEB9A530089DE57 /* OpenShare+Renren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Renren.h"; sourceTree = "<group>"; };
+		3AE29F831BEB9A530089DE57 /* OpenShare+Renren.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Renren.m"; sourceTree = "<group>"; };
+		3AE29F841BEB9A530089DE57 /* OpenShare+Weibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Weibo.h"; sourceTree = "<group>"; };
+		3AE29F851BEB9A530089DE57 /* OpenShare+Weibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Weibo.m"; sourceTree = "<group>"; };
+		3AE29F861BEB9A530089DE57 /* OpenShare+Weixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Weixin.h"; sourceTree = "<group>"; };
+		3AE29F871BEB9A530089DE57 /* OpenShare+Weixin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Weixin.m"; sourceTree = "<group>"; };
+		3AE29F881BEB9A530089DE57 /* OpenShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShare.h; sourceTree = "<group>"; };
+		3AE29F891BEB9A530089DE57 /* OpenShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenShare.m; sourceTree = "<group>"; };
+		3AE29F8A1BEB9A530089DE57 /* OpenShareHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShareHeader.h; sourceTree = "<group>"; };
+		3AE29F8C1BEB9A530089DE57 /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
+		3AE29F8D1BEB9A530089DE57 /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
+		3AE29F8E1BEB9A530089DE57 /* GDTNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeAd.h; sourceTree = "<group>"; };
+		3AE29F8F1BEB9A530089DE57 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
+		3AE29F901BEB9A530089DE57 /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
+		3AE29FA01BEB9B530089DE57 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AE29FA21BEB9B570089DE57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AE29FA51BEB9B910089DE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3AE29FA71BEB9B910089DE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3AE29FAD1BEBA11C0089DE57 /* Capture-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Capture-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE29F971BEB9A530089DE57 /* libGDTMobSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,31 +82,16 @@
 		3A5C84601BEB186000712ED1 /* Capture */ = {
 			isa = PBXGroup;
 			children = (
-				3A5C84741BEB1AE300712ED1 /* Adjust */,
-				3A5C84751BEB1AE300712ED1 /* Camera */,
+				3AE29FAA1BEB9FC90089DE57 /* Global */,
+				3AE29F981BEB9AE10089DE57 /* Resource */,
+				3AE29F7B1BEB9A270089DE57 /* Ajust */,
+				3AE29F7C1BEB9A270089DE57 /* Camera */,
+				3AE29F7A1BEB9A020089DE57 /* Lib */,
 				3A5C84761BEB1AE300712ED1 /* Home */,
 				3A5C84781BEB1AE300712ED1 /* Share */,
 				3A5C84611BEB186000712ED1 /* AppDelegate.swift */,
-				3A5C84651BEB186000712ED1 /* Main.storyboard */,
-				3A5C84681BEB186000712ED1 /* Assets.xcassets */,
-				3A5C846A1BEB186000712ED1 /* LaunchScreen.storyboard */,
-				3A5C846D1BEB186000712ED1 /* Info.plist */,
 			);
 			path = Capture;
-			sourceTree = "<group>";
-		};
-		3A5C84741BEB1AE300712ED1 /* Adjust */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Adjust;
-			sourceTree = "<group>";
-		};
-		3A5C84751BEB1AE300712ED1 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Camera;
 			sourceTree = "<group>";
 		};
 		3A5C84761BEB1AE300712ED1 /* Home */ = {
@@ -102,6 +115,80 @@
 			children = (
 			);
 			path = Share;
+			sourceTree = "<group>";
+		};
+		3AE29F7A1BEB9A020089DE57 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				3AE29F7D1BEB9A530089DE57 /* OpenShare */,
+				3AE29F8B1BEB9A530089DE57 /* TecentAds */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		3AE29F7B1BEB9A270089DE57 /* Ajust */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Ajust;
+			sourceTree = "<group>";
+		};
+		3AE29F7C1BEB9A270089DE57 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		3AE29F7D1BEB9A530089DE57 /* OpenShare */ = {
+			isa = PBXGroup;
+			children = (
+				3AE29F7E1BEB9A530089DE57 /* OpenShare+Alipay.h */,
+				3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */,
+				3AE29F801BEB9A530089DE57 /* OpenShare+QQ.h */,
+				3AE29F811BEB9A530089DE57 /* OpenShare+QQ.m */,
+				3AE29F821BEB9A530089DE57 /* OpenShare+Renren.h */,
+				3AE29F831BEB9A530089DE57 /* OpenShare+Renren.m */,
+				3AE29F841BEB9A530089DE57 /* OpenShare+Weibo.h */,
+				3AE29F851BEB9A530089DE57 /* OpenShare+Weibo.m */,
+				3AE29F861BEB9A530089DE57 /* OpenShare+Weixin.h */,
+				3AE29F871BEB9A530089DE57 /* OpenShare+Weixin.m */,
+				3AE29F881BEB9A530089DE57 /* OpenShare.h */,
+				3AE29F891BEB9A530089DE57 /* OpenShare.m */,
+				3AE29F8A1BEB9A530089DE57 /* OpenShareHeader.h */,
+			);
+			path = OpenShare;
+			sourceTree = "<group>";
+		};
+		3AE29F8B1BEB9A530089DE57 /* TecentAds */ = {
+			isa = PBXGroup;
+			children = (
+				3AE29F8C1BEB9A530089DE57 /* GDTMobBannerView.h */,
+				3AE29F8D1BEB9A530089DE57 /* GDTMobInterstitial.h */,
+				3AE29F8E1BEB9A530089DE57 /* GDTNativeAd.h */,
+				3AE29F8F1BEB9A530089DE57 /* GDTSplashAd.h */,
+				3AE29F901BEB9A530089DE57 /* libGDTMobSDK.a */,
+			);
+			path = TecentAds;
+			sourceTree = "<group>";
+		};
+		3AE29F981BEB9AE10089DE57 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3AE29FA41BEB9B910089DE57 /* LaunchScreen.storyboard */,
+				3AE29FA61BEB9B910089DE57 /* Main.storyboard */,
+				3AE29FA21BEB9B570089DE57 /* Assets.xcassets */,
+				3AE29FA01BEB9B530089DE57 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3AE29FAA1BEB9FC90089DE57 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				3AE29FAD1BEBA11C0089DE57 /* Capture-Bridging-Header.h */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,9 +249,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5C846C1BEB186000712ED1 /* LaunchScreen.storyboard in Resources */,
-				3A5C84691BEB186000712ED1 /* Assets.xcassets in Resources */,
-				3A5C84671BEB186000712ED1 /* Main.storyboard in Resources */,
+				3AE29FA81BEB9B910089DE57 /* LaunchScreen.storyboard in Resources */,
+				3AE29FA11BEB9B530089DE57 /* Info.plist in Resources */,
+				3AE29FA31BEB9B570089DE57 /* Assets.xcassets in Resources */,
+				3AE29FA91BEB9B910089DE57 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,27 +264,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A5C84621BEB186000712ED1 /* AppDelegate.swift in Sources */,
+				3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */,
 				3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */,
+				3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */,
+				3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */,
+				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
+				3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */,
+				3AE29F951BEB9A530089DE57 /* OpenShare+Weixin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3A5C84651BEB186000712ED1 /* Main.storyboard */ = {
+		3AE29FA41BEB9B910089DE57 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3A5C84661BEB186000712ED1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3A5C846A1BEB186000712ED1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A5C846B1BEB186000712ED1 /* Base */,
+				3AE29FA51BEB9B910089DE57 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3AE29FA61BEB9B910089DE57 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AE29FA71BEB9B910089DE57 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -287,11 +381,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Capture/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Capture/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Capture/Lib/TecentAds",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shawn.Capture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Capture/Global/Capture-Bridging-header.h";
 			};
 			name = Debug;
 		};
@@ -299,11 +398,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Capture/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Capture/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Capture/Lib/TecentAds",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shawn.Capture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Capture/Global/Capture-Bridging-header.h";
 			};
 			name = Release;
 		};
@@ -326,6 +430,7 @@
 				3A5C84721BEB186000712ED1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
