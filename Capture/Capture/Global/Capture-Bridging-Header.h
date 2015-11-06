@@ -11,5 +11,6 @@
 
 #import "GDTSplashAd.h"
 #import "OpenShareHeader.h"
+#import "BaiduMobAdSplash.h"
 
 #endif /* Capture_Bridging_Header_h */

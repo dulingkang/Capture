@@ -9,14 +9,19 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BaiduMobAdSplashDelegate{
 
     var window: UIWindow?
     var gdtSplashAds:GDTSplashAd?
+    var baiduSplashAds:BaiduMobAdSplash?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        self.window?.makeKeyAndVisible()
+//        self.addGDTSplashAds()
+        self.addBaiduSplashAds()
+        
+        
         return true
     }
 
@@ -42,26 +47,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func addGDTSplashAds() {
-        if (gdtSplashAds == nil) {
-            
-        }
+//    func addGDTSplashAds() {
+//        if (gdtSplashAds == nil) {
+//            gdtSplashAds = GDTSplashAd(appkey: kGDTAdsId, placementId: kGDTFlashId)
+//        }
+//        gdtSplashAds?.delegate = self
+//        gdtSplashAds?.fetchDelay = 10;
+//        gdtSplashAds?.loadAdAndShowInWindow(self.window)
+//    }
+    
+    //MARK GDT Ads delegate
+//    func splashAdSuccessPresentScreen(splashAd: GDTSplashAd!) {
+//        print("%s",__FUNCTION__)
+//    }
+//    
+//    func splashAdFailToPresent(splashAd: GDTSplashAd!, withError error: NSError!) {
+//        print("%s%@",__FUNCTION__,error)
+//    }
+//    
+//    func splashAdApplicationWillEnterBackground(splashAd: GDTSplashAd!) {
+//        print("%s",__FUNCTION__)
+//    }
+//    
+//    func splashAdClicked(splashAd: GDTSplashAd!) {
+//        print("%s",__FUNCTION__)
+//    }
+//    func splashAdClosed(splashAd: GDTSplashAd!) {
+//        print("%s",__FUNCTION__)
+//    }
+    //MRAK baidu ads delegate
+    func publisherId() -> String! {
+        return kBaiduAdsId
     }
     
-//    - (void)addGDTSplashAds {
-//    if (gdtSplashAds == nil) {
-//    gdtsp
-//    _gdtSplashAds = [[GDTSplashAd alloc] initWithAppkey:GDTAdsId placementId:GDTFlashID];
-//    }
-//    _gdtSplashAds.delegate = self;//设置代理
-//    //针对不同设备尺寸设置不同的默认图片，拉取广告等待时间会展示该默认图片。
-//    _gdtSplashAds.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"LaunchImage"]];
-//    //设置开屏拉取时长限制，若超时则不再展示广告
-//    _gdtSplashAds.fetchDelay = 6;
-//    //拉取并展示
-//    [_gdtSplashAds loadAdAndShowInWindow:self.window];
-//    }
-
-
+    func addBaiduSplashAds() {
+        baiduSplashAds = BaiduMobAdSplash.init()
+        baiduSplashAds?.delegate = self
+        baiduSplashAds?.canSplashClick = true;
+        baiduSplashAds?.useCache = false;
+        baiduSplashAds?.splashRect = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        baiduSplashAds?.loadAndDisplayUsingKeyWindow(self.window)
+    }
+    
 }
 
