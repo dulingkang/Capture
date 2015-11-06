@@ -9,17 +9,17 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, BaiduMobAdSplashDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
-    var gdtSplashAds:GDTSplashAd?
-    var baiduSplashAds:BaiduMobAdSplash?
+//    var gdtSplashAds:GDTSplashAd?
+//    var baiduSplashAds:BaiduMobAdSplash?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window?.makeKeyAndVisible()
 //        self.addGDTSplashAds()
-        self.addBaiduSplashAds()
+//        self.addBaiduSplashAds()
         
         
         return true
@@ -76,18 +76,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaiduMobAdSplashDelegate{
 //        print("%s",__FUNCTION__)
 //    }
     //MRAK baidu ads delegate
-    func publisherId() -> String! {
-        return kBaiduAdsId
-    }
-    
-    func addBaiduSplashAds() {
-        baiduSplashAds = BaiduMobAdSplash.init()
-        baiduSplashAds?.delegate = self
-        baiduSplashAds?.canSplashClick = true;
-        baiduSplashAds?.useCache = false;
-        baiduSplashAds?.splashRect = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-        baiduSplashAds?.loadAndDisplayUsingKeyWindow(self.window)
-    }
+//    func publisherId() -> String! {
+//        return kBaiduAdsId
+//    }
+//    
+//    func addBaiduSplashAds() {
+//        
+//        baiduSplashAds = BaiduMobAdSplash.init()
+//        baiduSplashAds?.delegate = self
+//        baiduSplashAds?.canSplashClick = true;
+//        baiduSplashAds?.useCache = false;
+//        baiduSplashAds?.splashRect = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+//        baiduSplashAds?.loadAndDisplayUsingKeyWindow(self.window)
+//    }
     
 }
 

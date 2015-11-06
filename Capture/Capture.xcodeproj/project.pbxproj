@@ -29,6 +29,7 @@
 		3A5C84AB1BEC544C00712ED1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AA1BEC544C00712ED1 /* AVFoundation.framework */; };
 		3A5C84AD1BEC546800712ED1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AC1BEC546800712ED1 /* MessageUI.framework */; };
 		3A5C84AF1BEC547D00712ED1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */; };
+		3A5C84B31BECCB4100712ED1 /* MainScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84B21BECCB4100712ED1 /* MainScrollView.swift */; };
 		3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */; };
 		3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F811BEB9A530089DE57 /* OpenShare+QQ.m */; };
 		3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F831BEB9A530089DE57 /* OpenShare+Renren.m */; };
@@ -77,6 +78,7 @@
 		3A5C84AA1BEC544C00712ED1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3A5C84AC1BEC546800712ED1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3A5C84B21BECCB4100712ED1 /* MainScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScrollView.swift; sourceTree = "<group>"; };
 		3AE29F7E1BEB9A530089DE57 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
 		3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
 		3AE29F801BEB9A530089DE57 /* OpenShare+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+QQ.h"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		3A5C84761BEB1AE300712ED1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3A5C84B11BECCB1600712ED1 /* View */,
 				3A5C84771BEB1AE300712ED1 /* Controller */,
 			);
 			path = Home;
@@ -212,6 +215,14 @@
 				3A5C849B1BEC523600712ED1 /* libBaiduMobAdSdk64bit.a */,
 			);
 			path = ios_api;
+			sourceTree = "<group>";
+		};
+		3A5C84B11BECCB1600712ED1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A5C84B21BECCB4100712ED1 /* MainScrollView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3AE29F7A1BEB9A020089DE57 /* Lib */ = {
@@ -388,6 +399,7 @@
 				3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */,
 				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
 				3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */,
+				3A5C84B31BECCB4100712ED1 /* MainScrollView.swift in Sources */,
 				3AE29F951BEB9A530089DE57 /* OpenShare+Weixin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

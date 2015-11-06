@@ -9,5 +9,14 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    //MARK - life cycle
+    override func viewDidLoad() {
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,15 +20,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="U1R-4P-ou1">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="600"/>
                                 <animations/>
                             </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U1R-4P-ou1" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="4l9-7T-0Fc"/>
-                            <constraint firstItem="U1R-4P-ou1" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="GGS-5A-KZx"/>
+                            <constraint firstItem="U1R-4P-ou1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerXWithinMargins" id="4l9-7T-0Fc"/>
+                            <constraint firstItem="U1R-4P-ou1" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="GGS-5A-KZx"/>
                             <constraint firstItem="U1R-4P-ou1" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="JgL-HA-58m"/>
                             <constraint firstItem="U1R-4P-ou1" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="fiq-BM-4jL"/>
                         </constraints>
