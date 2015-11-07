@@ -13,8 +13,8 @@ class HomeViewController: UIViewController {
     //MARK - life cycle
     override func viewDidLoad() {
         
-        let mainScrollView = MainScrollView.init(frame: self.view.bounds)
-        self.view.addSubview(mainScrollView)
+        let homeView = HomeView.init(frame: self.view.bounds)
+        self.view.addSubview(homeView)
     }
     
     override func viewWillAppear(animated: Bool) {
