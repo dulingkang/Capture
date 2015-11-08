@@ -30,6 +30,11 @@
 		3A5C84AD1BEC546800712ED1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AC1BEC546800712ED1 /* MessageUI.framework */; };
 		3A5C84AF1BEC547D00712ED1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */; };
 		3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84B21BECCB4100712ED1 /* HomeView.swift */; };
+		3ADBF69B1BEF4E04004E58F6 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */; };
+		3ADBF69D1BEF867D004E58F6 /* APCameraMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69C1BEF867D004E58F6 /* APCameraMainViewController.swift */; };
+		3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */; };
+		3ADBF6A11BEF884F004E58F6 /* APCameraFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF6A01BEF884F004E58F6 /* APCameraFilterView.swift */; };
+		3ADBF6A31BEF886A004E58F6 /* APCameraFilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF6A21BEF886A004E58F6 /* APCameraFilterCollectionView.swift */; };
 		3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */; };
 		3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F811BEB9A530089DE57 /* OpenShare+QQ.m */; };
 		3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F831BEB9A530089DE57 /* OpenShare+Renren.m */; };
@@ -79,6 +84,11 @@
 		3A5C84AC1BEC546800712ED1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		3A5C84B21BECCB4100712ED1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		3ADBF69C1BEF867D004E58F6 /* APCameraMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraMainViewController.swift; sourceTree = "<group>"; };
+		3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraMainView.swift; sourceTree = "<group>"; };
+		3ADBF6A01BEF884F004E58F6 /* APCameraFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraFilterView.swift; sourceTree = "<group>"; };
+		3ADBF6A21BEF886A004E58F6 /* APCameraFilterCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraFilterCollectionView.swift; sourceTree = "<group>"; };
 		3AE29F7E1BEB9A530089DE57 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
 		3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
 		3AE29F801BEB9A530089DE57 /* OpenShare+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+QQ.h"; sourceTree = "<group>"; };
@@ -225,6 +235,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3ADBF6951BEF4DB2004E58F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3ADBF69C1BEF867D004E58F6 /* APCameraMainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3ADBF6961BEF4DB2004E58F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */,
+				3ADBF6A01BEF884F004E58F6 /* APCameraFilterView.swift */,
+				3ADBF6A21BEF886A004E58F6 /* APCameraFilterCollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3ADBF6991BEF4E04004E58F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3AE29F7A1BEB9A020089DE57 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +298,8 @@
 		3AE29F7C1BEB9A270089DE57 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				3ADBF6951BEF4DB2004E58F6 /* Controller */,
+				3ADBF6961BEF4DB2004E58F6 /* View */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -312,6 +350,7 @@
 		3AE29FAA1BEB9FC90089DE57 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				3ADBF6991BEF4E04004E58F6 /* Model */,
 				3AE29FAD1BEBA11C0089DE57 /* Capture-Bridging-Header.h */,
 				3A5C847B1BEC462E00712ED1 /* GlobalDef.swift */,
 			);
@@ -393,6 +432,10 @@
 			files = (
 				3A5C84621BEB186000712ED1 /* AppDelegate.swift in Sources */,
 				3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */,
+				3ADBF6A11BEF884F004E58F6 /* APCameraFilterView.swift in Sources */,
+				3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */,
+				3ADBF69D1BEF867D004E58F6 /* APCameraMainViewController.swift in Sources */,
+				3ADBF69B1BEF4E04004E58F6 /* FilterModel.swift in Sources */,
 				3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */,
 				3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */,
 				3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */,
@@ -400,6 +443,7 @@
 				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
 				3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */,
 				3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */,
+				3ADBF6A31BEF886A004E58F6 /* APCameraFilterCollectionView.swift in Sources */,
 				3AE29F951BEB9A530089DE57 /* OpenShare+Weixin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -57,10 +57,24 @@ let kQQSecrect = "f65svfysCOEceXtk"
 //appstore url
 let kAppStoreAiPaiURL = "https://appsto.re/cn/ti6t7.i"
 
+//camera filter
+let kFilterNone = "原图"
+let kFilterZiRan = "自然"
+let kFilterTianMi = "甜美可人"
+let kFilterWeiMei = "唯美"
+let kFilterDianYa = "典雅"
+let kFilterFenNen = "粉嫩"
+let kFilterLuoKeKe = "洛可可"
+let kFilterABaoSe = "阿宝色"
+let kFilterQingLiang = "清凉"
+let kFilterFuGu = "复古"
+let kFilterHuaiJiu = "怀旧"
+let kFilterHeiBai = "黑白"
+let kFilterRouGuang = "柔光"
+let kFilterStartTag : UInt = 2000
 
-
-
-
-
+enum Filter:UInt {
+    case None = 2000, ZiRan, TianMi, WeiMei, DianYa,FenNen, LuoKeKe, ABaoSe, QingLiang, FuGu, HuaiJiu, HeiBai, RouGuang
+}
 
 

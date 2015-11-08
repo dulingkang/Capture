@@ -111,5 +111,4 @@ class HomeView: UIView, UIScrollViewDelegate {
         ads2Button.layer.borderColor = UIColor.blueColor().CGColor
         scrollView.addSubview(ads2Button)
     }
-
 }
