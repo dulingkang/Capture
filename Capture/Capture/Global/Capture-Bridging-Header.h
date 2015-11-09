@@ -9,7 +9,6 @@
 #ifndef Capture_Bridging_Header_h
 #define Capture_Bridging_Header_h
 
-#import "GDTSplashAd.h"
 #import "OpenShareHeader.h"
 #import "BaiduMobAdSplash.h"
 
