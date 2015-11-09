@@ -6,7 +6,7 @@
 //  Copyright © 2015 ShawnDu. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class APCameraFilterView: UIView {
 

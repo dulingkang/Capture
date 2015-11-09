@@ -77,4 +77,9 @@ enum Filter:UInt {
     case None = 2000, ZiRan, TianMi, WeiMei, DianYa,FenNen, LuoKeKe, ABaoSe, QingLiang, FuGu, HuaiJiu, HeiBai, RouGuang
 }
 
+//camera view
+let kWidthRatio = kScreenWidth/320
+let kCameraFilterHeight: CGFloat = 65
+let kCameraBottomHeight: CGFloat = 88 * kWidthRatio
+
 

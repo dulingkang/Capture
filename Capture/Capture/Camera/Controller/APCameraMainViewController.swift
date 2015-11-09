@@ -8,6 +8,12 @@
 
 import UIKit
 
-class APCameraMainViewController: UIViewController {
+class APCameraMainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
+}
+
+extension APCameraFilterView: UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(kCameraFilterHeight, kCameraFilterHeight)
+    }
 }

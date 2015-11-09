@@ -8,6 +8,6 @@
 
 import UIKit
 
-class APCameraMainView: UIViewController {
+class APCameraMainView: UIView {
 
 }

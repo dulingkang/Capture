@@ -59,7 +59,7 @@ class FilterModel: NSObject {
         for i in 0 ..< filterTitleArray.count {
 //            let imageStr = String(format: "%@%d", "filter", i)
             let imageStr = imageNameArray[i]
-            let item = FilterItem(category: (kFilterStartTag + i), title: filterTitleArray[i], imageTitle: imageStr)
+            let item = FilterItem(category: (kFilterStartTag + UInt(i)), title: filterTitleArray[i], imageTitle: imageStr)
             self.filterList.append(item)
         }
     }
