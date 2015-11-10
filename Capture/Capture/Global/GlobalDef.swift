@@ -10,8 +10,8 @@ import UIKit
 import Foundation
 
 let kScreenWidth = UIScreen.mainScreen().bounds.size.width
-// 屏幕的物理高度
 let kScreenHeight = UIScreen.mainScreen().bounds.size.height
+let kNavigationHeight: CGFloat = 44
 
  // 判断系统版本
 func kIS_IOS7() ->Bool { return (UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 7.0 }
@@ -79,7 +79,7 @@ enum Filter:UInt {
 
 //camera view
 let kWidthRatio = kScreenWidth/320
-let kCameraFilterHeight: CGFloat = 65
-let kCameraBottomHeight: CGFloat = 88 * kWidthRatio
+let kCameraFilterHeight: CGFloat = 96
+let kCameraBottomHeight: CGFloat = kScreenHeight - kNavigationHeight - kScreenWidth*4/3
 
 

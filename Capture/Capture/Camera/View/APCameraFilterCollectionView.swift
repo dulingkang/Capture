@@ -12,11 +12,26 @@ protocol APCameraFilterDelegate {
     func switchFilter(index: NSInteger)
 }
 
+class APCameraFilterCollectionCell: UICollectionViewCell {
+    var filterImageView: UIImageView!
+    var filterLabel: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        let filterImage = UIImage(named: "filter0")
+    }
+
+    required init(coder: NSCoder) {
+        super.init(coder: coder)!
+    }
+}
+
 class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var filterCollectionDelegate: APCameraFilterDelegate?
     var filterModel: FilterModel!
     var picNameArray: NSMutableArray!
+    var cellWidth: CGFloat!
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)

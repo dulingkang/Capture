@@ -53,12 +53,13 @@ class FilterModel: NSObject {
             kFilterLuoKeKe
             ]
 
-        let imageNameArray = [
-        "effects_00_meiyan", "effects_03_ziran", "effects_01_tianmei", "effects_06_qingliang", "effects_05_fennen", "effects_07_fugu", "effects_08_rouguang", "effects_10_weimei", "effects_04_heibai", "effects_09_abaose", "effects_11_huaijiu", "effects_12_dianya", "effects_13_keke"]
+//        let imageNameArray = [
+//        "effects_00_meiyan", "effects_03_ziran", "effects_01_tianmei", "effects_06_qingliang", "effects_05_fennen", "effects_07_fugu", "effects_08_rouguang", "effects_10_weimei", "effects_04_heibai", "effects_09_abaose", "effects_11_huaijiu", "effects_12_dianya", "effects_13_keke"]
     
         for i in 0 ..< filterTitleArray.count {
 //            let imageStr = String(format: "%@%d", "filter", i)
-            let imageStr = imageNameArray[i]
+            let imageStr = "filter0.jpg"
+//            let imageStr = imageNameArray[i]
             let item = FilterItem(category: (kFilterStartTag + UInt(i)), title: filterTitleArray[i], imageTitle: imageStr)
             self.filterList.append(item)
         }
