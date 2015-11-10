@@ -27,7 +27,7 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
         super.init(coder: coder)!
     }
     
-    //MARK - UICollectionView datasource
+    //MARK: UICollectionView datasource
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -58,7 +58,7 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
         return cell
     }
 
-    //MARK - UICollectionView delegate
+    //MARK: UICollectionView delegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let visibleCells = self.visibleCells() 
         for oneCell in visibleCells {
@@ -72,7 +72,7 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
         self.filterCollectionDelegate?.switchFilter(indexPath.row)
     }
     
-    //MARK - private method
+    //MARK: private method
     func config() {
         self.filterModel = FilterModel.sharedInstance
         self.picNameArray = NSMutableArray.init(capacity: self.filterModel.filterList.count)
