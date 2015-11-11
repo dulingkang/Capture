@@ -18,7 +18,20 @@ class APCameraFilterCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         let filterImage = UIImage(named: "filter0")
+        self.filterImageView = UIImageView.init(frame: CGRectMake(0, 0, kFilterCellWidth, kFilterCellImageHeight))
+        self.filterImageView.image = filterImage
+        self.addSubview(filterImageView)
+        
+        filterLabel = UILabel.init(frame: CGRectMake(0, kFilterCellImageHeight, kFilterCellWidth, kFilterCellLabelHeight))
+        filterLabel.font = UIFont.systemFontOfSize(12)
+        filterLabel.textColor = UIColor.whiteColor()
+        filterLabel.layer.shadowRadius = 2
+        filterLabel.layer.shadowColor = UIColor.blackColor().CGColor
+        filterLabel.layer.shadowOffset = CGSizeMake(0, 3)
+        filterLabel.layer.shadowOpacity = 0.9
+        self.addSubview(filterLabel)
     }
 
     required init(coder: NSCoder) {
@@ -31,7 +44,6 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
     var filterCollectionDelegate: APCameraFilterDelegate?
     var filterModel: FilterModel!
     var picNameArray: NSMutableArray!
-    var cellWidth: CGFloat!
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -53,24 +65,21 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let identifier = "filterCollectionCell"
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: identifier)
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath)
-        while (cell.contentView.subviews.last != nil) {
-            let tmpView: UIView = (cell.contentView.subviews.last)!
+        collectionView.registerClass(APCameraFilterCollectionCell.self, forCellWithReuseIdentifier: identifier)
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as? APCameraFilterCollectionCell
+        if cell == nil {
+            cell = APCameraFilterCollectionCell()
+        }
+        while (cell!.contentView.subviews.last != nil) {
+            let tmpView: UIView = (cell!.contentView.subviews.last)!
             tmpView.removeFromSuperview()
         }
-        let imageView = UIImageView.init(frame: CGRectMake(0, cell.dHeight*0.2, cell.dWidth, cell.dHeight*0.8))
-        imageView.image = UIImage(named: self.picNameArray[indexPath.row] as! String)
-        cell.contentView.addSubview(imageView)
-        let textLabel = UILabel.init(frame: CGRectMake(0, 0, cell.dWidth, cell.dHeight*0.2))
-        textLabel.text = self.filterModel.filterList[indexPath.row].title
-        textLabel.font = UIFont.systemFontOfSize(12)
-        textLabel.textAlignment = NSTextAlignment.Center
-        cell.contentView.addSubview(textLabel)
-        cell.backgroundColor = UIColor.orangeColor()
-        cell.layer.borderWidth = 0
+
+        cell!.filterImageView.image = UIImage(named: self.picNameArray[indexPath.row] as! String)
+        cell!.filterLabel.text = self.filterModel.filterList[indexPath.row].title
+        cell!.layer.borderWidth = 0
         
-        return cell
+        return cell!
     }
 
     //MARK: UICollectionView delegate

@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol HomeViewDelegate {
+    func cameraButtonPressed()
+}
+
 class HomeView: UIView, UIScrollViewDelegate {
     
     var buttonWidth:CGFloat!
     var buttonWidthMargin:CGFloat!
     var scrollView:UIScrollView!
     var pageControll:UIPageControl!
+    var homeViewdelegate: HomeViewDelegate?
    
     
     override init(frame: CGRect) {
@@ -33,7 +38,7 @@ class HomeView: UIView, UIScrollViewDelegate {
         self.addBottomView()
     }
     
-    //MARK - scrollview delegate
+    //MARK: scrollview delegate
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if (targetContentOffset.memory.x > kScreenWidth/2) {
             pageControll.currentPage = 1
@@ -42,8 +47,11 @@ class HomeView: UIView, UIScrollViewDelegate {
         }
     }
     
-    
-    //MARK - private method
+    //MARK: event response
+    func cameraButtonPressed() {
+        self.homeViewdelegate?.cameraButtonPressed()
+    }
+    //MARK: private method
     func addTopImageView() {
         let topImageViewWidth:CGFloat = 250.0
         let topImageViewHeight:CGFloat = 90.0
@@ -84,6 +92,7 @@ class HomeView: UIView, UIScrollViewDelegate {
         let cameraButton = UIButton.init(frame: CGRectMake(buttonWidthMargin, 0, buttonWidth, buttonWidth))
         cameraButton.layer.borderWidth = 1
         cameraButton.layer.borderColor = UIColor.redColor().CGColor
+        cameraButton.addTarget(self, action: "cameraButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         scrollView.addSubview(cameraButton)
         
         let beautyButton = UIButton.init(frame: CGRectMake(kScreenWidth - buttonWidthMargin - buttonWidth, 0, buttonWidth, buttonWidth))
