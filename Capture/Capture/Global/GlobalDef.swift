@@ -71,7 +71,7 @@ let kFilterFuGu = "复古"
 let kFilterHuaiJiu = "怀旧"
 let kFilterHeiBai = "黑白"
 let kFilterRouGuang = "柔光"
-let kFilterStartTag : UInt = 2000
+let kFilterStartTag : UInt = 10000
 
 enum Filter:UInt {
     case None = 2000, ZiRan, TianMi, WeiMei, DianYa,FenNen, LuoKeKe, ABaoSe, QingLiang, FuGu, HuaiJiu, HeiBai, RouGuang
@@ -84,4 +84,10 @@ let kCameraBottomHeight: CGFloat = kScreenHeight - kNavigationHeight - kScreenWi
 let kFilterCellWidth:CGFloat = 60
 let kFilterCellImageHeight:CGFloat = 57
 let kFilterCellLabelHeight:CGFloat = 20
+let kCameraViewTopButtonStartTag: Int = 11000
 
+//MARK: Used Tag
+/*
+10000 - 10999             CamerFilter
+11000 - 11019             CameraViewTopButton
+*/

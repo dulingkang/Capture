@@ -12,10 +12,6 @@ class APCameraMainViewController: UIViewController, UICollectionViewDelegateFlow
 
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.whiteColor()
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
-        let filterCollectionView = APCameraFilterCollectionView.init(frame: CGRectMake(0, kScreenHeight - kCameraFilterHeight - kCameraBottomHeight, kScreenWidth, kCameraFilterHeight), collectionViewLayout: layout)
-        self.view.addSubview(filterCollectionView)
     }
 }
 
