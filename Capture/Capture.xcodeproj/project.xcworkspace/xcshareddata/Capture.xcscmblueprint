@@ -4,11 +4,13 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E609DD15689CC93D8F4D219EB393F30F9F726178" : 0,
     "5FE1FFA0484999FE1629048F4CA97C61EB81B715" : 0,
     "EBCE5C9FA1F4681FCF67B24B425A2052E8CCD811" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BB728860-FA51-48C1-91B1-3C3F6EE80CF5",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E609DD15689CC93D8F4D219EB393F30F9F726178" : "Capture\/Capture\/GPUImage\/GPUImage\/",
     "5FE1FFA0484999FE1629048F4CA97C61EB81B715" : "Capture\/",
     "EBCE5C9FA1F4681FCF67B24B425A2052E8CCD811" : ".."
   },
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dulingkang\/Capture.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5FE1FFA0484999FE1629048F4CA97C61EB81B715"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dulingkang\/GPUImage.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E609DD15689CC93D8F4D219EB393F30F9F726178"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dulingkang\/shawndu.git",

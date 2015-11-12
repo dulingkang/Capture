@@ -31,6 +31,7 @@
 		3A5C84AF1BEC547D00712ED1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */; };
 		3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84B21BECCB4100712ED1 /* HomeView.swift */; };
 		3A718E881BF03FFF00440989 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A718E871BF03FFF00440989 /* Extension.swift */; };
+		3ADA31721BF4D73E0090DA94 /* APCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA31711BF4D73E0090DA94 /* APCameraManager.swift */; };
 		3ADBF69B1BEF4E04004E58F6 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */; };
 		3ADBF69D1BEF867D004E58F6 /* APCameraMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69C1BEF867D004E58F6 /* APCameraMainViewController.swift */; };
 		3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */; };
@@ -46,6 +47,30 @@
 		3AE29FA81BEB9B910089DE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA41BEB9B910089DE57 /* LaunchScreen.storyboard */; };
 		3AE29FA91BEB9B910089DE57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA61BEB9B910089DE57 /* Main.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3ADA316A1BF4D5910090DA94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		3ADA316C1BF4D5910090DA94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		3ADA316E1BF4D60F0090DA94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3A5C845E1BEB186000712ED1 /* Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capture.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +109,8 @@
 		3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		3A5C84B21BECCB4100712ED1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3A718E871BF03FFF00440989 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/GPUImage/framework/GPUImage.xcodeproj; sourceTree = SOURCE_ROOT; };
+		3ADA31711BF4D73E0090DA94 /* APCameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraManager.swift; sourceTree = "<group>"; };
 		3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		3ADBF69C1BEF867D004E58F6 /* APCameraMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraMainViewController.swift; sourceTree = "<group>"; };
 		3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraMainView.swift; sourceTree = "<group>"; };
@@ -157,12 +184,13 @@
 			isa = PBXGroup;
 			children = (
 				3AE29FAA1BEB9FC90089DE57 /* Global */,
-				3AE29F981BEB9AE10089DE57 /* Resource */,
 				3AE29F7B1BEB9A270089DE57 /* Ajust */,
 				3AE29F7C1BEB9A270089DE57 /* Camera */,
-				3AE29F7A1BEB9A020089DE57 /* Lib */,
 				3A5C84761BEB1AE300712ED1 /* Home */,
+				3AE29F7A1BEB9A020089DE57 /* Lib */,
 				3A5C84781BEB1AE300712ED1 /* Share */,
+				3AE29F981BEB9AE10089DE57 /* Resource */,
+				3ADA31631BF4D5870090DA94 /* Submodule */,
 				3A5C84611BEB186000712ED1 /* AppDelegate.swift */,
 			);
 			path = Capture;
@@ -236,6 +264,31 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		3ADA31631BF4D5870090DA94 /* Submodule */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */,
+			);
+			name = Submodule;
+			sourceTree = "<group>";
+		};
+		3ADA31651BF4D5910090DA94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA316B1BF4D5910090DA94 /* libGPUImage.a */,
+				3ADA316D1BF4D5910090DA94 /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3ADA31701BF4D7000090DA94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA31711BF4D73E0090DA94 /* APCameraManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3ADBF6951BEF4DB2004E58F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +352,7 @@
 			children = (
 				3ADBF6951BEF4DB2004E58F6 /* Controller */,
 				3ADBF6961BEF4DB2004E58F6 /* View */,
+				3ADA31701BF4D7000090DA94 /* Model */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -359,6 +413,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3ADA316F1BF4D60F0090DA94 /* PBXTargetDependency */,
 			);
 			name = Capture;
 			productName = Capture;
@@ -392,12 +447,35 @@
 			mainGroup = 3A5C84551BEB186000712ED1;
 			productRefGroup = 3A5C845F1BEB186000712ED1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3ADA31651BF4D5910090DA94 /* Products */;
+					ProjectRef = 3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3A5C845D1BEB186000712ED1 /* Capture */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3ADA316B1BF4D5910090DA94 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 3ADA316A1BF4D5910090DA94 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3ADA316D1BF4D5910090DA94 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 3ADA316C1BF4D5910090DA94 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3A5C845C1BEB186000712ED1 /* Resources */ = {
@@ -424,6 +502,7 @@
 				3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */,
 				3ADBF69D1BEF867D004E58F6 /* APCameraMainViewController.swift in Sources */,
 				3ADBF69B1BEF4E04004E58F6 /* FilterModel.swift in Sources */,
+				3ADA31721BF4D73E0090DA94 /* APCameraManager.swift in Sources */,
 				3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */,
 				3A718E881BF03FFF00440989 /* Extension.swift in Sources */,
 				3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */,
@@ -438,6 +517,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3ADA316F1BF4D60F0090DA94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = 3ADA316E1BF4D60F0090DA94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3AE29FA41BEB9B910089DE57 /* LaunchScreen.storyboard */ = {
@@ -546,6 +633,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/GPUImage/GPUImage/framework/Source/**";
 				INFOPLIST_FILE = "$(SRCROOT)/Capture/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -570,6 +658,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/GPUImage/GPUImage/framework/Source/**";
 				INFOPLIST_FILE = "$(SRCROOT)/Capture/Resource/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
