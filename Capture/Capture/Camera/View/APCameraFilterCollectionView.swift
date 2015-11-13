@@ -9,7 +9,7 @@
 import UIKit
 
 protocol APCameraFilterDelegate {
-    func switchFilter(index: NSInteger)
+    func switchFilter(index: Int)
 }
 
 class APCameraFilterCollectionCell: UICollectionViewCell {

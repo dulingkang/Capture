@@ -9,13 +9,18 @@
 import UIKit
 import GPUImage
 
-class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout {
+class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate {
 
     var cameraManager: APCameraManager!
     var meiYanFilter: GPUImageBilateralFilter?
     var gpuImageView: GPUImageView?
     var cameraView: APCameraMainView?
+    var currentFilterIndex: Int?
+    var groupFilter: GPUImageFilterGroup?
+    var lookupFilter: GPUImageCustomLookupFilter?
+    var filterModel: FilterModel!
     
+    //MARK: - life cycle
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.clearColor()
         self.cameraManager = APCameraManager.init(preset: AVCaptureSessionPresetPhoto, cameraPosition: AVCaptureDevicePosition.Front)
@@ -28,9 +33,33 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.cameraManager.startCameraCapture()
         self.addCameraView()
         self.cameraView?.preView.addSubview(self.gpuImageView!)
+        self.cameraView?.filterView?.filterCollectionDelegate = self
+        self.filterModel = FilterModel.sharedInstance
     }
     
-    //MARK: getter setter
+    //MARK: - Delegate
+    //MARK: cameraFilterDelegate
+    func switchFilter(index: Int) {
+        self.cameraManager.removeAllTargets()
+        self.currentFilterIndex = index
+        let lookupImageName = self.filterModel.filterList[index].lookupImageName
+        self.lookupFilter = GPUImageCustomLookupFilter.init(lookupImageName: lookupImageName)
+        self.setUpGroupFilters(self.lookupFilter!)
+        self.cameraManager.addTarget(self.groupFilter)
+        self.groupFilter?.addTarget(self.gpuImageView)
+    }
+    
+    //MARK: - private method
+    func setUpGroupFilters(lookupFilter: GPUImageCustomLookupFilter) {
+        self.groupFilter = GPUImageFilterGroup.init()
+        self.groupFilter?.addFilter(self.meiYanFilter)
+        self.groupFilter?.initialFilters = [self.meiYanFilter!]
+        self.groupFilter?.addFilter(lookupFilter)
+        self.meiYanFilter?.addTarget(lookupFilter)
+        self.groupFilter?.terminalFilter = lookupFilter
+    }
+    
+    //MARK: - getter setter
     func addCameraView() {
         if (self.cameraView == nil) {
             self.cameraView = APCameraMainView.init(frame: self.view.bounds)
