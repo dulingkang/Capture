@@ -27,6 +27,7 @@ class APCameraFilterCollectionCell: UICollectionViewCell {
         filterLabel = UILabel.init(frame: CGRectMake(0, kFilterCellImageHeight, kFilterCellWidth, kFilterCellLabelHeight))
         filterLabel.font = UIFont.systemFontOfSize(12)
         filterLabel.textColor = UIColor.whiteColor()
+        filterLabel.textAlignment = NSTextAlignment.Center
         filterLabel.layer.shadowRadius = 2
         filterLabel.layer.shadowColor = UIColor.blackColor().CGColor
         filterLabel.layer.shadowOffset = CGSizeMake(0, 3)
@@ -105,6 +106,7 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
         }
         self.delegate = self
         self.dataSource = self
+        self.showsHorizontalScrollIndicator = false
         self.backgroundColor = UIColor.clearColor()
     }
 

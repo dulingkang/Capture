@@ -12,6 +12,7 @@ class APCameraMainView: UIView {
     
     var preView: UIView!
     var topView: UIView!
+    var filterView: APCameraFilterCollectionView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,7 +55,10 @@ class APCameraMainView: UIView {
     }
     
     func addFilterView() {
-        
+        let layout = UICollectionViewFlowLayout.init()
+        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        self.filterView = APCameraFilterCollectionView.init(frame: CGRectMake(0, kScreenHeight - kCameraBottomHeight - kCameraFilterHeight, kScreenWidth, kCameraFilterHeight), collectionViewLayout: layout)
+        self.addSubview(self.filterView!)
     }
     
     func addBottomView() {
@@ -64,7 +68,7 @@ class APCameraMainView: UIView {
     func addTopButtons() {
         let normalNameArray = ["xiaoka_ratio_normal_01", "xiaoka_black_normal", "timer_normal", "flash_normal", "switchNormal"]
         let pressNameArray = ["xiaoka_ratio_press_01", "xiaoka_black_press", "timer_press", "flash_press", "switchPress"]
-        for index in 0...normalNameArray.count {
+        for index in 0...normalNameArray.count-1 {
             let floatIndex: CGFloat = CGFloat(index)
             let button = UIButton.init(frame: CGRectMake(kScreenWidth*floatIndex/5, 0, kScreenWidth/5, kNavigationHeight))
             button.tag = kCameraViewTopButtonStartTag + index

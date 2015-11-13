@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GPUImage
 
 protocol APCameraManagerDelegate {
     
@@ -16,9 +17,8 @@ class APCameraManager: GPUImageStillCamera {
     
     var cameraManagerDelegate: APCameraManagerDelegate?
     
-    override init(sessionPreset: String, cameraPosition: AVCaptureDevicePosition) {
-        super.init(sessionPreset: <#T##String!#>, cameraPosition: <#T##AVCaptureDevicePosition#>)
-        super.init(sessionPreset: sessionPreset,cameraPosition: cameraPosition)
-        
+    init(preset: String, cameraPosition: AVCaptureDevicePosition) {
+        super.init(sessionPreset: preset, cameraPosition: cameraPosition)
+        self.horizontallyMirrorRearFacingCamera = true
     }
 }

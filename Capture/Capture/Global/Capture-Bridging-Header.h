@@ -11,6 +11,5 @@
 
 #import "OpenShareHeader.h"
 #import "BaiduMobAdSplash.h"
-#import "GPUImage.h"
 
 #endif /* Capture_Bridging_Header_h */
