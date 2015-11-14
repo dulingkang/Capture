@@ -17,6 +17,7 @@ class GPUImageCustomLookupFilter: GPUImageFilterGroup {
         let lookupFilter = GPUImageLookupFilter.init()
         self.addTarget(lookupFilter)
         self.lookupImageSource?.addTarget(lookupFilter, atTextureLocation: 1)
+        self.lookupImageSource?.processImage()
         self.initialFilters = [lookupFilter]
         self.terminalFilter = lookupFilter
     }

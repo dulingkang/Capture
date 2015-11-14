@@ -12,7 +12,7 @@ import GPUImage
 class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate {
 
     var cameraManager: APCameraManager!
-    var meiYanFilter: GPUImageBilateralFilter?
+    var meiYanFilter: GPUImageFilter?
     var gpuImageView: GPUImageView?
     var cameraView: APCameraMainView?
     var currentFilterIndex: Int?
@@ -40,9 +40,12 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     //MARK: - Delegate
     //MARK: cameraFilterDelegate
     func switchFilter(index: Int) {
+        self.meiYanFilter?.removeAllTargets()
+        self.groupFilter?.removeAllTargets()
         self.cameraManager.removeAllTargets()
         self.currentFilterIndex = index
         let lookupImageName = self.filterModel.filterList[index].lookupImageName
+        print(lookupImageName)
         self.lookupFilter = GPUImageCustomLookupFilter.init(lookupImageName: lookupImageName)
         self.setUpGroupFilters(self.lookupFilter!)
         self.cameraManager.addTarget(self.groupFilter)
@@ -51,11 +54,11 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     
     //MARK: - private method
     func setUpGroupFilters(lookupFilter: GPUImageCustomLookupFilter) {
+        print("setup...")
         self.groupFilter = GPUImageFilterGroup.init()
-        self.groupFilter?.addFilter(self.meiYanFilter)
-        self.groupFilter?.initialFilters = [self.meiYanFilter!]
-        self.groupFilter?.addFilter(lookupFilter)
+        self.groupFilter?.addTarget(self.meiYanFilter)
         self.meiYanFilter?.addTarget(lookupFilter)
+        self.groupFilter?.initialFilters = [self.meiYanFilter!]
         self.groupFilter?.terminalFilter = lookupFilter
     }
     
