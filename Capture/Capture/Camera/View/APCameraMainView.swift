@@ -13,6 +13,8 @@ class APCameraMainView: UIView {
     var preView: UIView!
     var topView: UIView!
     var filterView: APCameraFilterCollectionView?
+    var bottomView: UIView!
+    var albumButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +27,18 @@ class APCameraMainView: UIView {
     
     //MARK: event response
     func topButtonPressed(button: UIButton) {
+        
+    }
+    
+    func albumButtonPressed(sender: UIButton) {
+        
+    }
+    
+    func triggerButtonPressed(sender: UIButton) {
+        
+    }
+    
+    func closeButtonPressed(sender: UIButton) {
         
     }
     
@@ -62,7 +76,14 @@ class APCameraMainView: UIView {
     }
     
     func addBottomView() {
-        
+        if (self.bottomView == nil) {
+            self.bottomView = UIView.init(frame: CGRectMake(0, kScreenHeight - kCameraBottomHeight, kScreenWidth, kCameraBottomHeight))
+        }
+        self.bottomView.backgroundColor = UIColor.clearColor()
+        self.addSubview(self.bottomView)
+        self.addAlbumButton()
+        self.addTriggerButton()
+        self.addCloseButton()
     }
     
     func addTopButtons() {
@@ -81,7 +102,42 @@ class APCameraMainView: UIView {
         }
     }
     
+    func addAlbumButton() {
+        self.albumButton = UIButton.init(frame: CGRectMake(kScreenWidth/8, (kCameraBottomHeight - kButtonClickWidth)/2, kButtonClickWidth, kButtonClickWidth))
+        self.albumButton.backgroundColor = UIColor.clearColor()
+        self.albumButton.setImage(UIImage(named: "cameraAlbumNormal"), forState: UIControlState.Normal)
+        self.albumButton.setImage(UIImage(named: "cameraAlbumPress"), forState: UIControlState.Selected)
+        self.albumButton.addTarget(self, action: "albumButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.bottomView.addSubview(self.albumButton)
+    }
+    
+    func addTriggerButton() {
+        let triggerNormalImage = UIImage(named: "cameraTriggerNormal")
+        let triggerButton = UIButton.init(frame: CGRectMake((kScreenWidth - (triggerNormalImage?.size.width)!)/2, (kCameraBottomHeight - (triggerNormalImage?.size.height)!)/2, (triggerNormalImage?.size.width)!, (triggerNormalImage?.size.height)!))
+        triggerButton.backgroundColor = UIColor.clearColor()
+        triggerButton.setImage(triggerNormalImage, forState: UIControlState.Normal)
+        triggerButton.setImage(UIImage(named: "cameraTriggerPress"), forState: UIControlState.Selected)
+        triggerButton.addTarget(self, action: "triggerButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.bottomView.addSubview(triggerButton)
+    }
+    
+    func addCloseButton() {
+        let closeButton = UIButton.init(frame: CGRectMake(kScreenWidth*7/8 - kButtonClickWidth, (kCameraBottomHeight - kButtonClickWidth)/2, kButtonClickWidth, kButtonClickWidth))
+        closeButton.backgroundColor = UIColor.clearColor()
+        closeButton.setImage(UIImage(named: "cameraCloseNormal"), forState: UIControlState.Normal)
+        closeButton.setImage(UIImage(named: "cameraClosePress"), forState: UIControlState.Selected)
+        closeButton.addTarget(self, action: "closeButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.bottomView.addSubview(closeButton)
+    }
+    
 }
+
+
+
+
+
+
+
 
 
 

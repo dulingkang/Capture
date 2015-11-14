@@ -12,7 +12,7 @@ import Foundation
 let kScreenWidth = UIScreen.mainScreen().bounds.size.width
 let kScreenHeight = UIScreen.mainScreen().bounds.size.height
 let kNavigationHeight: CGFloat = 44
-
+let kButtonClickWidth: CGFloat = 40
  // 判断系统版本
 func kIS_IOS7() ->Bool { return (UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 7.0 }
 func kIS_IOS8() -> Bool { return (UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 8.0 }
