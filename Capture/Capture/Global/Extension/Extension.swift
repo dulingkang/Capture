@@ -23,4 +23,20 @@ extension UIView {
     var dHeight: CGFloat {
         return self.frame.size.height
     }
+    
+    var right: CGFloat {
+        return self.frame.origin.x + self.frame.size.width
+    }
+    
+    var bottom: CGFloat {
+        return self.frame.origin.y + self.frame.size.height
+    }
+    
+    var top: CGFloat {
+        return self.frame.origin.y
+    }
+    
+    var left: CGFloat {
+        return self.frame.origin.x
+    }
 }

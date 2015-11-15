@@ -15,6 +15,10 @@ class APCameraMainView: UIView {
     var filterView: APCameraFilterCollectionView?
     var bottomView: UIView!
     var albumButton: UIButton!
+    var previewImageView: UIImageView?
+    var photoNumber: Int?
+    var numberLabel: UILabel?
+    var tmpPhotoArray: [UIImage] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +29,7 @@ class APCameraMainView: UIView {
         super.init(coder: coder)!
     }
     
-    //MARK: event response
+    //MARK: - event response
     func topButtonPressed(button: UIButton) {
         
     }
@@ -42,7 +46,38 @@ class APCameraMainView: UIView {
         
     }
     
-    //MARK: private method
+    //MARK: - public method
+    func addPreviewImageView() {
+        if self.previewImageView == nil {
+            self.previewImageView = UIImageView.init(frame: self.albumButton.frame)
+            self.previewImageView?.contentScaleFactor = UIScreen.mainScreen().scale
+            self.previewImageView?.contentMode = UIViewContentMode.ScaleAspectFill
+            self.previewImageView?.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+            self.previewImageView?.clipsToBounds = true
+            self.previewImageView?.userInteractionEnabled = true
+            self.bottomView.addSubview(self.previewImageView!)
+            let tap = UITapGestureRecognizer.init(target: self, action: "toPhotoBrowse")
+            self.previewImageView?.addGestureRecognizer(tap)
+            self.photoNumber = 1
+        }
+    }
+    
+    func addNumberLabel() {
+        if self.numberLabel == nil {
+            self.numberLabel = UILabel.init(frame: CGRectMake(0, 0, 28, 16))
+            self.numberLabel?.center = CGPointMake(self.previewImageView!.right, self.previewImageView!.top)
+            self.numberLabel?.backgroundColor = kRGBA(0.918, g: 0.333, b: 0.329, a: 1.0)
+            self.numberLabel?.layer.cornerRadius = 8
+            self.numberLabel?.layer.masksToBounds = true
+            self.numberLabel?.textColor = UIColor.whiteColor()
+            self.numberLabel?.textAlignment = NSTextAlignment.Center
+            self.bottomView.addSubview(self.numberLabel!)
+        }
+        self.photoNumber = self.photoNumber! + 1
+        self.numberLabel?.text = String(format: "%d", self.photoNumber!)
+    }
+    
+    //MARK: - private method
     func initViews() {
         self.backgroundColor = kRGBA(0.447, g: 0.894, b: 0.973, a: 1.0)
         self.addPreView()
