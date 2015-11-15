@@ -55,6 +55,8 @@
 		3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */; };
 		3ADBF6A31BEF886A004E58F6 /* APCameraFilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF6A21BEF886A004E58F6 /* APCameraFilterCollectionView.swift */; };
 		3ADC4D2E1BF89E54008B0440 /* APPhotoBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC4D2D1BF89E54008B0440 /* APPhotoBrowseViewController.swift */; };
+		3ADC4D331BF8B8E4008B0440 /* APImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC4D321BF8B8E4008B0440 /* APImageHelper.swift */; };
+		3ADC4D351BF8BD7B008B0440 /* CustumPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC4D341BF8BD7B008B0440 /* CustumPhotoAlbum.swift */; };
 		3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */; };
 		3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F811BEB9A530089DE57 /* OpenShare+QQ.m */; };
 		3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F831BEB9A530089DE57 /* OpenShare+Renren.m */; };
@@ -171,6 +173,8 @@
 		3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraMainView.swift; sourceTree = "<group>"; };
 		3ADBF6A21BEF886A004E58F6 /* APCameraFilterCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraFilterCollectionView.swift; sourceTree = "<group>"; };
 		3ADC4D2D1BF89E54008B0440 /* APPhotoBrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPhotoBrowseViewController.swift; sourceTree = "<group>"; };
+		3ADC4D321BF8B8E4008B0440 /* APImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APImageHelper.swift; sourceTree = "<group>"; };
+		3ADC4D341BF8BD7B008B0440 /* CustumPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustumPhotoAlbum.swift; sourceTree = "<group>"; };
 		3AE29F7E1BEB9A530089DE57 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
 		3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
 		3AE29F801BEB9A530089DE57 /* OpenShare+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+QQ.h"; sourceTree = "<group>"; };
@@ -246,7 +250,7 @@
 				3AE29F7C1BEB9A270089DE57 /* Camera */,
 				3A5C84761BEB1AE300712ED1 /* Home */,
 				3AE29F7A1BEB9A020089DE57 /* Lib */,
-				3A5C84781BEB1AE300712ED1 /* Share */,
+				3ADC4D311BF8B8CA008B0440 /* Util */,
 				3AE29F981BEB9AE10089DE57 /* Resource */,
 				3ADA31631BF4D5870090DA94 /* Submodule */,
 				3A5C84611BEB186000712ED1 /* AppDelegate.swift */,
@@ -269,13 +273,6 @@
 				3A5C84791BEB1B1600712ED1 /* HomeViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		3A5C84781BEB1AE300712ED1 /* Share */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Share;
 			sourceTree = "<group>";
 		};
 		3A5C848D1BEC523600712ED1 /* BaiduAds */ = {
@@ -408,6 +405,15 @@
 				3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3ADC4D311BF8B8CA008B0440 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC4D321BF8B8E4008B0440 /* APImageHelper.swift */,
+				3ADC4D341BF8BD7B008B0440 /* CustumPhotoAlbum.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		3AE29F7A1BEB9A020089DE57 /* Lib */ = {
@@ -616,6 +622,7 @@
 				3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */,
 				3ADBF69D1BEF867D004E58F6 /* APCameraMainViewController.swift in Sources */,
 				3ADBF69B1BEF4E04004E58F6 /* FilterModel.swift in Sources */,
+				3ADC4D331BF8B8E4008B0440 /* APImageHelper.swift in Sources */,
 				3ADA31721BF4D73E0090DA94 /* APCameraManager.swift in Sources */,
 				3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */,
 				3A718E881BF03FFF00440989 /* Extension.swift in Sources */,
@@ -625,6 +632,7 @@
 				3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */,
 				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
 				3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */,
+				3ADC4D351BF8BD7B008B0440 /* CustumPhotoAlbum.swift in Sources */,
 				3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */,
 				3ADBF6A31BEF886A004E58F6 /* APCameraFilterCollectionView.swift in Sources */,
 				3ADC4D2E1BF89E54008B0440 /* APPhotoBrowseViewController.swift in Sources */,

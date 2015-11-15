@@ -61,7 +61,7 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     
     func takePhoto() {
         self.cameraManager.capturePhotoAsImageProcessedUpToFilter(self.groupFilter) { (processedImage, error) -> Void in
-            print("takephoto:",processedImage.size.width)
+            self.takePhotoFinished(processedImage)
         }
     }
     
@@ -71,12 +71,18 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     
     //MARK: - private method
     func setUpGroupFilters(lookupFilter: GPUImageCustomLookupFilter) {
-        print("setup...")
         self.groupFilter = GPUImageFilterGroup.init()
         self.groupFilter?.addTarget(self.meiYanFilter)
         self.meiYanFilter?.addTarget(lookupFilter)
         self.groupFilter?.initialFilters = [self.meiYanFilter!]
         self.groupFilter?.terminalFilter = lookupFilter
+    }
+    
+    func takePhotoFinished(image: UIImage) {
+        CustomPhotoAlbum.sharedInstance.saveImage(image)
+        self.cameraView?.addPreviewImageView()
+        self.cameraView?.addNumberLabel()
+        self.cameraView?.setImageForPreviewImageView(image)
     }
     
     //MARK: - getter setter
