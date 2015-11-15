@@ -9,7 +9,7 @@
 import UIKit
 import GPUImage
 
-class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate {
+class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewProtocol{
 
     var cameraManager: APCameraManager!
     var meiYanFilter: GPUImageFilter?
@@ -19,6 +19,7 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     var groupFilter: GPUImageFilterGroup?
     var lookupFilter: GPUImageCustomLookupFilter?
     var filterModel: FilterModel!
+    var photoArray: [UIImage] = []
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -34,6 +35,7 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.addCameraView()
         self.cameraView?.preView.addSubview(self.gpuImageView!)
         self.cameraView?.filterView?.filterCollectionDelegate = self
+        self.cameraView?.apCameraMainViewDelegate = self
         self.filterModel = FilterModel.sharedInstance
     }
     
@@ -50,6 +52,21 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.setUpGroupFilters(self.lookupFilter!)
         self.cameraManager.addTarget(self.groupFilter)
         self.groupFilter?.addTarget(self.gpuImageView)
+    }
+    
+    //MARK: cameraMainView protocol
+    func browsePhoto(array: NSArray) {
+        self.photoArray = array as! [UIImage]
+    }
+    
+    func takePhoto() {
+        self.cameraManager.capturePhotoAsImageProcessedUpToFilter(self.groupFilter) { (processedImage, error) -> Void in
+            print("takephoto:",processedImage.size.width)
+        }
+    }
+    
+    func closeMainView() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     //MARK: - private method

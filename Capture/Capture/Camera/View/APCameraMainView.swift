@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol APCameraMainViewProtocol {
+    func takePhoto()
+    func browsePhoto(array: NSArray)
+    func closeMainView()
+}
+
 class APCameraMainView: UIView {
     
     var preView: UIView!
@@ -19,6 +25,7 @@ class APCameraMainView: UIView {
     var photoNumber: Int?
     var numberLabel: UILabel?
     var tmpPhotoArray: [UIImage] = []
+    var apCameraMainViewDelegate: APCameraMainViewProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,16 +41,16 @@ class APCameraMainView: UIView {
         
     }
     
-    func albumButtonPressed(sender: UIButton) {
-        
+    func browsePhoto() {
+        self.apCameraMainViewDelegate?.browsePhoto(self.tmpPhotoArray)
     }
     
     func triggerButtonPressed(sender: UIButton) {
-        
+        self.apCameraMainViewDelegate?.takePhoto()
     }
     
     func closeButtonPressed(sender: UIButton) {
-        
+        self.apCameraMainViewDelegate?.closeMainView()
     }
     
     //MARK: - public method
@@ -75,6 +82,38 @@ class APCameraMainView: UIView {
         }
         self.photoNumber = self.photoNumber! + 1
         self.numberLabel?.text = String(format: "%d", self.photoNumber!)
+    }
+    
+    func setImageForPreviewImageView(image: UIImage) {
+        self.tmpPhotoArray.append(image)
+        self.uploadPreviewImageView(image)
+    }
+    
+    func reloadPreviewImageView(photoArray: NSMutableArray) {
+        if photoArray.count == 0 {
+            self.previewImageView?.hidden = true
+            self.albumButton.hidden = false
+            self.numberLabel?.hidden = true
+            self.photoNumber = 1
+        } else {
+            self.uploadPreviewImageView(photoArray[photoArray.count-1] as! UIImage)
+            self.numberLabel?.text = String(format: "%d", photoArray.count)
+            self.photoNumber = photoArray.count + 1
+        }
+    }
+    
+    func uploadPreviewImageView(image: UIImage) {
+        self.previewImageView?.hidden = false
+        self.numberLabel?.hidden = false
+        self.previewImageView?.image = image
+        let lastCenter = self.previewImageView?.center
+        self.previewImageView?.frame = CGRectMake(kScreenWidth/8, kCameraBottomHeight/2 , 0,0)
+        self.previewImageView?.center = lastCenter!
+        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.6, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.previewImageView?.frame = CGRectMake(kScreenWidth/8, (kCameraBottomHeight - kButtonClickWidth)/2 , kButtonClickWidth, kButtonClickWidth)
+            }, completion: {
+                finished in
+        })
     }
     
     //MARK: - private method
@@ -142,7 +181,7 @@ class APCameraMainView: UIView {
         self.albumButton.backgroundColor = UIColor.clearColor()
         self.albumButton.setImage(UIImage(named: "cameraAlbumNormal"), forState: UIControlState.Normal)
         self.albumButton.setImage(UIImage(named: "cameraAlbumPress"), forState: UIControlState.Selected)
-        self.albumButton.addTarget(self, action: "albumButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.albumButton.addTarget(self, action: "browsePhoto", forControlEvents: UIControlEvents.TouchUpInside)
         self.bottomView.addSubview(self.albumButton)
     }
     
