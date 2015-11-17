@@ -12,7 +12,7 @@ import GPUImage
 class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewProtocol{
 
     var cameraManager: APCameraManager!
-    var meiYanFilter: GPUImageFilter?
+    var meiYanFilter: GPUImageBilateralFilter?
     var gpuImageView: GPUImageView?
     var cameraView: APCameraMainView?
     var currentFilterIndex: Int?
@@ -26,6 +26,7 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.view.backgroundColor = UIColor.clearColor()
         self.cameraManager = APCameraManager.init(preset: AVCaptureSessionPresetPhoto, cameraPosition: AVCaptureDevicePosition.Front)
         self.meiYanFilter = GPUImageBilateralFilter.init()
+        self.meiYanFilter!.distanceNormalizationFactor = 10
         self.gpuImageView = GPUImageView.init(frame: CGRectMake(0, 0, kScreenWidth, kScreenWidth*4/3))
         self.gpuImageView?.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
         self.cameraManager.outputImageOrientation = UIInterfaceOrientation.Portrait

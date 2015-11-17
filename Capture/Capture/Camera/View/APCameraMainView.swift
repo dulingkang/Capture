@@ -65,7 +65,7 @@ class APCameraMainView: UIView {
             self.bottomView.addSubview(self.previewImageView!)
             let tap = UITapGestureRecognizer.init(target: self, action: "toPhotoBrowse")
             self.previewImageView?.addGestureRecognizer(tap)
-            self.photoNumber = 1
+            self.photoNumber = 0
         }
     }
     
