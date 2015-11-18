@@ -26,7 +26,7 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.view.backgroundColor = UIColor.clearColor()
         self.cameraManager = APCameraManager.init(preset: AVCaptureSessionPresetPhoto, cameraPosition: AVCaptureDevicePosition.Front)
         self.meiYanFilter = GPUImageBilateralFilter.init()
-        self.meiYanFilter!.distanceNormalizationFactor = 10
+//        self.meiYanFilter?.blurRadiusInPixels = 1
         self.gpuImageView = GPUImageView.init(frame: CGRectMake(0, 0, kScreenWidth, kScreenWidth*4/3))
         self.gpuImageView?.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
         self.cameraManager.outputImageOrientation = UIInterfaceOrientation.Portrait
@@ -62,7 +62,13 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     
     func takePhoto() {
         self.cameraManager.capturePhotoAsImageProcessedUpToFilter(self.groupFilter) { (processedImage, error) -> Void in
-            self.takePhotoFinished(processedImage)
+            if error != nil {
+                print("takePhotoError:%@", error)
+            } else {
+                if processedImage != nil {
+                    self.takePhotoFinished(processedImage)
+                }
+            }
         }
     }
     

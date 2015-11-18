@@ -59,9 +59,13 @@ class CustomPhotoAlbum {
                 let assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset
                 let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection)
                 albumChangeRequest?.addAssets([assetPlaceholder!])
-                }, completionHandler: nil)
+                }, completionHandler: {
+                    success, error in
+                    if error != nil {
+                        print(error)
+                    }
+            })
         }
     }
-
 }
 
