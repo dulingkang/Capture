@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomeViewDelegate {
     func cameraButtonPressed()
+    func beautyButtonPressed()
 }
 
 class HomeView: UIView, UIScrollViewDelegate {
@@ -51,6 +52,11 @@ class HomeView: UIView, UIScrollViewDelegate {
     func cameraButtonPressed() {
         self.homeViewdelegate?.cameraButtonPressed()
     }
+    
+    func beautyButtonPressed() {
+        self.homeViewdelegate?.beautyButtonPressed()
+    }
+    
     //MARK: private method
     func addTopImageView() {
         let topImageViewWidth:CGFloat = 250.0
@@ -98,6 +104,7 @@ class HomeView: UIView, UIScrollViewDelegate {
         let beautyButton = UIButton.init(frame: CGRectMake(kScreenWidth - buttonWidthMargin - buttonWidth, 0, buttonWidth, buttonWidth))
         beautyButton.layer.borderWidth = 1
         beautyButton.layer.borderColor = UIColor.redColor().CGColor
+        beautyButton.addTarget(self, action: "beautyButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
         scrollView.addSubview(beautyButton)
         
         let videoButton = UIButton.init(frame: CGRectMake(buttonWidthMargin, 1.5*buttonWidth, buttonWidth, buttonWidth))

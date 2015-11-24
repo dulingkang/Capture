@@ -51,7 +51,7 @@ class CustomPhotoAlbum {
             })
         }
     }
-    
+//    performChanges(changeBlock: dispatch_block_t, completionHandler: ((Bool, NSError?) -> Void)?)
     func saveImage(image: UIImage) {
         if self.assetCollection != nil {
             PHPhotoLibrary.sharedPhotoLibrary().performChanges({
@@ -63,6 +63,8 @@ class CustomPhotoAlbum {
                     success, error in
                     if error != nil {
                         print(error)
+                    } else {
+                        
                     }
             })
         }

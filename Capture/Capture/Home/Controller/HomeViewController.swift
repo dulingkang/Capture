@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, HomeViewDelegate {
+class HomeViewController: UIViewController, HomeViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: life cycle
     override func viewDidLoad() {
@@ -26,6 +26,22 @@ class HomeViewController: UIViewController, HomeViewDelegate {
     func cameraButtonPressed() {
         let cameraVC = APCameraMainViewController()
         self.navigationController?.pushViewController(cameraVC, animated: true)
+    }
+    
+    func beautyButtonPressed() {
+        let picker = UIImagePickerController.init()
+        picker.delegate = self
+        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(picker, animated: true, completion: {})
+    }
+    
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            picker.dismissViewControllerAnimated(true, completion: {
+                () -> Void in
+            })
     }
 
 }
