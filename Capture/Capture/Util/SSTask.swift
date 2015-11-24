@@ -30,7 +30,12 @@ class SSTask: NSObject {
         get {
             if self.imageFileName == nil {
                return self.generateFileName()
+            } else {
+                return self.imageFileName
             }
+            
+        }
+        set {
             
         }
     }
@@ -46,13 +51,14 @@ class SSTask: NSObject {
     }
     
     func cache() {
-        if self.imageFileName == nil {
-
-        }
+        self.saveImage(self.image!)
+        self.image = nil
     }
     
     func clean() {
-        
+        self.deleteImage()
+        self.image = nil
+        self.imageFileName = nil
     }
     
     //MARK: - private method
@@ -62,9 +68,10 @@ class SSTask: NSObject {
         return img
     }
     
-    private func generateFileName() {
-        let time = NSDate()
-        return time
+    private func generateFileName() -> String {
+        let time = NSDate().timeIntervalSince1970
+        let timeStr = String(time)
+        return timeStr
     }
     
     private func saveImage(img: UIImage) {
@@ -72,6 +79,17 @@ class SSTask: NSObject {
         if !NSFileManager.defaultManager().fileExistsAtPath(path) {
             let data = UIImagePNGRepresentation(img)
             data?.writeToFile(path, atomically: true)
+        }
+    }
+    
+    private func deleteImage() {
+        let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName
+        if NSFileManager.defaultManager().fileExistsAtPath(path) {
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(path)
+            } catch {
+                print("SSTask file manager remove item failed")
+            }
         }
     }
     

@@ -51,6 +51,7 @@
 		3ADA15751BF63638002D8EFF /* lookupRouguang.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15681BF63638002D8EFF /* lookupRouguang.png */; };
 		3ADA15771BF63638002D8EFF /* lookupWeimei.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA156A1BF63638002D8EFF /* lookupWeimei.png */; };
 		3ADA31721BF4D73E0090DA94 /* APCameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA31711BF4D73E0090DA94 /* APCameraManager.swift */; };
+		3ADA68FE1C04AC5E0036A573 /* SSTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA68FD1C04AC5E0036A573 /* SSTaskManager.swift */; };
 		3ADBF69B1BEF4E04004E58F6 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */; };
 		3ADBF69D1BEF867D004E58F6 /* APCameraMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69C1BEF867D004E58F6 /* APCameraMainViewController.swift */; };
 		3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */; };
@@ -169,6 +170,7 @@
 		3ADA156A1BF63638002D8EFF /* lookupWeimei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupWeimei.png; sourceTree = "<group>"; };
 		3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/GPUImage/framework/GPUImage.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3ADA31711BF4D73E0090DA94 /* APCameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraManager.swift; sourceTree = "<group>"; };
+		3ADA68FD1C04AC5E0036A573 /* SSTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSTaskManager.swift; sourceTree = "<group>"; };
 		3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		3ADBF69C1BEF867D004E58F6 /* APCameraMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraMainViewController.swift; sourceTree = "<group>"; };
 		3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APCameraMainView.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				3ADC4D321BF8B8E4008B0440 /* APImageHelper.swift */,
 				3ADC4D341BF8BD7B008B0440 /* CustumPhotoAlbum.swift */,
 				3A8283CF1C048004004E339F /* SSTask.swift */,
+				3ADA68FD1C04AC5E0036A573 /* SSTaskManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				3A718E881BF03FFF00440989 /* Extension.swift in Sources */,
 				3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */,
 				3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */,
+				3ADA68FE1C04AC5E0036A573 /* SSTaskManager.swift in Sources */,
 				3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */,
 				3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */,
 				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
