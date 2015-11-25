@@ -8,9 +8,11 @@
 
 import UIKit
 
-class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate {
+class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainBottomViewDelegate {
 
+    var mainTopView: APBeautyMainTopView!
     var mainMiddleView: APBeautyMainMiddleView!
+    var mainBottomView: APBeautyMainBottomView!
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
@@ -21,6 +23,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate 
         
         self.addMainTopView()
         self.addMainMiddleView()
+        self.addMainBottomView()
     }
     
     //MARK: - delegate
@@ -41,16 +44,27 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate 
         
     }
     
+    //MARK: beautyMainBottomView delegate
+    func beautyBottomButtonPressed(sender: UIButton) {
+        print(sender.tag)
+    }
     
     //MARK: - private method
     func addMainTopView() {
-        let mainTopView = APBeautyMainTopView.init(frame: CGRectMake(0, 0, kScreenWidth, kNavigationHeight))
-        mainTopView.apBeautyTopViewDelegate = self
-        self.view.addSubview(mainTopView)
+        self.mainTopView = APBeautyMainTopView.init(frame: CGRectMake(0, 0, kScreenWidth, kNavigationHeight))
+        self.mainTopView.apBeautyTopViewDelegate = self
+        self.view.addSubview(self.mainTopView)
     }
     
     func addMainMiddleView() {
         self.mainMiddleView = APBeautyMainMiddleView.init(frame: CGRectMake(0, kNavigationHeight, kScreenWidth, kScreenHeight - kBeautyMainBottomHeight - kNavigationHeight))
         self.view.addSubview(self.mainMiddleView)
     }
+    
+    func addMainBottomView() {
+        self.mainBottomView = APBeautyMainBottomView.init(frame: CGRectMake(0, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight))
+        self.mainBottomView.apBeautyMainBottomViewdelegate = self
+        self.view.addSubview(self.mainBottomView)
+    }
+    
 }

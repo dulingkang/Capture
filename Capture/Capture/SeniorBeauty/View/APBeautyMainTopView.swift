@@ -49,7 +49,7 @@ class APBeautyMainTopView: UIView {
     
     
     //MARK: - private method
-    func initViews() {
+    private func initViews() {
         self.backgroundColor = UIColor.blackColor()
         self.addBackButton()
         self.addRedoButton()
@@ -57,7 +57,7 @@ class APBeautyMainTopView: UIView {
         self.addShareButton()
     }
     
-    func addBackButton() {
+    private func addBackButton() {
         let backButton = UIButton.init(frame: CGRectMake(0, 0, kButtonClickWidth, kButtonClickWidth))
         backButton.addTarget(self, action: "backButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         backButton.setImage(UIImage(named: "backNormal"), forState: UIControlState.Normal)
@@ -65,7 +65,7 @@ class APBeautyMainTopView: UIView {
         self.addSubview(backButton)
     }
     
-    func addUndoButton() {
+    private func addUndoButton() {
         self.undoButton = UIButton.init(frame: CGRectMake(kScreenWidth/2 - kButtonClickWidth - 5, 0, kButtonClickWidth, kButtonClickWidth))
         self.undoButton.addTarget(self, action: "undoButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         self.undoButton.setImage(UIImage(named: "undoNormal"), forState: UIControlState.Normal)
@@ -74,7 +74,7 @@ class APBeautyMainTopView: UIView {
         self.addSubview(self.undoButton)
     }
     
-    func addRedoButton() {
+    private func addRedoButton() {
         self.redoButton = UIButton.init(frame: CGRectMake(kScreenWidth/2 + 5, 0, kButtonClickWidth, kButtonClickWidth))
         self.redoButton.addTarget(self, action: "redoButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         self.redoButton.setImage(UIImage(named: "redoNormal"), forState: UIControlState.Normal)
@@ -83,7 +83,7 @@ class APBeautyMainTopView: UIView {
         self.addSubview(self.redoButton)
     }
     
-    func addShareButton() {
+    private func addShareButton() {
         let shareButton = UIButton.init(frame: CGRectMake(kScreenWidth - kButtonClickWidth, 0, kButtonClickWidth, kButtonClickWidth))
         shareButton.addTarget(self, action: "shareButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         shareButton.setImage(UIImage(named: "shareNormal"), forState: UIControlState.Normal)

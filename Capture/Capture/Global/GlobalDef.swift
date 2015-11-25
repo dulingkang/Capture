@@ -88,11 +88,12 @@ let kCameraViewTopButtonStartTag: Int = 11000
 
 //beauty main view
 let kBeautyMainBottomHeight: CGFloat = 80
-
+let kBeautyMainBottomButtonStartTag: Int = 11020
 
 
 //MARK: Used Tag
 /*
 10000 - 10999             CamerFilter
 11000 - 11019             CameraViewTopButton
+11020 - 11029             BeautyMainBottomButton
 */

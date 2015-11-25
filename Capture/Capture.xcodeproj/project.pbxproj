@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A501A5B1C0600BF00E1585D /* APBeautyMainBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A501A5A1C0600BF00E1585D /* APBeautyMainBottomView.swift */; };
 		3A5C84621BEB186000712ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84611BEB186000712ED1 /* AppDelegate.swift */; };
 		3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84791BEB1B1600712ED1 /* HomeViewController.swift */; };
 		3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C847B1BEC462E00712ED1 /* GlobalDef.swift */; };
@@ -120,6 +121,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A501A5A1C0600BF00E1585D /* APBeautyMainBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainBottomView.swift; sourceTree = "<group>"; };
 		3A5C845E1BEB186000712ED1 /* Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5C84611BEB186000712ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A5C84791BEB1B1600712ED1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 			children = (
 				3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */,
 				3A82880E1C05A3DE004E339F /* APBeautyMainMiddleView.swift */,
+				3A501A5A1C0600BF00E1585D /* APBeautyMainBottomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */,
 				3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */,
 				3ADA68FE1C04AC5E0036A573 /* SSTaskManager.swift in Sources */,
+				3A501A5B1C0600BF00E1585D /* APBeautyMainBottomView.swift in Sources */,
 				3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */,
 				3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */,
 				3A82880F1C05A3DE004E339F /* APBeautyMainMiddleView.swift in Sources */,
