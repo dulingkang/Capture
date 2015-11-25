@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol APCameraMainViewProtocol {
+protocol APCameraMainViewDelegate {
     func takePhoto()
     func browsePhoto(array: NSArray)
     func closeMainView()
@@ -25,7 +25,7 @@ class APCameraMainView: UIView {
     var photoNumber: Int?
     var numberLabel: UILabel?
     var tmpPhotoArray: [UIImage] = []
-    var apCameraMainViewDelegate: APCameraMainViewProtocol?
+    var apCameraMainViewDelegate: APCameraMainViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

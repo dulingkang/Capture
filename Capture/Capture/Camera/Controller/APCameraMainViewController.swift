@@ -9,7 +9,7 @@
 import UIKit
 import GPUImage
 
-class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewProtocol{
+class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewDelegate{
 
     var cameraManager: APCameraManager!
     var meiYanFilter: GPUImageBilateralFilter?

@@ -16,11 +16,11 @@ extension Array where Element : AnyObject {
 }
 
 extension UIView {
-    var dWidth: CGFloat {
+    var width: CGFloat {
         return self.frame.size.width
     }
     
-    var dHeight: CGFloat {
+    var height: CGFloat {
         return self.frame.size.height
     }
     

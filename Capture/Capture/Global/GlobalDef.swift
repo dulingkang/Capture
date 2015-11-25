@@ -81,10 +81,15 @@ enum Filter:UInt {
 let kWidthRatio = kScreenWidth/320
 let kCameraFilterHeight: CGFloat = 90
 let kCameraBottomHeight: CGFloat = kScreenHeight - kNavigationHeight - kScreenWidth*4/3
-let kFilterCellWidth:CGFloat = 60
-let kFilterCellImageHeight:CGFloat = 57
-let kFilterCellLabelHeight:CGFloat = 20
+let kFilterCellWidth: CGFloat = 60
+let kFilterCellImageHeight: CGFloat = 57
+let kFilterCellLabelHeight: CGFloat = 20
 let kCameraViewTopButtonStartTag: Int = 11000
+
+//beauty main view
+let kBeautyMainBottomHeight: CGFloat = 80
+
+
 
 //MARK: Used Tag
 /*

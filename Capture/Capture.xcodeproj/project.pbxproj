@@ -43,6 +43,10 @@
 		3A7A3EA11BF7015E00DC5BC9 /* lookupMeiyan.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7A3E9F1BF7015E00DC5BC9 /* lookupMeiyan.png */; };
 		3A7A3EA21BF7015E00DC5BC9 /* lookupZiran.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7A3EA01BF7015E00DC5BC9 /* lookupZiran.png */; };
 		3A8283D01C048004004E339F /* SSTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283CF1C048004004E339F /* SSTask.swift */; };
+		3A8283D51C0561C5004E339F /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283D41C0561C5004E339F /* ImageModel.swift */; };
+		3A8283E11C0580DF004E339F /* APBeautyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283DF1C0580DF004E339F /* APBeautyMainViewController.swift */; };
+		3A8283E31C05814B004E339F /* APBeautyMainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */; };
+		3A82880F1C05A3DE004E339F /* APBeautyMainMiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82880E1C05A3DE004E339F /* APBeautyMainMiddleView.swift */; };
 		3ADA156D1BF63638002D8EFF /* lookupDianya.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15601BF63638002D8EFF /* lookupDianya.png */; };
 		3ADA156F1BF63638002D8EFF /* lookupFugu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15621BF63638002D8EFF /* lookupFugu.png */; };
 		3ADA15701BF63638002D8EFF /* lookupHeibai.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15631BF63638002D8EFF /* lookupHeibai.png */; };
@@ -161,6 +165,10 @@
 		3A7A3E9F1BF7015E00DC5BC9 /* lookupMeiyan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupMeiyan.png; sourceTree = "<group>"; };
 		3A7A3EA01BF7015E00DC5BC9 /* lookupZiran.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupZiran.png; sourceTree = "<group>"; };
 		3A8283CF1C048004004E339F /* SSTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSTask.swift; sourceTree = "<group>"; };
+		3A8283D41C0561C5004E339F /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		3A8283DF1C0580DF004E339F /* APBeautyMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainViewController.swift; sourceTree = "<group>"; };
+		3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainTopView.swift; sourceTree = "<group>"; };
+		3A82880E1C05A3DE004E339F /* APBeautyMainMiddleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainMiddleView.swift; sourceTree = "<group>"; };
 		3ADA15601BF63638002D8EFF /* lookupDianya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupDianya.png; sourceTree = "<group>"; };
 		3ADA15621BF63638002D8EFF /* lookupFugu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupFugu.png; sourceTree = "<group>"; };
 		3ADA15631BF63638002D8EFF /* lookupHeibai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupHeibai.png; sourceTree = "<group>"; };
@@ -248,10 +256,10 @@
 		3A5C84601BEB186000712ED1 /* Capture */ = {
 			isa = PBXGroup;
 			children = (
-				3AE29FAA1BEB9FC90089DE57 /* Global */,
-				3AE29F7B1BEB9A270089DE57 /* Ajust */,
-				3AE29F7C1BEB9A270089DE57 /* Camera */,
 				3A5C84761BEB1AE300712ED1 /* Home */,
+				3A8283DD1C0580DF004E339F /* SeniorBeauty */,
+				3AE29F7C1BEB9A270089DE57 /* Camera */,
+				3AE29FAA1BEB9FC90089DE57 /* Global */,
 				3AE29F7A1BEB9A020089DE57 /* Lib */,
 				3ADC4D311BF8B8CA008B0440 /* Util */,
 				3AE29F981BEB9AE10089DE57 /* Resource */,
@@ -330,6 +338,32 @@
 			path = CustomFilters;
 			sourceTree = "<group>";
 		};
+		3A8283DD1C0580DF004E339F /* SeniorBeauty */ = {
+			isa = PBXGroup;
+			children = (
+				3A8283DE1C0580DF004E339F /* Controller */,
+				3A8283E01C0580DF004E339F /* View */,
+			);
+			path = SeniorBeauty;
+			sourceTree = "<group>";
+		};
+		3A8283DE1C0580DF004E339F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A8283DF1C0580DF004E339F /* APBeautyMainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A8283E01C0580DF004E339F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */,
+				3A82880E1C05A3DE004E339F /* APBeautyMainMiddleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3ADA155D1BF63638002D8EFF /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				3ADBF69A1BEF4E04004E58F6 /* FilterModel.swift */,
+				3A8283D41C0561C5004E339F /* ImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,13 +480,6 @@
 				3A5C847D1BEC4D8F00712ED1 /* AdSupport.framework */,
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		3AE29F7B1BEB9A270089DE57 /* Ajust */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Ajust;
 			sourceTree = "<group>";
 		};
 		3AE29F7C1BEB9A270089DE57 /* Camera */ = {
@@ -626,7 +654,9 @@
 				3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */,
 				3ADBF69D1BEF867D004E58F6 /* APCameraMainViewController.swift in Sources */,
 				3ADBF69B1BEF4E04004E58F6 /* FilterModel.swift in Sources */,
+				3A8283E31C05814B004E339F /* APBeautyMainTopView.swift in Sources */,
 				3ADC4D331BF8B8E4008B0440 /* APImageHelper.swift in Sources */,
+				3A8283D51C0561C5004E339F /* ImageModel.swift in Sources */,
 				3ADA31721BF4D73E0090DA94 /* APCameraManager.swift in Sources */,
 				3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */,
 				3A718E881BF03FFF00440989 /* Extension.swift in Sources */,
@@ -635,6 +665,8 @@
 				3ADA68FE1C04AC5E0036A573 /* SSTaskManager.swift in Sources */,
 				3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */,
 				3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */,
+				3A82880F1C05A3DE004E339F /* APBeautyMainMiddleView.swift in Sources */,
+				3A8283E11C0580DF004E339F /* APBeautyMainViewController.swift in Sources */,
 				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
 				3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */,
 				3A8283D01C048004004E339F /* SSTask.swift in Sources */,
