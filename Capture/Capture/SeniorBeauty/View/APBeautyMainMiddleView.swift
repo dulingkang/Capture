@@ -30,6 +30,7 @@ class APBeautyMainMiddleView: UIView {
         self.apBeautyMainMiddleViewDelegate?.compareButtonPressed()
     }
     
+    //MARK: - private method
     private func initViews() {
         let apMainMiddleScrollView = APBeautyMainMiddleScrollView.init(frame: CGRectMake(0, 0, kScreenWidth, self.height - 30))
         self.addSubview(apMainMiddleScrollView)

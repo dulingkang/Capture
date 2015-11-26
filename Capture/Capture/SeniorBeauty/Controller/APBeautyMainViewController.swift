@@ -13,6 +13,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     var mainTopView: APBeautyMainTopView!
     var mainMiddleView: UIView!
     var mainBottomView: APBeautyMainBottomView!
+    static let ajustBottomHeight: CGFloat = 90
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {

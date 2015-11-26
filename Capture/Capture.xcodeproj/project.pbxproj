@@ -50,6 +50,7 @@
 		3A8283E11C0580DF004E339F /* APBeautyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283DF1C0580DF004E339F /* APBeautyMainViewController.swift */; };
 		3A8283E31C05814B004E339F /* APBeautyMainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */; };
 		3A82880F1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82880E1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift */; };
+		3A9FB6BA1C070BED005D8EE7 /* APBottomCancelConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9FB6B91C070BED005D8EE7 /* APBottomCancelConfirmView.swift */; };
 		3ADA156D1BF63638002D8EFF /* lookupDianya.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15601BF63638002D8EFF /* lookupDianya.png */; };
 		3ADA156F1BF63638002D8EFF /* lookupFugu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15621BF63638002D8EFF /* lookupFugu.png */; };
 		3ADA15701BF63638002D8EFF /* lookupHeibai.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15631BF63638002D8EFF /* lookupHeibai.png */; };
@@ -175,6 +176,7 @@
 		3A8283DF1C0580DF004E339F /* APBeautyMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainViewController.swift; sourceTree = "<group>"; };
 		3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainTopView.swift; sourceTree = "<group>"; };
 		3A82880E1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainMiddleScrollView.swift; sourceTree = "<group>"; };
+		3A9FB6B91C070BED005D8EE7 /* APBottomCancelConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBottomCancelConfirmView.swift; sourceTree = "<group>"; };
 		3ADA15601BF63638002D8EFF /* lookupDianya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupDianya.png; sourceTree = "<group>"; };
 		3ADA15621BF63638002D8EFF /* lookupFugu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupFugu.png; sourceTree = "<group>"; };
 		3ADA15631BF63638002D8EFF /* lookupHeibai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupHeibai.png; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				3A82880E1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift */,
 				3A501A5A1C0600BF00E1585D /* APBeautyMainBottomView.swift */,
 				3A6829DA1C06EB970011B3D8 /* APBeautyMainMiddleView.swift */,
+				3A9FB6B91C070BED005D8EE7 /* APBottomCancelConfirmView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				3A5C84621BEB186000712ED1 /* AppDelegate.swift in Sources */,
 				3A784D421BF5BDCF00F679D2 /* FilterOperation.swift in Sources */,
 				3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */,
+				3A9FB6BA1C070BED005D8EE7 /* APBottomCancelConfirmView.swift in Sources */,
 				3ADBF69F1BEF869D004E58F6 /* APCameraMainView.swift in Sources */,
 				3ADBF69D1BEF867D004E58F6 /* APCameraMainViewController.swift in Sources */,
 				3ADBF69B1BEF4E04004E58F6 /* FilterModel.swift in Sources */,
