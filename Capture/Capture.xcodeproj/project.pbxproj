@@ -31,7 +31,9 @@
 		3A5C84AD1BEC546800712ED1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AC1BEC546800712ED1 /* MessageUI.framework */; };
 		3A5C84AF1BEC547D00712ED1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */; };
 		3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84B21BECCB4100712ED1 /* HomeView.swift */; };
-		3A718E881BF03FFF00440989 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A718E871BF03FFF00440989 /* Extension.swift */; };
+		3A6829C21C069D0A0011B3D8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6829C11C069D0A0011B3D8 /* Extension.swift */; };
+		3A6829C41C069E080011B3D8 /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6829C31C069E080011B3D8 /* SSButton.swift */; };
+		3A6829DB1C06EB980011B3D8 /* APBeautyMainMiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6829DA1C06EB970011B3D8 /* APBeautyMainMiddleView.swift */; };
 		3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A784D3F1BF5BB0E00F679D2 /* GPUImageCustomLookupFilter.swift */; };
 		3A784D421BF5BDCF00F679D2 /* FilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A784D411BF5BDCF00F679D2 /* FilterOperation.swift */; };
 		3A784D431BF5CAF900F679D2 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA316D1BF4D5910090DA94 /* GPUImage.framework */; };
@@ -47,7 +49,7 @@
 		3A8283D51C0561C5004E339F /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283D41C0561C5004E339F /* ImageModel.swift */; };
 		3A8283E11C0580DF004E339F /* APBeautyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283DF1C0580DF004E339F /* APBeautyMainViewController.swift */; };
 		3A8283E31C05814B004E339F /* APBeautyMainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */; };
-		3A82880F1C05A3DE004E339F /* APBeautyMainMiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82880E1C05A3DE004E339F /* APBeautyMainMiddleView.swift */; };
+		3A82880F1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A82880E1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift */; };
 		3ADA156D1BF63638002D8EFF /* lookupDianya.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15601BF63638002D8EFF /* lookupDianya.png */; };
 		3ADA156F1BF63638002D8EFF /* lookupFugu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15621BF63638002D8EFF /* lookupFugu.png */; };
 		3ADA15701BF63638002D8EFF /* lookupHeibai.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA15631BF63638002D8EFF /* lookupHeibai.png */; };
@@ -157,7 +159,9 @@
 		3A5C84AC1BEC546800712ED1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		3A5C84B21BECCB4100712ED1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		3A718E871BF03FFF00440989 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		3A6829C11C069D0A0011B3D8 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		3A6829C31C069E080011B3D8 /* SSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSButton.swift; sourceTree = "<group>"; };
+		3A6829DA1C06EB970011B3D8 /* APBeautyMainMiddleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainMiddleView.swift; sourceTree = "<group>"; };
 		3A784D3F1BF5BB0E00F679D2 /* GPUImageCustomLookupFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUImageCustomLookupFilter.swift; sourceTree = "<group>"; };
 		3A784D411BF5BDCF00F679D2 /* FilterOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterOperation.swift; sourceTree = "<group>"; };
 		3A7A3E8C1BF6D42200DC5BC9 /* lookupAbaose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupAbaose.png; sourceTree = "<group>"; };
@@ -170,7 +174,7 @@
 		3A8283D41C0561C5004E339F /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		3A8283DF1C0580DF004E339F /* APBeautyMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainViewController.swift; sourceTree = "<group>"; };
 		3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainTopView.swift; sourceTree = "<group>"; };
-		3A82880E1C05A3DE004E339F /* APBeautyMainMiddleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainMiddleView.swift; sourceTree = "<group>"; };
+		3A82880E1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainMiddleScrollView.swift; sourceTree = "<group>"; };
 		3ADA15601BF63638002D8EFF /* lookupDianya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupDianya.png; sourceTree = "<group>"; };
 		3ADA15621BF63638002D8EFF /* lookupFugu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupFugu.png; sourceTree = "<group>"; };
 		3ADA15631BF63638002D8EFF /* lookupHeibai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupHeibai.png; sourceTree = "<group>"; };
@@ -324,12 +328,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3A718E861BF03FD600440989 /* Extension */ = {
+		3A6829C01C069D0A0011B3D8 /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
-				3A718E871BF03FFF00440989 /* Extension.swift */,
+				3A6829C11C069D0A0011B3D8 /* Extension.swift */,
+				3A6829C31C069E080011B3D8 /* SSButton.swift */,
 			);
-			path = Extension;
+			path = CustomClass;
 			sourceTree = "<group>";
 		};
 		3A784D3C1BF5BA2000F679D2 /* CustomFilters */ = {
@@ -361,8 +366,9 @@
 			isa = PBXGroup;
 			children = (
 				3A8283E21C05814A004E339F /* APBeautyMainTopView.swift */,
-				3A82880E1C05A3DE004E339F /* APBeautyMainMiddleView.swift */,
+				3A82880E1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift */,
 				3A501A5A1C0600BF00E1585D /* APBeautyMainBottomView.swift */,
+				3A6829DA1C06EB970011B3D8 /* APBeautyMainMiddleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -531,7 +537,7 @@
 		3AE29FAA1BEB9FC90089DE57 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				3A718E861BF03FD600440989 /* Extension */,
+				3A6829C01C069D0A0011B3D8 /* CustomClass */,
 				3ADBF6991BEF4E04004E58F6 /* Model */,
 				3AE29FAD1BEBA11C0089DE57 /* Capture-Bridging-Header.h */,
 				3A5C847B1BEC462E00712ED1 /* GlobalDef.swift */,
@@ -662,23 +668,25 @@
 				3A8283D51C0561C5004E339F /* ImageModel.swift in Sources */,
 				3ADA31721BF4D73E0090DA94 /* APCameraManager.swift in Sources */,
 				3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */,
-				3A718E881BF03FFF00440989 /* Extension.swift in Sources */,
 				3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */,
 				3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */,
 				3ADA68FE1C04AC5E0036A573 /* SSTaskManager.swift in Sources */,
 				3A501A5B1C0600BF00E1585D /* APBeautyMainBottomView.swift in Sources */,
 				3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */,
 				3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */,
-				3A82880F1C05A3DE004E339F /* APBeautyMainMiddleView.swift in Sources */,
+				3A82880F1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift in Sources */,
 				3A8283E11C0580DF004E339F /* APBeautyMainViewController.swift in Sources */,
 				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
 				3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */,
 				3A8283D01C048004004E339F /* SSTask.swift in Sources */,
 				3ADC4D351BF8BD7B008B0440 /* CustumPhotoAlbum.swift in Sources */,
+				3A6829C21C069D0A0011B3D8 /* Extension.swift in Sources */,
 				3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */,
 				3ADBF6A31BEF886A004E58F6 /* APCameraFilterCollectionView.swift in Sources */,
+				3A6829C41C069E080011B3D8 /* SSButton.swift in Sources */,
 				3ADC4D2E1BF89E54008B0440 /* APPhotoBrowseViewController.swift in Sources */,
 				3AE29F951BEB9A530089DE57 /* OpenShare+Weixin.m in Sources */,
+				3A6829DB1C06EB980011B3D8 /* APBeautyMainMiddleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,10 @@
 
 import UIKit
 
-class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainBottomViewDelegate {
+class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate {
 
     var mainTopView: APBeautyMainTopView!
-    var mainMiddleView: APBeautyMainMiddleView!
+    var mainMiddleView: UIView!
     var mainBottomView: APBeautyMainBottomView!
     
     //MARK: - life cycle
@@ -44,6 +44,11 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         
     }
     
+    //MARK: beautyMainMiddleView delegate
+    func compareButtonPressed() {
+        
+    }
+    
     //MARK: beautyMainBottomView delegate
     func beautyBottomButtonPressed(sender: UIButton) {
         print(sender.tag)
@@ -62,7 +67,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     }
     
     func addMainBottomView() {
-        self.mainBottomView = APBeautyMainBottomView.init(frame: CGRectMake(0, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight))
+        self.mainBottomView = APBeautyMainBottomView.init(frame: CGRectMake(10, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight))
         self.mainBottomView.apBeautyMainBottomViewdelegate = self
         self.view.addSubview(self.mainBottomView)
     }

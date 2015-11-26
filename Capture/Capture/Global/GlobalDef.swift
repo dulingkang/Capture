@@ -73,8 +73,8 @@ let kFilterHeiBai = "黑白"
 let kFilterRouGuang = "柔光"
 let kFilterStartTag : UInt = 10000
 
-enum Filter:UInt {
-    case None = 2000, ZiRan, TianMi, WeiMei, DianYa,FenNen, LuoKeKe, ABaoSe, QingLiang, FuGu, HuaiJiu, HeiBai, RouGuang
+enum Filter: UInt {
+    case None = 10000, ZiRan, TianMi, WeiMei, DianYa,FenNen, LuoKeKe, ABaoSe, QingLiang, FuGu, HuaiJiu, HeiBai, RouGuang
 }
 
 //camera view
@@ -87,7 +87,7 @@ let kFilterCellLabelHeight: CGFloat = 20
 let kCameraViewTopButtonStartTag: Int = 11000
 
 //beauty main view
-let kBeautyMainBottomHeight: CGFloat = 80
+let kBeautyMainBottomHeight: CGFloat = 70
 let kBeautyMainBottomButtonStartTag: Int = 11020
 
 

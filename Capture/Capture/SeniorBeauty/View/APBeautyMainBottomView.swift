@@ -51,11 +51,11 @@ class APBeautyMainBottomView: UIView {
     private func addButtons() {
          let normalNameArray = ["editNormal", "filterNormal", "magicNormal", "frameNormal", "mosaicNormal", "ballonNormal", "textNormal"]
         let pressNameArray = ["editPressed", "filterPressed", "magicPressed", "framePressed", "mosaicPressed", "ballonPressed", "textPressed"]
+        let buttonTitle = ["编辑", "滤镜", "魔棒", "相框", "模糊", "气泡", "文字"]
         for index in 0...kBeautyMainBottomButtonCount - 1 {
-            let button = UIButton.init(frame: CGRectMake(CGFloat(index) * kBeautyMainBottomButtomWidth, 0, kBeautyMainBottomButtomWidth, self.height))
+            let button = SSButton.init(frame: CGRectMake(CGFloat(index) * kBeautyMainBottomButtomWidth, 0, kBeautyMainBottomButtomWidth, self.height), type: SSButtonType.Bottom, normalImageName: normalNameArray[index], pressImageName: pressNameArray[index])
             button.tag = kBeautyMainBottomButtonStartTag + index
-            button.setImage(UIImage(named: normalNameArray[index]), forState: UIControlState.Normal)
-            button.setImage(UIImage(named: pressNameArray[index]), forState: UIControlState.Highlighted)
+            button.setTitle(buttonTitle[index], forState: UIControlState.Normal)
             button.addTarget(self, action: "bottomButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
             self.bottomScrollView.addSubview(button)
         }
