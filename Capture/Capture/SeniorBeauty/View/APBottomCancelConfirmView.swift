@@ -16,6 +16,16 @@ protocol APBottomCancelConfirmViewDelegate {
 class APBottomCancelConfirmView: UIView {
 
     var apBottomCancelConfirmViewDelegate: APBottomCancelConfirmViewDelegate?
+    var titleLabel: UILabel!
+    let kLabelWidth: CGFloat = 200
+    var title: String? {
+        set {
+            self.updateLabelFrame()
+        }
+        get {
+            return self.title
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,7 +68,15 @@ class APBottomCancelConfirmView: UIView {
         self.addSubview(confirmButton)
     }
     
+    private func addTitleLabel() {
+        self.titleLabel = UILabel.init()
+        self.titleLabel.font = UIFont.systemFontOfSize(12)
+        self.updateLabelFrame()
+    }
     
-    
-
+    private func updateLabelFrame() {
+        self.titleLabel.text = self.title
+        let rect = self.titleLabel.textRectForBounds(CGRectMake((kScreenWidth - kLabelWidth)/2, 0, kLabelWidth, self.height), limitedToNumberOfLines: 1)
+        self.titleLabel.frame = CGRectMake((kScreenWidth - rect.size.width)/2, (self.height - rect.size.height)/2, rect.size.width, rect.size.height)
+    }
 }

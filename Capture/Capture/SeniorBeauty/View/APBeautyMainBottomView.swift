@@ -49,9 +49,9 @@ class APBeautyMainBottomView: UIView {
     }
     
     private func addButtons() {
-         let normalNameArray = ["editNormal", "filterNormal", "magicNormal", "frameNormal", "mosaicNormal", "ballonNormal", "textNormal"]
-        let pressNameArray = ["editPressed", "filterPressed", "magicPressed", "framePressed", "mosaicPressed", "ballonPressed", "textPressed"]
-        let buttonTitle = ["编辑", "滤镜", "魔棒", "相框", "模糊", "气泡", "文字"]
+         let normalNameArray = APBottomButtonModel.normalNameArray
+        let pressNameArray = APBottomButtonModel.pressNameArray
+        let buttonTitle = APBottomButtonModel.buttonTitle
         for index in 0...kBeautyMainBottomButtonCount - 1 {
             let button = SSButton.init(frame: CGRectMake(CGFloat(index) * kBeautyMainBottomButtomWidth, 0, kBeautyMainBottomButtomWidth, self.height), type: SSButtonType.Bottom, normalImageName: normalNameArray[index], pressImageName: pressNameArray[index])
             button.tag = kBeautyMainBottomButtonStartTag + index
