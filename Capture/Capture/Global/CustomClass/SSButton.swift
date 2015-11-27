@@ -42,6 +42,10 @@ class SSButton: UIButton {
             return self.ssTitleLabelFontSize
         }
     }
+    
+    override func awakeFromNib() {
+        self.configure()
+    }
 
     init(frame: CGRect, type: SSButtonType, normalImageName: String, pressImageName: String) {
         super.init(frame: frame)
@@ -56,11 +60,7 @@ class SSButton: UIButton {
     func config(normalImageName: String, pressImageName: String) {
         self.setImage(UIImage(named: normalImageName), forState: UIControlState.Normal)
         self.setImage(UIImage(named: pressImageName), forState: UIControlState.Highlighted)
-        self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
-        self.titleLabel?.textAlignment = NSTextAlignment.Center
-        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        self.setTitleColor(UIColor.greenColor(), forState: UIControlState.Highlighted)
-        self.titleLabel?.font = UIFont.systemFontOfSize(12)
+        self.configure()
     }
     
     override func imageRectForContentRect(contentRect: CGRect) -> CGRect {
@@ -103,5 +103,12 @@ class SSButton: UIButton {
 
         return CGRectMake(titleOriginX, titleOriginY, titleWidth!, titleHeight)
     }
-
+    
+    private func configure() {
+        self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        self.titleLabel?.textAlignment = NSTextAlignment.Center
+        self.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.setTitleColor(UIColor.greenColor(), forState: UIControlState.Highlighted)
+        self.titleLabel?.font = UIFont.systemFontOfSize(12)
+    }
 }
