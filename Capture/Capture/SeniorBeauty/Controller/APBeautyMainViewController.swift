@@ -31,6 +31,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.addMainBottomView()
         
         self.createTaskManager()
+        self.addTask(ImageModel.sharedInstance.rawImage!)
     }
     
     //MARK: - delegate
@@ -102,32 +103,38 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     }
     
     //MARK: - private method
-    func addMainTopView() {
+    private func addMainTopView() {
         self.mainTopView = APBeautyMainTopView.init(frame: CGRectMake(0, 0, kScreenWidth, kNavigationHeight))
         self.mainTopView.apBeautyTopViewDelegate = self
         self.view.addSubview(self.mainTopView)
     }
     
-    func addMainMiddleView() {
+    private func addMainMiddleView() {
         self.mainMiddleView = APBeautyMainMiddleView.init(frame: CGRectMake(0, kNavigationHeight, kScreenWidth, kScreenHeight - kBeautyMainBottomHeight - kNavigationHeight))
         self.mainMiddleView.delegate = self
         self.view.addSubview(self.mainMiddleView)
     }
     
-    func addMainBottomView() {
+    private func addMainBottomView() {
         self.mainBottomView = APBeautyMainBottomView.init(frame: CGRectMake(10, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight))
         self.mainBottomView.apBeautyMainBottomViewdelegate = self
         self.view.addSubview(self.mainBottomView)
     }
     
-    func updateImageView(image: UIImage) {
+    private func updateImageView(image: UIImage) {
         self.mainMiddleView.apMainMiddleScrollView.imageView.image = image
     }
     
-    func createTaskManager() {
+    private func createTaskManager() {
         SSTask.emptyDirectory()
         taskManager = SSTaskManager.init()
         taskManager.reset()
+    }
+    
+    private func addTask(image: UIImage) {
+        let task = SSTask.init()
+        task.image = image
+        taskManager.addTask(task)
     }
 
 }
