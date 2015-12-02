@@ -21,7 +21,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationController?.setToolbarHidden(true, animated: true)
+        self.navigationController?.setToolbarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
@@ -31,7 +31,9 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.addMainBottomView()
         
         self.createTaskManager()
+        self.updateUndoRedoButtonStates()
         self.addTask(ImageModel.sharedInstance.rawImage!)
+        self.currentImage = ImageModel.sharedInstance.rawImage!
     }
     
     //MARK: - delegate
@@ -41,11 +43,23 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     }
     
     func undoButtonPressed(sender: UIButton) {
-        
+        if let task = taskManager.undo() {
+            if let image = task.image {
+                self.currentImage = image
+                self.updateImageView(image)
+            }
+        }
+        self.updateUndoRedoButtonStates()
     }
     
     func redoButtonPressed(sender: UIButton) {
-        
+        if let task = taskManager.redo() {
+            if let image = task.image {
+                self.currentImage = image
+                self.updateImageView(image)
+            }
+        }
+        self.updateUndoRedoButtonStates()
     }
     
     func shareButtonPressed(sender: UIButton) {
@@ -70,9 +84,9 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
             case .Edit:
                 let editVC = PECropViewController.init()
                 editVC.delegate = self
-                editVC.image = ImageModel.sharedInstance.rawImage
+                editVC.image = self.currentImage
                 
-                let image = ImageModel.sharedInstance.rawImage
+                let image = self.currentImage
                 let width = image!.width
                 let height = image!.height
                 let length = min(width, height)
@@ -99,6 +113,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     //MARK: PECropViewController delegate
     func cropViewController(controller: PECropViewController!, didFinishCroppingImage croppedImage: UIImage!) {
         self.currentImage = croppedImage
+        self.addTask(croppedImage)
         self.updateImageView(self.currentImage)
     }
     
@@ -135,6 +150,12 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         let task = SSTask.init()
         task.image = image
         taskManager.addTask(task)
+        self.updateUndoRedoButtonStates()
+    }
+    
+    private func updateUndoRedoButtonStates() {
+        self.mainTopView.undoButton.enabled = self.taskManager.undoable()
+        self.mainTopView.redoButton.enabled = self.taskManager.redoable()
     }
 
 }

@@ -24,15 +24,17 @@ class SSTask: NSObject {
     static func emptyDirectory() {
         let fileManager = NSFileManager.defaultManager()
         let folderPath = NSTemporaryDirectory() + "/" + kTaskCacheFolder
-        let files = fileManager.subpathsAtPath(folderPath)
         
-        for fileName in files! {
-            let fullPath = folderPath + fileName
-            do {
-                try fileManager.removeItemAtPath(fullPath)
-            } catch {
+        if let files = fileManager.subpathsAtPath(folderPath) {
+            for fileName in files {
+                let fullPath = folderPath + fileName
+                do {
+                    try fileManager.removeItemAtPath(fullPath)
+                } catch {
+                }
             }
         }
+
     }
 
     //MARK: - public method
