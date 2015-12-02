@@ -15,6 +15,8 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     var mainBottomView: APBeautyMainBottomView!
     var currentImage: UIImage!
     static let ajustBottomHeight: CGFloat = 90
+    var taskManager: SSTaskManager!
+    var task: SSTask!
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
@@ -27,6 +29,8 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.addMainTopView()
         self.addMainMiddleView()
         self.addMainBottomView()
+        
+        self.createTaskManager()
     }
     
     //MARK: - delegate
@@ -120,4 +124,10 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.mainMiddleView.apMainMiddleScrollView.imageView.image = image
     }
     
+    func createTaskManager() {
+        SSTask.emptyDirectory()
+        taskManager = SSTaskManager.init()
+        taskManager.reset()
+    }
+
 }

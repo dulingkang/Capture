@@ -13,38 +13,28 @@ let kTaskCacheFolder = "TaskCacheFolder"
 
 class SSTask: NSObject {
     
-    var image: UIImage? {
-        get {
-            if self.image == nil {
-                self.prepare()
-            }
-            let img = self.image!.copy()
-            return img as? UIImage
-        }
-        set {
-            
-        }
-    }
-    
-    private var imageFileName: String! {
-        get {
-            if self.imageFileName == nil {
-               return self.generateFileName()
-            } else {
-                return self.imageFileName
-            }
-            
-        }
-        set {
-            
-        }
-    }
-    
+    var image: UIImage?
+    private var imageFileName: String?
+
     override init() {
         super.init()
         self.createPathIfNeeded()
     }
     
+    static func emptyDirectory() {
+        let fileManager = NSFileManager.defaultManager()
+        let folderPath = NSTemporaryDirectory() + "/" + kTaskCacheFolder
+        let files = fileManager.subpathsAtPath(folderPath)
+        
+        for fileName in files! {
+            let fullPath = folderPath + fileName
+            do {
+                try fileManager.removeItemAtPath(fullPath)
+            } catch {
+            }
+        }
+    }
+
     //MARK: - public method
     func prepare() {
         self.image = self.loadImage()
@@ -63,7 +53,12 @@ class SSTask: NSObject {
     
     //MARK: - private method
     private func loadImage() -> UIImage? {
-        let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName
+        
+        if self.imageFileName == nil {
+            self.imageFileName = self.generateFileName()
+        }
+        
+        let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName!
         let img = UIImage(contentsOfFile: path)
         return img
     }
@@ -75,7 +70,7 @@ class SSTask: NSObject {
     }
     
     private func saveImage(img: UIImage) {
-        let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName
+        let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName!
         if !NSFileManager.defaultManager().fileExistsAtPath(path) {
             let data = UIImagePNGRepresentation(img)
             data?.writeToFile(path, atomically: true)
@@ -83,7 +78,7 @@ class SSTask: NSObject {
     }
     
     private func deleteImage() {
-        let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName
+        let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName!
         if NSFileManager.defaultManager().fileExistsAtPath(path) {
             do {
                 try NSFileManager.defaultManager().removeItemAtPath(path)
