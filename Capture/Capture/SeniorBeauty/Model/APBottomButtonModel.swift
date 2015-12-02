@@ -15,3 +15,7 @@ struct APBottomButtonModel {
     static let buttonTitle = ["编辑", "滤镜", "魔棒", "相框", "模糊", "气泡", "文字"]
     
 }
+
+enum APBottomButtonType: Int {
+    case Edit = 0, Filter, Magic, Frame, Mosaic, Ballon, Text
+}

@@ -8,16 +8,18 @@
 
 import UIKit
 
-class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate {
+class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate, PECropViewControllerDelegate {
 
     var mainTopView: APBeautyMainTopView!
-    var mainMiddleView: UIView!
+    var mainMiddleView: APBeautyMainMiddleView!
     var mainBottomView: APBeautyMainBottomView!
+    var currentImage: UIImage!
     static let ajustBottomHeight: CGFloat = 90
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
     override func viewDidLoad() {
@@ -46,13 +48,53 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     }
     
     //MARK: beautyMainMiddleView delegate
-    func compareButtonPressed() {
+    func compareImageViewTaped(long: UILongPressGestureRecognizer) {
+        if long.state == .Began || long.state == .Changed{
+            self.updateImageView(ImageModel.sharedInstance.rawImage!)
+
+        } else if long.state == .Ended || long.state == .Cancelled {
+            self.updateImageView(self.currentImage)
+        }
+    }
+
+    //MARK: beautyMainBottomView delegate
+    func beautyBottomButtonPressed(sender: UIButton) {
+        let buttonTag = sender.tag - kBeautyMainBottomButtonStartTag
+        if let buttonType = APBottomButtonType(rawValue: buttonTag) {
+            switch(buttonType) {
+            case .Edit:
+                let editVC = PECropViewController.init()
+                editVC.delegate = self
+                editVC.image = ImageModel.sharedInstance.rawImage
+                
+                let image = ImageModel.sharedInstance.rawImage
+                let width = image!.width
+                let height = image!.height
+                let length = min(width, height)
+                editVC.imageCropRect = CGRectMake((width - length) / 2,(height - length) / 2, length, length)
+                self.navigationController?.pushViewController(editVC, animated: true)
+                break
+            case .Filter:
+                break
+            case .Magic:
+                break
+            case .Frame:
+                break
+            case .Mosaic:
+                break
+            case .Ballon:
+                break
+            case .Text:
+                break
+            }
+        }
         
     }
     
-    //MARK: beautyMainBottomView delegate
-    func beautyBottomButtonPressed(sender: UIButton) {
-        print(sender.tag)
+    //MARK: PECropViewController delegate
+    func cropViewController(controller: PECropViewController!, didFinishCroppingImage croppedImage: UIImage!) {
+        self.currentImage = croppedImage
+        self.updateImageView(self.currentImage)
     }
     
     //MARK: - private method
@@ -64,6 +106,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     
     func addMainMiddleView() {
         self.mainMiddleView = APBeautyMainMiddleView.init(frame: CGRectMake(0, kNavigationHeight, kScreenWidth, kScreenHeight - kBeautyMainBottomHeight - kNavigationHeight))
+        self.mainMiddleView.delegate = self
         self.view.addSubview(self.mainMiddleView)
     }
     
@@ -71,6 +114,10 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.mainBottomView = APBeautyMainBottomView.init(frame: CGRectMake(10, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight))
         self.mainBottomView.apBeautyMainBottomViewdelegate = self
         self.view.addSubview(self.mainBottomView)
+    }
+    
+    func updateImageView(image: UIImage) {
+        self.mainMiddleView.apMainMiddleScrollView.imageView.image = image
     }
     
 }

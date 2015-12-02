@@ -9,12 +9,14 @@
 import UIKit
 
 protocol APBeautyMainMiddleViewDelegate {
-    func compareButtonPressed()
+    func compareImageViewTaped(long: UILongPressGestureRecognizer)
 }
 
 class APBeautyMainMiddleView: UIView {
     
-    var apBeautyMainMiddleViewDelegate: APBeautyMainMiddleViewDelegate?
+    var delegate: APBeautyMainMiddleViewDelegate?
+    var apMainMiddleScrollView: APBeautyMainMiddleScrollView!
+    var compareImageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,23 +28,32 @@ class APBeautyMainMiddleView: UIView {
     }
     
     //MARK: - event response
-    func compareButtonPressed(sender: UIButton) {
-        self.apBeautyMainMiddleViewDelegate?.compareButtonPressed()
+    func compareImageViewTaped(long: UILongPressGestureRecognizer) {
+        let compareNormalImage = UIImage(named: "compareNormal")
+        let comparePressImage = UIImage(named: "comparePress")
+        if long.state == .Began || long.state == .Changed {
+            self.compareImageView.image = comparePressImage
+            
+        } else if long.state == .Ended || long.state == .Cancelled {
+            self.compareImageView.image = compareNormalImage
+        }
+        self.delegate?.compareImageViewTaped(long)
     }
     
     //MARK: - private method
     private func initViews() {
-        let apMainMiddleScrollView = APBeautyMainMiddleScrollView.init(frame: CGRectMake(0, 0, kScreenWidth, self.height - 30))
+        apMainMiddleScrollView = APBeautyMainMiddleScrollView.init(frame: CGRectMake(0, 0, kScreenWidth, self.height - 30))
         self.addSubview(apMainMiddleScrollView)
         let compareNormalImage = UIImage(named: "compareNormal")
-        let comparePressImage = UIImage(named: "comparePress")
         let buttonWidth = compareNormalImage?.size.width
         let buttonHeight = compareNormalImage?.size.height
-        let compareButton = UIButton.init(frame: CGRectMake(kScreenWidth - buttonWidth!, apMainMiddleScrollView.height - 30, buttonWidth!, buttonHeight!))
-        compareButton.setImage(compareNormalImage, forState: UIControlState.Normal)
-        compareButton.setImage(comparePressImage, forState: UIControlState.Highlighted)
-        compareButton.addTarget(self, action: "compareButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.addSubview(compareButton)
+        compareImageView = UIImageView.init(frame: CGRectMake(kScreenWidth - buttonWidth!, apMainMiddleScrollView.height - 30, buttonWidth!, buttonHeight!))
+        compareImageView.image = compareNormalImage
+        compareImageView.userInteractionEnabled = true
+        let long = UILongPressGestureRecognizer.init(target: self, action: "compareImageViewTaped:")
+        long.minimumPressDuration = 0.2
+        compareImageView.addGestureRecognizer(long)
+        self.addSubview(compareImageView)
     }
 
 }

@@ -87,7 +87,7 @@ let kFilterCellLabelHeight: CGFloat = 20
 let kCameraViewTopButtonStartTag: Int = 11000
 
 //beauty main view
-let kBeautyMainBottomHeight: CGFloat = 70
+let kBeautyMainBottomHeight: CGFloat = 50
 let kBeautyMainBottomButtonStartTag: Int = 11020
 
 

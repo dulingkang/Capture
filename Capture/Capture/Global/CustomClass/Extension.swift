@@ -40,3 +40,12 @@ extension UIView {
         return self.frame.origin.x
     }
 }
+
+extension UIImage {
+    var width : CGFloat{
+        return self.size.width
+    }
+    var height : CGFloat{
+        return self.size.height
+    }
+}

@@ -77,6 +77,12 @@
 		3AE29FA31BEB9B570089DE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA21BEB9B570089DE57 /* Assets.xcassets */; };
 		3AE29FA81BEB9B910089DE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA41BEB9B910089DE57 /* LaunchScreen.storyboard */; };
 		3AE29FA91BEB9B910089DE57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE29FA61BEB9B910089DE57 /* Main.storyboard */; };
+		3AE378A71C0E95A3008B59FB /* PECropRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3789E1C0E95A3008B59FB /* PECropRectView.m */; };
+		3AE378A81C0E95A3008B59FB /* PECropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE378A01C0E95A3008B59FB /* PECropView.m */; };
+		3AE378A91C0E95A3008B59FB /* PECropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE378A21C0E95A3008B59FB /* PECropViewController.m */; };
+		3AE378AA1C0E95A3008B59FB /* PEResizeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE378A41C0E95A3008B59FB /* PEResizeControl.m */; };
+		3AE378AB1C0E95A3008B59FB /* UIImage+PECrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE378A61C0E95A3008B59FB /* UIImage+PECrop.m */; };
+		3AE378AD1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE378AC1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +220,17 @@
 		3AE29FA51BEB9B910089DE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AE29FA71BEB9B910089DE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AE29FAD1BEBA11C0089DE57 /* Capture-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Capture-Bridging-Header.h"; sourceTree = "<group>"; };
+		3AE3789D1C0E95A3008B59FB /* PECropRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropRectView.h; sourceTree = "<group>"; };
+		3AE3789E1C0E95A3008B59FB /* PECropRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropRectView.m; sourceTree = "<group>"; };
+		3AE3789F1C0E95A3008B59FB /* PECropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropView.h; sourceTree = "<group>"; };
+		3AE378A01C0E95A3008B59FB /* PECropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropView.m; sourceTree = "<group>"; };
+		3AE378A11C0E95A3008B59FB /* PECropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PECropViewController.h; sourceTree = "<group>"; };
+		3AE378A21C0E95A3008B59FB /* PECropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PECropViewController.m; sourceTree = "<group>"; };
+		3AE378A31C0E95A3008B59FB /* PEResizeControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEResizeControl.h; sourceTree = "<group>"; };
+		3AE378A41C0E95A3008B59FB /* PEResizeControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEResizeControl.m; sourceTree = "<group>"; };
+		3AE378A51C0E95A3008B59FB /* UIImage+PECrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PECrop.h"; sourceTree = "<group>"; };
+		3AE378A61C0E95A3008B59FB /* UIImage+PECrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PECrop.m"; sourceTree = "<group>"; };
+		3AE378AC1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEPhotoCropEditorBorder@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +283,7 @@
 		3A5C84601BEB186000712ED1 /* Capture */ = {
 			isa = PBXGroup;
 			children = (
+				3AE378991C0E954C008B59FB /* ThirdParty */,
 				3A5C84761BEB1AE300712ED1 /* Home */,
 				3A8283DD1C0580DF004E339F /* SeniorBeauty */,
 				3AE29F7C1BEB9A270089DE57 /* Camera */,
@@ -559,6 +577,32 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		3AE378991C0E954C008B59FB /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				3AE3789C1C0E95A3008B59FB /* PECrop */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		3AE3789C1C0E95A3008B59FB /* PECrop */ = {
+			isa = PBXGroup;
+			children = (
+				3AE378AC1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png */,
+				3AE3789D1C0E95A3008B59FB /* PECropRectView.h */,
+				3AE3789E1C0E95A3008B59FB /* PECropRectView.m */,
+				3AE3789F1C0E95A3008B59FB /* PECropView.h */,
+				3AE378A01C0E95A3008B59FB /* PECropView.m */,
+				3AE378A11C0E95A3008B59FB /* PECropViewController.h */,
+				3AE378A21C0E95A3008B59FB /* PECropViewController.m */,
+				3AE378A31C0E95A3008B59FB /* PEResizeControl.h */,
+				3AE378A41C0E95A3008B59FB /* PEResizeControl.m */,
+				3AE378A51C0E95A3008B59FB /* UIImage+PECrop.h */,
+				3AE378A61C0E95A3008B59FB /* UIImage+PECrop.m */,
+			);
+			path = PECrop;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -661,6 +705,7 @@
 				3ADA15701BF63638002D8EFF /* lookupHeibai.png in Resources */,
 				3ADA15711BF63638002D8EFF /* lookupHuaijiu.png in Resources */,
 				3ADA15721BF63638002D8EFF /* lookupKeke.png in Resources */,
+				3AE378AD1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,17 +732,22 @@
 				3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */,
 				3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */,
 				3ADA68FE1C04AC5E0036A573 /* SSTaskManager.swift in Sources */,
+				3AE378AA1C0E95A3008B59FB /* PEResizeControl.m in Sources */,
+				3AE378A91C0E95A3008B59FB /* PECropViewController.m in Sources */,
 				3A501A5B1C0600BF00E1585D /* APBeautyMainBottomView.swift in Sources */,
 				3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */,
 				3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */,
 				3A82880F1C05A3DE004E339F /* APBeautyMainMiddleScrollView.swift in Sources */,
 				3A8283E11C0580DF004E339F /* APBeautyMainViewController.swift in Sources */,
+				3AE378A81C0E95A3008B59FB /* PECropView.m in Sources */,
 				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
 				3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */,
 				3A8283D01C048004004E339F /* SSTask.swift in Sources */,
 				3ADC4D351BF8BD7B008B0440 /* CustumPhotoAlbum.swift in Sources */,
 				3A6829C21C069D0A0011B3D8 /* Extension.swift in Sources */,
+				3AE378A71C0E95A3008B59FB /* PECropRectView.m in Sources */,
 				3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */,
+				3AE378AB1C0E95A3008B59FB /* UIImage+PECrop.m in Sources */,
 				3ADBF6A31BEF886A004E58F6 /* APCameraFilterCollectionView.swift in Sources */,
 				3A6829C41C069E080011B3D8 /* SSButton.swift in Sources */,
 				3ADC4D2E1BF89E54008B0440 /* APPhotoBrowseViewController.swift in Sources */,
