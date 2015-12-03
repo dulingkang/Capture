@@ -43,12 +43,14 @@ class FilteredImageView: GLKView, ParameterAdjustmentDelegate {
     }
 
     override func drawRect(rect: CGRect) {
+
         if ciContext != nil && inputImage != nil && filter != nil {
             let inputCIImage = CIImage(image: inputImage)
             filter.setValue(inputCIImage, forKey: kCIInputImageKey)
             if let outputImage = filter.outputImage {
                 clearBackground()
-                self.outputImage = UIImage(CIImage: outputImage)
+                let cgImage = ciContext.createCGImage(filter.outputImage!, fromRect: inputCIImage!.extent)
+                self.outputImage = UIImage(CGImage: cgImage)
 
                 let inputBounds = inputCIImage!.extent
                 let drawableBounds = CGRect(x: 0, y: 0, width: self.drawableWidth, height: self.drawableHeight)

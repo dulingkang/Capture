@@ -11,10 +11,10 @@ import UIKit
 protocol FilterDetailViewControllerDelegate {
     func filterFinished(image: UIImage)
 }
-class FilterDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, APCancelConfirmViewDelegate, ParameterAdjustmentDelegate {
+class FilterDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, APCancelConfirmViewDelegate {
     var filterName: String!
     var filter: CIFilter!
-    var filteredImageView: APBeautyMainMiddleScrollView!
+    var filteredImageView: FilteredImageView!
     var parameterAdjustmentView: ParameterAdjustmentView!
     var delegate: FilterDetailViewControllerDelegate?
     var image: UIImage?
@@ -37,15 +37,11 @@ class FilterDetailViewController: UIViewController, UINavigationControllerDelega
     }
     
     func confirmButtonPressed() {
-        ImageModel.sharedInstance.currentImage = self.generateImage()
+        ImageModel.sharedInstance.currentImage = self.filteredImageView.outputImage
         let controllers = self.navigationController?.viewControllers
         self.navigationController?.popToViewController(controllers![controllers!.count - 3], animated: true)
     }
     
-    func parameterValueDidChange(parameter: ScalarFilterParameter) {
-        filter.setValue(parameter.currentValue, forKey: parameter.key)
-        self.filteredImageView.imageView.image = self.generateImage()
-    }
     
     func filterParameterDescriptors() -> [ScalarFilterParameter] {
         let inputNames = (filter.inputKeys as [String]).filter { (parameterName) -> Bool in
@@ -75,12 +71,13 @@ class FilterDetailViewController: UIViewController, UINavigationControllerDelega
         topView.title = filter.attributes[kCIAttributeFilterDisplayName] as! String
         self.view.addSubview(topView)
         
-        filteredImageView = APBeautyMainMiddleScrollView.init(frame: CGRectMake(0, kNavigationHeight, kScreenWidth, kScreenHeight*0.6))
+        filteredImageView = FilteredImageView.init(frame: CGRectMake(0, kNavigationHeight, kScreenWidth, kScreenHeight*0.6))
         if kScreenHeight == kIphone4sHeight {
             filteredImageView.frame = CGRectMake(0, kNavigationHeight, kScreenWidth, kScreenHeight*0.54)
         }
-        self.inputImage = CIImage(image: ImageModel.sharedInstance.currentImage!)
-        filter.setValue(self.inputImage, forKey: "inputImage")
+        filteredImageView.filter = filter
+        filteredImageView.inputImage = ImageModel.sharedInstance.currentImage!
+        filteredImageView.contentMode = .ScaleAspectFit
         filteredImageView.clipsToBounds = true
         filteredImageView.backgroundColor = view.backgroundColor
         view.addSubview(filteredImageView)
@@ -89,16 +86,7 @@ class FilterDetailViewController: UIViewController, UINavigationControllerDelega
         if kScreenHeight == kIphone4sHeight {
             parameterAdjustmentView.frame = CGRectMake(0, filteredImageView.height + 5, kScreenWidth, self.view.height/2)
         }
-        parameterAdjustmentView.setAdjustmentDelegate(self)
+        parameterAdjustmentView.setAdjustmentDelegate(self.filteredImageView)
         view.addSubview(parameterAdjustmentView)
     }
-    
-    func generateImage() -> UIImage? {
-        let ciContext = CIContext(options: nil)
-        let cgImage = ciContext.createCGImage(filter.outputImage!, fromRect: self.inputImage!.extent)
-        let image = UIImage(CGImage: cgImage)
-        return image
-    }
-    
-    
 }
