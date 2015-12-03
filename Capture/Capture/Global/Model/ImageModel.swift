@@ -8,9 +8,11 @@
 
 import UIKit
 
+let kCurrentImage = "currentImage"
 class ImageModel: NSObject {
     
     var rawImage: UIImage?
+    dynamic var currentImage: UIImage?
     var scaledImage: UIImage?
     
     class var sharedInstance: ImageModel {

@@ -1,5 +1,5 @@
 //
-//  APBottomCancelConfirmView.swift
+//  APCancelConfirmView.swift
 //  Capture
 //
 //  Created by ShawnDu on 15/11/26.
@@ -8,22 +8,19 @@
 
 import UIKit
 
-protocol APBottomCancelConfirmViewDelegate {
+protocol APCancelConfirmViewDelegate {
     func cancelButtonPressed()
     func confirmButtonPressed()
 }
 
-class APBottomCancelConfirmView: UIView {
+class APCancelConfirmView: UIView {
 
-    var apBottomCancelConfirmViewDelegate: APBottomCancelConfirmViewDelegate?
+    var delegate: APCancelConfirmViewDelegate?
     var titleLabel: UILabel!
     let kLabelWidth: CGFloat = 200
-    var title: String? {
-        set {
+    var title = "" {
+        didSet {
             self.updateLabelFrame()
-        }
-        get {
-            return self.title
         }
     }
     
@@ -40,15 +37,16 @@ class APBottomCancelConfirmView: UIView {
         self.backgroundColor = UIColor.clearColor()
         self.addCancelButton()
         self.addConfirmButton()
+        self.addTitleLabel()
     }
     
     //MARK: - event response
     func cancelButtonPressed(sender: UIButton) {
-        self.apBottomCancelConfirmViewDelegate?.cancelButtonPressed()
+        self.delegate?.cancelButtonPressed()
     }
     
     func confirmButtonPressed(sender: UIButton) {
-        self.apBottomCancelConfirmViewDelegate?.confirmButtonPressed()
+        self.delegate?.confirmButtonPressed()
     }
     
     //MARK: - private method
@@ -61,7 +59,7 @@ class APBottomCancelConfirmView: UIView {
     }
     
     private func addConfirmButton() {
-        let confirmButton = UIButton.init(frame: CGRectMake(0, self.width - kButtonClickWidth, kButtonClickWidth, kButtonClickWidth))
+        let confirmButton = UIButton.init(frame: CGRectMake(self.width - kButtonClickWidth, 0, kButtonClickWidth, kButtonClickWidth))
         confirmButton.setImage(UIImage(named: "confirmNormal"), forState: UIControlState.Normal)
         confirmButton.setImage(UIImage(named: "confirmPress"), forState: UIControlState.Highlighted)
         confirmButton.addTarget(self, action: "confirmButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -71,6 +69,8 @@ class APBottomCancelConfirmView: UIView {
     private func addTitleLabel() {
         self.titleLabel = UILabel.init()
         self.titleLabel.font = UIFont.systemFontOfSize(12)
+        self.titleLabel.textColor = UIColor.whiteColor()
+        self.addSubview(self.titleLabel)
         self.updateLabelFrame()
     }
     

@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, HomeViewDelegate, UIImagePickerContr
             
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             ImageModel.sharedInstance.rawImage = image
+            ImageModel.sharedInstance.currentImage = image
             let beautyMainVC = APBeautyMainViewController.init()
             self.navigationController?.pushViewController(beautyMainVC, animated: true)
             picker.dismissViewControllerAnimated(true, completion: {

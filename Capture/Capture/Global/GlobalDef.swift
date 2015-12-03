@@ -11,6 +11,7 @@ import Foundation
 
 let kScreenWidth = UIScreen.mainScreen().bounds.size.width
 let kScreenHeight = UIScreen.mainScreen().bounds.size.height
+let kIphone4sHeight: CGFloat = 480
 let kNavigationHeight: CGFloat = 44
 let kButtonClickWidth: CGFloat = 40
  // 判断系统版本

@@ -72,6 +72,9 @@ class SSTask: NSObject {
     }
     
     private func saveImage(img: UIImage) {
+        if self.imageFileName == nil {
+            self.imageFileName = self.generateFileName()
+        }
         let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName!
         if !NSFileManager.defaultManager().fileExistsAtPath(path) {
             let data = UIImagePNGRepresentation(img)

@@ -13,10 +13,11 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     var mainTopView: APBeautyMainTopView!
     var mainMiddleView: APBeautyMainMiddleView!
     var mainBottomView: APBeautyMainBottomView!
-    var currentImage: UIImage!
     static let ajustBottomHeight: CGFloat = 90
     var taskManager: SSTaskManager!
     var task: SSTask!
+    var currentImage: UIImage?
+    var isNeedAddTask = true
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
@@ -24,18 +25,25 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.navigationController?.setToolbarHidden(true, animated: false)
     }
     
+    deinit {
+        ImageModel.sharedInstance.removeObserver(self, forKeyPath: kCurrentImage)
+    }
+    
     override func viewDidLoad() {
         
         self.addMainTopView()
         self.addMainMiddleView()
         self.addMainBottomView()
-        
         self.createTaskManager()
-        self.updateUndoRedoButtonStates()
-        self.addTask(ImageModel.sharedInstance.rawImage!)
-        self.currentImage = ImageModel.sharedInstance.rawImage!
+        self.addTask(ImageModel.sharedInstance.currentImage!)
+        ImageModel.sharedInstance.addObserver(self, forKeyPath: kCurrentImage, options: .New, context: nil)
     }
     
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == kCurrentImage {
+            self.updateImageView()
+        }
+    }
     //MARK: - delegate
     //MARK: beautyMainTopView buttons delegate
     func backButtonPressed(sender: UIButton) {
@@ -45,21 +53,21 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     func undoButtonPressed(sender: UIButton) {
         if let task = taskManager.undo() {
             if let image = task.image {
-                self.currentImage = image
-                self.updateImageView(image)
+                self.isNeedAddTask = false
+                ImageModel.sharedInstance.currentImage = image
             }
+            self.updateUndoRedoButtonStates()
         }
-        self.updateUndoRedoButtonStates()
     }
     
     func redoButtonPressed(sender: UIButton) {
         if let task = taskManager.redo() {
             if let image = task.image {
-                self.currentImage = image
-                self.updateImageView(image)
+                self.isNeedAddTask = false
+                ImageModel.sharedInstance.currentImage = image
             }
+            self.updateUndoRedoButtonStates()
         }
-        self.updateUndoRedoButtonStates()
     }
     
     func shareButtonPressed(sender: UIButton) {
@@ -69,10 +77,13 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     //MARK: beautyMainMiddleView delegate
     func compareImageViewTaped(long: UILongPressGestureRecognizer) {
         if long.state == .Began || long.state == .Changed{
-            self.updateImageView(ImageModel.sharedInstance.rawImage!)
-
+            self.currentImage = ImageModel.sharedInstance.currentImage
+            self.isNeedAddTask = false
+            ImageModel.sharedInstance.currentImage = ImageModel.sharedInstance.rawImage
+            
         } else if long.state == .Ended || long.state == .Cancelled {
-            self.updateImageView(self.currentImage)
+            self.isNeedAddTask = false
+            ImageModel.sharedInstance.currentImage = self.currentImage
         }
     }
 
@@ -84,9 +95,9 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
             case .Edit:
                 let editVC = PECropViewController.init()
                 editVC.delegate = self
-                editVC.image = self.currentImage
                 
-                let image = self.currentImage
+                let image = ImageModel.sharedInstance.currentImage
+                editVC.image = image
                 let width = image!.width
                 let height = image!.height
                 let length = min(width, height)
@@ -94,6 +105,8 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 self.navigationController?.pushViewController(editVC, animated: true)
                 break
             case .Filter:
+                let filterListVC = FilterListViewController.init()
+                self.navigationController?.pushViewController(filterListVC, animated: true)
                 break
             case .Magic:
                 break
@@ -112,9 +125,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     
     //MARK: PECropViewController delegate
     func cropViewController(controller: PECropViewController!, didFinishCroppingImage croppedImage: UIImage!) {
-        self.currentImage = croppedImage
-        self.addTask(croppedImage)
-        self.updateImageView(self.currentImage)
+        ImageModel.sharedInstance.currentImage = croppedImage
     }
     
     //MARK: - private method
@@ -136,8 +147,12 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.view.addSubview(self.mainBottomView)
     }
     
-    private func updateImageView(image: UIImage) {
-        self.mainMiddleView.apMainMiddleScrollView.imageView.image = image
+    private func updateImageView() {
+        if isNeedAddTask {
+            self.addTask(ImageModel.sharedInstance.currentImage!)
+        }
+        self.isNeedAddTask = true
+        self.mainMiddleView.apMainMiddleScrollView.imageView.image = ImageModel.sharedInstance.currentImage
     }
     
     private func createTaskManager() {
