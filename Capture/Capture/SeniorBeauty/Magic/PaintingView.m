@@ -88,20 +88,20 @@
  */
 - (UIImage *)getImageAtEachPoint
 {
-//    int index = 1;
-//    //curpoint处需要画的随机图片名
-//    NSString *picName = [NSString stringWithFormat:@"%@_%d.png",self.stampPicName,index];
-//    
+    int index = 1;
+    //curpoint处需要画的随机图片名
+    NSString *picName = [NSString stringWithFormat:@"%@_%d.png",self.stampPicName,index];
+    
 //    index = [Common getRandomNumber:30 to:80];//随机大小
-//    UIImage *curImage = [UIImage imageNamed:picName];
+    UIImage *curImage = [UIImage imageNamed:picName];
 //    float height = curImage.size.height * maxScaleRatio_ /100.0 * index  /100.0;
 //    float width = curImage.size.width * maxScaleRatio_/100.0 *index/100.0;
-//    layerSize_ = CGSizeMake(width, height);
-//    imageSize_ = ccpDistance(CGPointMake(0, 0), CGPointMake(width, height));
-//    
-//    //curpoint处需要画的图片旋转角度
+    layerSize_ = CGSizeMake(40, 40);
+    imageSize_ = ccpDistance(CGPointMake(0, 0), CGPointMake(40, 40));
+    
+    //curpoint处需要画的图片旋转角度
 //    curImage = [curImage imageRotatedByDegrees:[Common getRandomNumber:0 to:35] * 10];
-//    return curImage;
+    return curImage;
     return nil;
 }
 /**

@@ -113,7 +113,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 paintingView = PaintingView.init(frame: self.mainMiddleView.apMainMiddleScrollView.imageView.frame)
                 paintingView.backgroundColor = UIColor.clearColor()
                 self.mainMiddleView.apMainMiddleScrollView.addSubview(paintingView)
-                paintingView.setstampPicName("_pic0")
+                paintingView.setstampPicName("pic_0")
                 paintingView.imageSize = 30
                 break
             case .Frame:
