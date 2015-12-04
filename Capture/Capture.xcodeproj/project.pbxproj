@@ -45,6 +45,9 @@
 		3A7A3EA21BF7015E00DC5BC9 /* lookupZiran.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7A3EA01BF7015E00DC5BC9 /* lookupZiran.png */; };
 		3A8283D01C048004004E339F /* SSTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283CF1C048004004E339F /* SSTask.swift */; };
 		3A8283D51C0561C5004E339F /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283D41C0561C5004E339F /* ImageModel.swift */; };
+		3AAE5D611C11AB6900BAEFD8 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE5D5F1C11AB6900BAEFD8 /* PaintingView.m */; };
+		3AAE5D6A1C11B52E00BAEFD8 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE5D691C11B52E00BAEFD8 /* CGPointExtension.m */; };
+		3AAE5D6D1C11B55300BAEFD8 /* UIImage+extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE5D6C1C11B55300BAEFD8 /* UIImage+extend.m */; };
 		3AB67F8E1C0FEE7500D15A49 /* APBeautyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB67F851C0FEE7500D15A49 /* APBeautyMainViewController.swift */; };
 		3AB67F8F1C0FEE7500D15A49 /* APBottomButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB67F871C0FEE7500D15A49 /* APBottomButtonModel.swift */; };
 		3AB67F901C0FEE7500D15A49 /* APBeautyMainBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB67F891C0FEE7500D15A49 /* APBeautyMainBottomView.swift */; };
@@ -74,7 +77,6 @@
 		3ADC4D2E1BF89E54008B0440 /* APPhotoBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC4D2D1BF89E54008B0440 /* APPhotoBrowseViewController.swift */; };
 		3ADC4D331BF8B8E4008B0440 /* APImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC4D321BF8B8E4008B0440 /* APImageHelper.swift */; };
 		3ADC4D351BF8BD7B008B0440 /* CustumPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC4D341BF8BD7B008B0440 /* CustumPhotoAlbum.swift */; };
-		3ADEB28B1C1089E40093A7A9 /* APPaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADEB28A1C1089E40093A7A9 /* APPaintView.swift */; };
 		3AE29F911BEB9A530089DE57 /* OpenShare+Alipay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */; };
 		3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F811BEB9A530089DE57 /* OpenShare+QQ.m */; };
 		3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE29F831BEB9A530089DE57 /* OpenShare+Renren.m */; };
@@ -185,6 +187,12 @@
 		3A7A3EA01BF7015E00DC5BC9 /* lookupZiran.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookupZiran.png; sourceTree = "<group>"; };
 		3A8283CF1C048004004E339F /* SSTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSTask.swift; sourceTree = "<group>"; };
 		3A8283D41C0561C5004E339F /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		3AAE5D5E1C11AB6900BAEFD8 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingView.h; sourceTree = "<group>"; };
+		3AAE5D5F1C11AB6900BAEFD8 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
+		3AAE5D681C11B52E00BAEFD8 /* CGPointExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointExtension.h; sourceTree = "<group>"; };
+		3AAE5D691C11B52E00BAEFD8 /* CGPointExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPointExtension.m; sourceTree = "<group>"; };
+		3AAE5D6B1C11B55300BAEFD8 /* UIImage+extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+extend.h"; sourceTree = "<group>"; };
+		3AAE5D6C1C11B55300BAEFD8 /* UIImage+extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+extend.m"; sourceTree = "<group>"; };
 		3AB67F851C0FEE7500D15A49 /* APBeautyMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainViewController.swift; sourceTree = "<group>"; };
 		3AB67F871C0FEE7500D15A49 /* APBottomButtonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBottomButtonModel.swift; sourceTree = "<group>"; };
 		3AB67F891C0FEE7500D15A49 /* APBeautyMainBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBeautyMainBottomView.swift; sourceTree = "<group>"; };
@@ -215,7 +223,6 @@
 		3ADC4D2D1BF89E54008B0440 /* APPhotoBrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPhotoBrowseViewController.swift; sourceTree = "<group>"; };
 		3ADC4D321BF8B8E4008B0440 /* APImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APImageHelper.swift; sourceTree = "<group>"; };
 		3ADC4D341BF8BD7B008B0440 /* CustumPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustumPhotoAlbum.swift; sourceTree = "<group>"; };
-		3ADEB28A1C1089E40093A7A9 /* APPaintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPaintView.swift; sourceTree = "<group>"; };
 		3AE29F7E1BEB9A530089DE57 /* OpenShare+Alipay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+Alipay.h"; sourceTree = "<group>"; };
 		3AE29F7F1BEB9A530089DE57 /* OpenShare+Alipay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OpenShare+Alipay.m"; sourceTree = "<group>"; };
 		3AE29F801BEB9A530089DE57 /* OpenShare+QQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OpenShare+QQ.h"; sourceTree = "<group>"; };
@@ -568,25 +575,14 @@
 		3ADEB2851C10897B0093A7A9 /* Magic */ = {
 			isa = PBXGroup;
 			children = (
-				3ADEB2891C1089B70093A7A9 /* Controller */,
-				3ADEB2881C1089B00093A7A9 /* View */,
+				3AAE5D6B1C11B55300BAEFD8 /* UIImage+extend.h */,
+				3AAE5D6C1C11B55300BAEFD8 /* UIImage+extend.m */,
+				3AAE5D681C11B52E00BAEFD8 /* CGPointExtension.h */,
+				3AAE5D691C11B52E00BAEFD8 /* CGPointExtension.m */,
+				3AAE5D5E1C11AB6900BAEFD8 /* PaintingView.h */,
+				3AAE5D5F1C11AB6900BAEFD8 /* PaintingView.m */,
 			);
 			path = Magic;
-			sourceTree = "<group>";
-		};
-		3ADEB2881C1089B00093A7A9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3ADEB28A1C1089E40093A7A9 /* APPaintView.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		3ADEB2891C1089B70093A7A9 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 		3AE29F7A1BEB9A020089DE57 /* Lib */ = {
@@ -826,6 +822,7 @@
 				3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */,
 				3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */,
 				3AB67FA71C10191000D15A49 /* APCancelConfirmView.swift in Sources */,
+				3AAE5D611C11AB6900BAEFD8 /* PaintingView.m in Sources */,
 				3AE29F961BEB9A530089DE57 /* OpenShare.m in Sources */,
 				3ADA68FE1C04AC5E0036A573 /* SSTaskManager.swift in Sources */,
 				3AE378AA1C0E95A3008B59FB /* PEResizeControl.m in Sources */,
@@ -837,17 +834,18 @@
 				3AE378A81C0E95A3008B59FB /* PECropView.m in Sources */,
 				3AB67FA41C0FEF0F00D15A49 /* ParameterAdjustmentView.swift in Sources */,
 				3AB67F901C0FEE7500D15A49 /* APBeautyMainBottomView.swift in Sources */,
-				3ADEB28B1C1089E40093A7A9 /* APPaintView.swift in Sources */,
 				3AE29F941BEB9A530089DE57 /* OpenShare+Weibo.m in Sources */,
 				3AB67F8E1C0FEE7500D15A49 /* APBeautyMainViewController.swift in Sources */,
 				3AE29F921BEB9A530089DE57 /* OpenShare+QQ.m in Sources */,
 				3AB67F9A1C0FEEF600D15A49 /* ScalarFilterParameter.swift in Sources */,
 				3A8283D01C048004004E339F /* SSTask.swift in Sources */,
 				3ADC4D351BF8BD7B008B0440 /* CustumPhotoAlbum.swift in Sources */,
+				3AAE5D6D1C11B55300BAEFD8 /* UIImage+extend.m in Sources */,
 				3A6829C21C069D0A0011B3D8 /* Extension.swift in Sources */,
 				3AE378A71C0E95A3008B59FB /* PECropRectView.m in Sources */,
 				3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */,
 				3AB67F921C0FEE7500D15A49 /* APBeautyMainMiddleView.swift in Sources */,
+				3AAE5D6A1C11B52E00BAEFD8 /* CGPointExtension.m in Sources */,
 				3AE378AB1C0E95A3008B59FB /* UIImage+PECrop.m in Sources */,
 				3ADBF6A31BEF886A004E58F6 /* APCameraFilterCollectionView.swift in Sources */,
 				3A6829C41C069E080011B3D8 /* SSButton.swift in Sources */,
@@ -977,6 +975,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Capture/Resource/Info.plist";
@@ -1002,6 +1001,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = NO;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Capture/Resource/Info.plist";

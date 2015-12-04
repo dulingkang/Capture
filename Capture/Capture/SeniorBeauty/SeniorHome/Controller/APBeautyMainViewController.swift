@@ -18,6 +18,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     var task: SSTask!
     var currentImage: UIImage?
     var isNeedAddTask = true
+    var paintingView: PaintingView!
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
@@ -109,6 +110,11 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 self.navigationController?.pushViewController(filterListVC, animated: true)
                 break
             case .Magic:
+                paintingView = PaintingView.init(frame: self.mainMiddleView.apMainMiddleScrollView.imageView.frame)
+                paintingView.backgroundColor = UIColor.clearColor()
+                self.mainMiddleView.apMainMiddleScrollView.addSubview(paintingView)
+                paintingView.setstampPicName("_pic0")
+                paintingView.imageSize = 30
                 break
             case .Frame:
                 break
