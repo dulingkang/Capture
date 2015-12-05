@@ -8,7 +8,7 @@
 
 import UIKit
 
-class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate, PECropViewControllerDelegate, APShowItemScrollViewDelegate {
+class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate, PECropViewControllerDelegate, APShowItemScrollViewDelegate, APCancelConfirmViewDelegate {
 
     var mainTopView: APBeautyMainTopView!
     var mainMiddleView: APBeautyMainMiddleView!
@@ -94,6 +94,15 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         }
     }
 
+    //MARK: cancelConfirm view delegate
+    func cancelButtonPressed() {
+        self.resetBeautyMainViewWithAnimation()
+    }
+    
+    func confirmButtonPressed() {
+        self.resetBeautyMainViewWithAnimation()
+    }
+    
     //MARK: beautyMainBottomView delegate
     func beautyBottomButtonPressed(sender: UIButton) {
         let buttonTag = sender.tag - kBeautyMainBottomButtonStartTag
@@ -122,12 +131,13 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                     nameArray.append(string)
                 }
                 self.addItemScrollView(nameArray, identifier: "pic")
+                self.addCancelConfirmView((sender.titleLabel?.text)!)
+                self.switchToDetailViewWithAnimation()
                 paintingView = PaintingView.init(frame: self.mainMiddleView.apMainMiddleScrollView.imageView.frame)
                 paintingView.backgroundColor = UIColor.clearColor()
                 self.mainMiddleView.apMainMiddleScrollView.addSubview(paintingView)
                 paintingView.setstampPicName("pic0")
                 paintingView.imageSize = 30
-                self.addCancelConfirmView()
                 break
             case .Frame:
                 break
@@ -177,6 +187,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     private func addCancelConfirmView(title: String) {
         cancelConfirmView = APCancelConfirmView.init(frame: CGRectMake(0, -kNavigationHeight, kScreenWidth, kNavigationHeight))
         cancelConfirmView.title = title
+        cancelConfirmView.delegate = self
         self.view.addSubview(cancelConfirmView)
     }
     
@@ -207,21 +218,33 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.mainTopView.redoButton.enabled = self.taskManager.redoable()
     }
     
-    private func itemScrollViewAppearWithAnimation() {
-        UIView.animateWithDuration(0.5) { () -> Void in
-            self.itemScrollView.frame = CGRectMake(0, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight)
-        }
-    }
-    
     private func switchToDetailViewWithAnimation() {
         UIView.animateWithDuration(0.3, animations: { () -> Void in
-            self.mainBottomView.frame = CGRectMake(self.mainBottomView.frame.origin.x, kScreenHeight, self.mainBottomView.width, self.mainBottomView.height)
-            self.mainTopView.frame = CGRectMake(self.mainTopView.frame.origin.x, -self.mainTopView.height, self.mainTopView.width, self.mainTopView.height)
+            self.mainBottomView.setY(kScreenHeight)
+            self.mainTopView.setY(-self.mainTopView.height)
             }) { (complete) -> Void in
                 if complete {
-                    self.itemScrollViewAppearWithAnimation()
+                    UIView.animateWithDuration(0.3) { () -> Void in
+                        self.itemScrollView.setY(kScreenHeight - kBeautyMainBottomHeight)
+                        self.cancelConfirmView.setY(0)
+                    }
                 }
         }
     }
-
+    
+    private func resetBeautyMainViewWithAnimation() {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.itemScrollView.alpha = 0.0
+            self.cancelConfirmView.alpha = 0.0
+            }) { (complete) -> Void in
+                if complete {
+                    self.itemScrollView.removeFromSuperview()
+                    self.cancelConfirmView.removeFromSuperview()
+                    UIView.animateWithDuration(0.3) { () -> Void in
+                        self.mainBottomView.setY(kScreenHeight - kBeautyMainBottomHeight)
+                        self.mainTopView.setY(0)
+                    }
+                }
+        }
+    }
 }

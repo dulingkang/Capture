@@ -39,6 +39,26 @@ extension UIView {
     var left: CGFloat {
         return self.frame.origin.x
     }
+    
+    func setX(x: CGFloat) {
+        self.frame = CGRectMake(x, self.frame.origin.y, self.frame.size.width, self.frame.size.height)
+    }
+    
+    func setY(y: CGFloat) {
+        self.frame = CGRectMake(self.frame.origin.x, y, self.frame.size.width, self.frame.size.height)
+    }
+    
+    func setWidth(width: CGFloat) {
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, width, self.frame.size.height)
+    }
+    
+    func setHeight(height: CGFloat) {
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height)
+    }
+    
+    func setSize(size: CGSize) {
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width, size.height)
+    }
 }
 
 extension UIImage {
