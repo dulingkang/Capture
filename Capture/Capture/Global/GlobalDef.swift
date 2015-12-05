@@ -97,4 +97,5 @@ let kBeautyMainBottomButtonStartTag: Int = 11020
 10000 - 10999             CamerFilter
 11000 - 11019             CameraViewTopButton
 11020 - 11029             BeautyMainBottomButton
+11030 - 11059             APShowItemScrollView
 */

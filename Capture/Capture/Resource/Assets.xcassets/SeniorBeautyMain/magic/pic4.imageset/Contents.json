@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "redoGrayMagic.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "redoGrayMagic@2x.png",
+      "filename" : "pic_4_1@2x.png",
       "scale" : "2x"
     },
     {

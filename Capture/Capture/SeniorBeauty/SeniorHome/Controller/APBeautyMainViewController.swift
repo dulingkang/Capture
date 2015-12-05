@@ -8,7 +8,7 @@
 
 import UIKit
 
-class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate, PECropViewControllerDelegate {
+class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate, PECropViewControllerDelegate, APShowItemScrollViewDelegate {
 
     var mainTopView: APBeautyMainTopView!
     var mainMiddleView: APBeautyMainMiddleView!
@@ -19,6 +19,8 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     var currentImage: UIImage?
     var isNeedAddTask = true
     var paintingView: PaintingView!
+    var itemScrollView: APShowItemScrollView!
+    var cancelConfirmView: APCancelConfirmView!
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
@@ -75,6 +77,10 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         
     }
     
+    func itemScrollButtonPressed(sender: UIButton) {
+        paintingView.setstampPicName(self.itemScrollView.imageIdentitier! + String(sender.tag - kItemScrollViewStartTag))
+    }
+    
     //MARK: beautyMainMiddleView delegate
     func compareImageViewTaped(long: UILongPressGestureRecognizer) {
         if long.state == .Began || long.state == .Changed{
@@ -110,11 +116,18 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 self.navigationController?.pushViewController(filterListVC, animated: true)
                 break
             case .Magic:
+                var nameArray: [String] = []
+                for i in 0...6 {
+                    let string = "pic" + String(i)
+                    nameArray.append(string)
+                }
+                self.addItemScrollView(nameArray, identifier: "pic")
                 paintingView = PaintingView.init(frame: self.mainMiddleView.apMainMiddleScrollView.imageView.frame)
                 paintingView.backgroundColor = UIColor.clearColor()
                 self.mainMiddleView.apMainMiddleScrollView.addSubview(paintingView)
-                paintingView.setstampPicName("pic_0")
+                paintingView.setstampPicName("pic0")
                 paintingView.imageSize = 30
+                self.addCancelConfirmView()
                 break
             case .Frame:
                 break
@@ -135,6 +148,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     }
     
     //MARK: - private method
+    //MARK: add views
     private func addMainTopView() {
         self.mainTopView = APBeautyMainTopView.init(frame: CGRectMake(0, 0, kScreenWidth, kNavigationHeight))
         self.mainTopView.apBeautyTopViewDelegate = self
@@ -153,6 +167,20 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.view.addSubview(self.mainBottomView)
     }
     
+    private func addItemScrollView(nameArray: [String], identifier: String ) {
+        itemScrollView = APShowItemScrollView.init(frame: CGRectMake(0, kScreenHeight, kScreenWidth, kBeautyMainBottomHeight), imageNameArray: nameArray)
+        itemScrollView.imageIdentitier = identifier
+        itemScrollView.itemScrolldelegate = self
+        self.view.addSubview(itemScrollView)
+    }
+    
+    private func addCancelConfirmView(title: String) {
+        cancelConfirmView = APCancelConfirmView.init(frame: CGRectMake(0, -kNavigationHeight, kScreenWidth, kNavigationHeight))
+        cancelConfirmView.title = title
+        self.view.addSubview(cancelConfirmView)
+    }
+    
+    //MARK: other private method
     private func updateImageView() {
         if isNeedAddTask {
             self.addTask(ImageModel.sharedInstance.currentImage!)
@@ -177,6 +205,23 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     private func updateUndoRedoButtonStates() {
         self.mainTopView.undoButton.enabled = self.taskManager.undoable()
         self.mainTopView.redoButton.enabled = self.taskManager.redoable()
+    }
+    
+    private func itemScrollViewAppearWithAnimation() {
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.itemScrollView.frame = CGRectMake(0, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight)
+        }
+    }
+    
+    private func switchToDetailViewWithAnimation() {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.mainBottomView.frame = CGRectMake(self.mainBottomView.frame.origin.x, kScreenHeight, self.mainBottomView.width, self.mainBottomView.height)
+            self.mainTopView.frame = CGRectMake(self.mainTopView.frame.origin.x, -self.mainTopView.height, self.mainTopView.width, self.mainTopView.height)
+            }) { (complete) -> Void in
+                if complete {
+                    self.itemScrollViewAppearWithAnimation()
+                }
+        }
     }
 
 }

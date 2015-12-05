@@ -30,6 +30,7 @@
 		3A5C84AD1BEC546800712ED1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AC1BEC546800712ED1 /* MessageUI.framework */; };
 		3A5C84AF1BEC547D00712ED1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */; };
 		3A5C84B31BECCB4100712ED1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84B21BECCB4100712ED1 /* HomeView.swift */; };
+		3A648BB01C127C1D00075159 /* APShowItemScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A648BAF1C127C1D00075159 /* APShowItemScrollView.swift */; };
 		3A6829C21C069D0A0011B3D8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6829C11C069D0A0011B3D8 /* Extension.swift */; };
 		3A6829C41C069E080011B3D8 /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6829C31C069E080011B3D8 /* SSButton.swift */; };
 		3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A784D3F1BF5BB0E00F679D2 /* GPUImageCustomLookupFilter.swift */; };
@@ -175,6 +176,7 @@
 		3A5C84AC1BEC546800712ED1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3A5C84AE1BEC547D00712ED1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		3A5C84B21BECCB4100712ED1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3A648BAF1C127C1D00075159 /* APShowItemScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APShowItemScrollView.swift; sourceTree = "<group>"; };
 		3A6829C11C069D0A0011B3D8 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		3A6829C31C069E080011B3D8 /* SSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSButton.swift; sourceTree = "<group>"; };
 		3A784D3F1BF5BB0E00F679D2 /* GPUImageCustomLookupFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPUImageCustomLookupFilter.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				3AB67FA61C10191000D15A49 /* APCancelConfirmView.swift */,
+				3A648BAF1C127C1D00075159 /* APShowItemScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 				3ADBF6A31BEF886A004E58F6 /* APCameraFilterCollectionView.swift in Sources */,
 				3A6829C41C069E080011B3D8 /* SSButton.swift in Sources */,
 				3ADC4D2E1BF89E54008B0440 /* APPhotoBrowseViewController.swift in Sources */,
+				3A648BB01C127C1D00075159 /* APShowItemScrollView.swift in Sources */,
 				3AE29F951BEB9A530089DE57 /* OpenShare+Weixin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
