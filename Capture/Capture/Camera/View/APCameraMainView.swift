@@ -73,7 +73,7 @@ class APCameraMainView: UIView {
         if self.numberLabel == nil {
             self.numberLabel = UILabel.init(frame: CGRectMake(0, 0, 28, 16))
             self.numberLabel?.center = CGPointMake(self.previewImageView!.right, self.previewImageView!.top)
-            self.numberLabel?.backgroundColor = kRGBA(0.918, g: 0.333, b: 0.329, a: 1.0)
+            self.numberLabel?.backgroundColor = UIColor(red: 0.918, green: 0.333, blue: 0.329, alpha: 1.0)
             self.numberLabel?.layer.cornerRadius = 8
             self.numberLabel?.layer.masksToBounds = true
             self.numberLabel?.textColor = UIColor.whiteColor()
