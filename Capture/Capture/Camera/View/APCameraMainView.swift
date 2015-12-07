@@ -118,7 +118,7 @@ class APCameraMainView: UIView {
     
     //MARK: - private method
     func initViews() {
-        self.backgroundColor = kRGBA(0.447, g: 0.894, b: 0.973, a: 1.0)
+        self.backgroundColor = UIColor(red: 0.447, green: 0.894, blue: 0.973, alpha: 1.0)
         self.addPreView()
         self.addTopView()
         self.addSliderView()

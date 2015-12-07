@@ -18,10 +18,6 @@ let kButtonClickWidth: CGFloat = 40
 func kIS_IOS7() ->Bool { return (UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 7.0 }
 func kIS_IOS8() -> Bool { return (UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 8.0 }
 
-// RGBA的颜色设置
-func kRGBA (r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor {
-    return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
-}
 // App沙盒路径
 func kAppPath() -> String! {
     return NSHomeDirectory()
