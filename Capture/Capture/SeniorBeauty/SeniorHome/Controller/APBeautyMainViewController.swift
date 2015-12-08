@@ -247,4 +247,5 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 }
         }
     }
+
 }
