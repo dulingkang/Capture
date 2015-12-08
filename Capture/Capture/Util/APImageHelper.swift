@@ -16,7 +16,7 @@ struct APImageHelper {
 
         let newSize = imageView.image!.size
 
-        UIGraphicsBeginImageContextWithOptions(newSize, true, 0)
+        UIGraphicsBeginImageContext(newSize)
         image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
         let outputImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

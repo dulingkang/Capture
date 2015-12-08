@@ -43,22 +43,26 @@ class SSTask: NSObject {
     }
     
     func cache() {
+        if self.imageFileName == nil {
+            self.imageFileName = self.generateFileName()
+        }
+        if self.image == nil {
+            self.prepare()
+        }
         self.saveImage(self.image!)
         self.image = nil
     }
     
     func clean() {
-        self.deleteImage()
+        if self.imageFileName != nil {
+            self.deleteImage()
+        }
         self.image = nil
         self.imageFileName = nil
     }
     
     //MARK: - private method
     private func loadImage() -> UIImage? {
-        
-        if self.imageFileName == nil {
-            self.imageFileName = self.generateFileName()
-        }
         
         let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName!
         let img = UIImage(contentsOfFile: path)
@@ -72,12 +76,9 @@ class SSTask: NSObject {
     }
     
     private func saveImage(img: UIImage) {
-        if self.imageFileName == nil {
-            self.imageFileName = self.generateFileName()
-        }
         let path = NSTemporaryDirectory() + "/" + kTaskCacheFolder + self.imageFileName!
         if !NSFileManager.defaultManager().fileExistsAtPath(path) {
-            let data = UIImagePNGRepresentation(img)
+            let data = UIImageJPEGRepresentation(img, 0.8)
             data?.writeToFile(path, atomically: true)
         }
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kCacheMark: Int = 2
+let kCacheMark: Int = 3
 
 class SSTaskManager: NSObject {
     

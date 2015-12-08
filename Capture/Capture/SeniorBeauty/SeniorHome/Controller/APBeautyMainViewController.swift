@@ -132,7 +132,9 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 self.addItemScrollView(nameArray, identifier: "pic")
                 self.addCancelConfirmView((sender.titleLabel?.text)!)
                 self.switchToDetailViewWithAnimation()
-                paintingView = PaintingView.init(frame: CGRectMake(0, 0, self.mainMiddleView.apMainMiddleScrollView.imageView.width, self.mainMiddleView.apMainMiddleScrollView.imageView.height))
+                if paintingView == nil {
+                    paintingView = PaintingView.init(frame: CGRectMake(0, 0, self.mainMiddleView.apMainMiddleScrollView.imageView.width, self.mainMiddleView.apMainMiddleScrollView.imageView.height))
+                }
                 paintingView!.backgroundColor = UIColor.clearColor()
                 self.mainMiddleView.apMainMiddleScrollView.imageView.addSubview(paintingView!)
                 paintingView!.setstampPicName("pic0")
@@ -223,7 +225,9 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     //MARK: other private method
     private func updateImageView() {
         if isNeedAddTask {
-            self.addTask(ImageModel.sharedInstance.currentImage!)
+            if ImageModel.sharedInstance.currentImage != nil {
+                self.addTask(ImageModel.sharedInstance.currentImage!)
+            }
         }
         self.isNeedAddTask = true
         self.mainMiddleView.apMainMiddleScrollView.imageView.image = ImageModel.sharedInstance.currentImage

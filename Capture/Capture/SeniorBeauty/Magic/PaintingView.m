@@ -68,10 +68,10 @@
     [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0f, 1.0f, 1.0f)]];
     
     animation.values = values;
-    animation.duration = 0.2;
+    animation.duration = 0.1;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [layer addAnimation:animation forKey:@"transform"];
-    layer.opacity = 0.5;
+    layer.opacity = 0.6;
     CALayer *superLayer = [[self.layer sublayers] lastObject];
     [superLayer addSublayer:layer];
 }
@@ -115,28 +115,28 @@
  */
 - (void)updateUndoAndRedo
 {
-    NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:1];
-    //是否可以进行撤销操作,[self.layer sublayers]中包含了imageview的layer，所以－1
-    if ([[self.layer sublayers] count] - 1 > 0)
-    {
-        [tempArray addObject:[NSNumber numberWithBool:YES]];
-    }
-    else
-    {
-        [tempArray addObject:[NSNumber numberWithBool:NO]];
-    }
-    
-    //是否可以进行恢复操作
-    if ([operationArray_ count] > 0)
-    {
-        [tempArray addObject:[NSNumber numberWithBool:YES]];
-    }
-    else
-    {
-        [tempArray addObject:[NSNumber numberWithBool:NO]];
-    }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateBtnImage" object:tempArray];
+//    NSMutableArray *tempArray = [NSMutableArray arrayWithCapacity:1];
+//    //是否可以进行撤销操作,[self.layer sublayers]中包含了imageview的layer，所以－1
+//    if ([[self.layer sublayers] count] - 1 > 0)
+//    {
+//        [tempArray addObject:[NSNumber numberWithBool:YES]];
+//    }
+//    else
+//    {
+//        [tempArray addObject:[NSNumber numberWithBool:NO]];
+//    }
+//    
+//    //是否可以进行恢复操作
+//    if ([operationArray_ count] > 0)
+//    {
+//        [tempArray addObject:[NSNumber numberWithBool:YES]];
+//    }
+//    else
+//    {
+//        [tempArray addObject:[NSNumber numberWithBool:NO]];
+//    }
+//    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateBtnImage" object:tempArray];
 
 }
 

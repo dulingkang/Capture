@@ -15,11 +15,6 @@ class ImageModel: NSObject {
     dynamic var currentImage: UIImage?
     var scaledImage: UIImage?
     
-    class var sharedInstance: ImageModel {
-        struct Singleton {
-            static let instance = ImageModel()
-        }
-        return Singleton.instance
-    }
+    static let sharedInstance = ImageModel()
 }
 

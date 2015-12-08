@@ -26,12 +26,7 @@ class FilterItem: NSObject {
 class FilterModel: NSObject {
     var filterList: [FilterItem] = []
     
-    class var sharedInstance: FilterModel {
-        struct Singleton {
-            static let instance = FilterModel()
-        }
-        return Singleton.instance
-    }
+    static let sharedInstance = FilterModel()
     
     override init() {
         super.init()
