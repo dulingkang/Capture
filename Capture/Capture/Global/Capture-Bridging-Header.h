@@ -13,5 +13,6 @@
 #import "BaiduMobAdSplash.h"
 #import "PECropViewController.h"
 #import "PaintingView.h"
+#import "FilterControl.h"
 
 #endif /* Capture_Bridging_Header_h */

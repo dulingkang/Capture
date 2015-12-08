@@ -8,19 +8,20 @@
 
 import UIKit
 
-class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate, PECropViewControllerDelegate, APShowItemScrollViewDelegate, APCancelConfirmViewDelegate {
+class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate, APBeautyMainMiddleViewDelegate, APBeautyMainBottomViewDelegate, PECropViewControllerDelegate, APShowItemScrollViewDelegate, APCancelConfirmViewDelegate, FilterControlDelegate {
 
     var mainTopView: APBeautyMainTopView!
     var mainMiddleView: APBeautyMainMiddleView!
     var mainBottomView: APBeautyMainBottomView!
-    static let ajustBottomHeight: CGFloat = 90
+    var mainBackBottomView: UIView!
     var taskManager: SSTaskManager!
     var task: SSTask!
     var isNeedAddTask = true
-    var paintingView: PaintingView!
-    var itemScrollView: APShowItemScrollView!
+    var paintingView: PaintingView?
+    var itemScrollView: APShowItemScrollView?
     var cancelConfirmView: APCancelConfirmView!
-    var mosaicView: APMosaicView!
+    var mosaicView: APMosaicView?
+    var filterControlView: FilterControl?
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
@@ -78,7 +79,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     }
     
     func itemScrollButtonPressed(sender: UIButton) {
-        paintingView.setstampPicName(self.itemScrollView.imageIdentitier! + String(sender.tag - kItemScrollViewStartTag))
+        paintingView!.setstampPicName(self.itemScrollView!.imageIdentitier! + String(sender.tag - kItemScrollViewStartTag))
     }
     
     //MARK: beautyMainMiddleView delegate
@@ -132,16 +133,19 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 self.addCancelConfirmView((sender.titleLabel?.text)!)
                 self.switchToDetailViewWithAnimation()
                 paintingView = PaintingView.init(frame: CGRectMake(0, 0, self.mainMiddleView.apMainMiddleScrollView.imageView.width, self.mainMiddleView.apMainMiddleScrollView.imageView.height))
-                paintingView.backgroundColor = UIColor.clearColor()
-                self.mainMiddleView.apMainMiddleScrollView.imageView.addSubview(paintingView)
-                paintingView.setstampPicName("pic0")
-                paintingView.imageSize = 30
+                paintingView!.backgroundColor = UIColor.clearColor()
+                self.mainMiddleView.apMainMiddleScrollView.imageView.addSubview(paintingView!)
+                paintingView!.setstampPicName("pic0")
+                paintingView!.imageSize = 30
                 break
             case .Frame:
                 break
             case .Mosaic:
                 self.addMosaicView()
-                mosaicView.setPathColor(UIColor.whiteColor(), strokeColor: UIColor.blackColor())
+                self.addCancelConfirmView((sender.titleLabel?.text)!)
+                self.addFilterControlView()
+                self.switchToDetailViewWithAnimation()
+                mosaicView!.setPathColor(UIColor.whiteColor(), strokeColor: UIColor.blackColor())
                 break
             case .Ballon:
                 break
@@ -155,6 +159,10 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     //MARK: PECropViewController delegate
     func cropViewController(controller: PECropViewController!, didFinishCroppingImage croppedImage: UIImage!) {
         ImageModel.sharedInstance.currentImage = croppedImage
+    }
+    
+    func selectedFilterIndex(index: Int) {
+        mosaicView!.sizeBrush = CGFloat(index) * 20.0
     }
     
     //MARK: - private method
@@ -175,13 +183,15 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         self.mainBottomView = APBeautyMainBottomView.init(frame: CGRectMake(10, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight))
         self.mainBottomView.apBeautyMainBottomViewdelegate = self
         self.view.addSubview(self.mainBottomView)
+        mainBackBottomView = UIView.init(frame: CGRectMake(0, kScreenHeight, kScreenWidth, kBeautyMainBottomHeight))
+        self.view.addSubview(mainBackBottomView)
     }
     
     private func addItemScrollView(nameArray: [String], identifier: String ) {
-        itemScrollView = APShowItemScrollView.init(frame: CGRectMake(0, kScreenHeight, kScreenWidth, kBeautyMainBottomHeight), imageNameArray: nameArray)
-        itemScrollView.imageIdentitier = identifier
-        itemScrollView.itemScrolldelegate = self
-        self.view.addSubview(itemScrollView)
+        itemScrollView = APShowItemScrollView.init(frame: CGRectMake(0, 0, kScreenWidth, kBeautyMainBottomHeight), imageNameArray: nameArray)
+        itemScrollView!.imageIdentitier = identifier
+        itemScrollView!.itemScrolldelegate = self
+        mainBackBottomView.addSubview(itemScrollView!)
     }
     
     private func addCancelConfirmView(title: String) {
@@ -194,13 +204,20 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     private func addMosaicView() {
         mosaicView = APMosaicView.init(frame: CGRectMake(0, 0, mainMiddleView.apMainMiddleScrollView.imageView.width, mainMiddleView.apMainMiddleScrollView.imageView.height))
         
-        let mosaicImageView = UIImageView(frame: mosaicView.frame)
+        let mosaicImageView = UIImageView(frame: mosaicView!.frame)
         let mosaicImage = APImageHelper.pixelImage(mainMiddleView.apMainMiddleScrollView.imageView.image!)
         
         mosaicImageView.image = mosaicImage
-        mosaicView.setHiddenView(mosaicImageView)
+        mosaicView!.setHiddenView(mosaicImageView)
         
-        mainMiddleView.apMainMiddleScrollView.imageView.addSubview(mosaicView)
+        mainMiddleView.apMainMiddleScrollView.imageView.addSubview(mosaicView!)
+        self.addFilterControlView()
+    }
+    
+    private func addFilterControlView() {
+        filterControlView = FilterControl.init(frame: CGRectMake(kScreenWidth/4, 0, kScreenWidth/2, kBeautyMainBottomHeight))
+        filterControlView!.setSelectedIndex(3)
+        mainBackBottomView.addSubview(filterControlView!)
     }
     
     //MARK: other private method
@@ -238,7 +255,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
             }) { (complete) -> Void in
                 if complete {
                     UIView.animateWithDuration(0.3) { () -> Void in
-                        self.itemScrollView.setY(kScreenHeight - kBeautyMainBottomHeight)
+                        self.mainBackBottomView.setY(kScreenHeight - kBeautyMainBottomHeight)
                         self.cancelConfirmView.setY(0)
                     }
                 }
@@ -247,17 +264,21 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     
     private func resetBeautyMainViewWithAnimation() {
         UIView.animateWithDuration(0.3, animations: { () -> Void in
-            self.itemScrollView.alpha = 0.0
+            self.itemScrollView?.alpha = 0.0
+            self.filterControlView?.alpha = 0.0
             self.cancelConfirmView.alpha = 0.0
             }) { (complete) -> Void in
                 if complete {
-                    self.itemScrollView.removeFromSuperview()
+                    self.mainBackBottomView.setY(kScreenHeight)
+                    self.itemScrollView?.removeFromSuperview()
+                    self.filterControlView?.removeFromSuperview()
                     self.cancelConfirmView.removeFromSuperview()
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.mainBottomView.setY(kScreenHeight - kBeautyMainBottomHeight)
                         self.mainTopView.setY(0)
                         }, completion: { (complete) -> Void in
-                            self.paintingView.removeFromSuperview()
+                            self.paintingView?.removeFromSuperview()
+                            self.mosaicView?.removeFromSuperview()
                     })
                 }
         }

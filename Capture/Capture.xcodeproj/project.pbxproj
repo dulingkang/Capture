@@ -94,6 +94,7 @@
 		3AE378AB1C0E95A3008B59FB /* UIImage+PECrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE378A61C0E95A3008B59FB /* UIImage+PECrop.m */; };
 		3AE378AD1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE378AC1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png */; };
 		3AE9581D1C16D27600E006DA /* APMosaicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9581C1C16D27600E006DA /* APMosaicView.swift */; };
+		3AE958201C16F1EA00E006DA /* FilterControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9581F1C16F1EA00E006DA /* FilterControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +257,8 @@
 		3AE378A61C0E95A3008B59FB /* UIImage+PECrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PECrop.m"; sourceTree = "<group>"; };
 		3AE378AC1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEPhotoCropEditorBorder@2x.png"; sourceTree = "<group>"; };
 		3AE9581C1C16D27600E006DA /* APMosaicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APMosaicView.swift; sourceTree = "<group>"; };
+		3AE9581E1C16F1EA00E006DA /* FilterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterControl.h; sourceTree = "<group>"; };
+		3AE9581F1C16F1EA00E006DA /* FilterControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -701,6 +704,8 @@
 		3AE958171C16D1D100E006DA /* Mosaic */ = {
 			isa = PBXGroup;
 			children = (
+				3AE9581E1C16F1EA00E006DA /* FilterControl.h */,
+				3AE9581F1C16F1EA00E006DA /* FilterControl.m */,
 				3AE9581C1C16D27600E006DA /* APMosaicView.swift */,
 			);
 			path = Mosaic;
@@ -855,6 +860,7 @@
 				3AB67F9A1C0FEEF600D15A49 /* ScalarFilterParameter.swift in Sources */,
 				3A8283D01C048004004E339F /* SSTask.swift in Sources */,
 				3ADC4D351BF8BD7B008B0440 /* CustumPhotoAlbum.swift in Sources */,
+				3AE958201C16F1EA00E006DA /* FilterControl.m in Sources */,
 				3AAE5D6D1C11B55300BAEFD8 /* UIImage+extend.m in Sources */,
 				3A6829C21C069D0A0011B3D8 /* Extension.swift in Sources */,
 				3AE378A71C0E95A3008B59FB /* PECropRectView.m in Sources */,
