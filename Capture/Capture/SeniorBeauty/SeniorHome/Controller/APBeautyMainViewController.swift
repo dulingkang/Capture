@@ -20,6 +20,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     var paintingView: PaintingView!
     var itemScrollView: APShowItemScrollView!
     var cancelConfirmView: APCancelConfirmView!
+    var mosaicView: APMosaicView!
     
     //MARK: - life cycle
     override func viewWillAppear(animated: Bool) {
@@ -139,6 +140,8 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
             case .Frame:
                 break
             case .Mosaic:
+                self.addMosaicView()
+                mosaicView.setPathColor(UIColor.whiteColor(), strokeColor: UIColor.blackColor())
                 break
             case .Ballon:
                 break
@@ -186,6 +189,18 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         cancelConfirmView.title = title
         cancelConfirmView.delegate = self
         self.view.addSubview(cancelConfirmView)
+    }
+    
+    private func addMosaicView() {
+        mosaicView = APMosaicView.init(frame: CGRectMake(0, 0, mainMiddleView.apMainMiddleScrollView.imageView.width, mainMiddleView.apMainMiddleScrollView.imageView.height))
+        
+        let mosaicImageView = UIImageView(frame: mosaicView.frame)
+        let mosaicImage = APImageHelper.pixelImage(mainMiddleView.apMainMiddleScrollView.imageView.image!)
+        
+        mosaicImageView.image = mosaicImage
+        mosaicView.setHiddenView(mosaicImageView)
+        
+        mainMiddleView.apMainMiddleScrollView.imageView.addSubview(mosaicView)
     }
     
     //MARK: other private method

@@ -93,6 +93,7 @@
 		3AE378AA1C0E95A3008B59FB /* PEResizeControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE378A41C0E95A3008B59FB /* PEResizeControl.m */; };
 		3AE378AB1C0E95A3008B59FB /* UIImage+PECrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE378A61C0E95A3008B59FB /* UIImage+PECrop.m */; };
 		3AE378AD1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE378AC1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png */; };
+		3AE9581D1C16D27600E006DA /* APMosaicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9581C1C16D27600E006DA /* APMosaicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		3AE378A51C0E95A3008B59FB /* UIImage+PECrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PECrop.h"; sourceTree = "<group>"; };
 		3AE378A61C0E95A3008B59FB /* UIImage+PECrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PECrop.m"; sourceTree = "<group>"; };
 		3AE378AC1C0E95C3008B59FB /* PEPhotoCropEditorBorder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEPhotoCropEditorBorder@2x.png"; sourceTree = "<group>"; };
+		3AE9581C1C16D27600E006DA /* APMosaicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APMosaicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +395,7 @@
 		3A8283DD1C0580DF004E339F /* SeniorBeauty */ = {
 			isa = PBXGroup;
 			children = (
+				3AE958171C16D1D100E006DA /* Mosaic */,
 				3ADEB2851C10897B0093A7A9 /* Magic */,
 				3AB67F951C0FEE8E00D15A49 /* FilterAjust */,
 				3AB67F831C0FEE7500D15A49 /* SeniorHome */,
@@ -695,6 +698,14 @@
 			path = PECrop;
 			sourceTree = "<group>";
 		};
+		3AE958171C16D1D100E006DA /* Mosaic */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9581C1C16D27600E006DA /* APMosaicView.swift */,
+			);
+			path = Mosaic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -808,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE9581D1C16D27600E006DA /* APMosaicView.swift in Sources */,
 				3A5C84621BEB186000712ED1 /* AppDelegate.swift in Sources */,
 				3A784D421BF5BDCF00F679D2 /* FilterOperation.swift in Sources */,
 				3AE29F931BEB9A530089DE57 /* OpenShare+Renren.m in Sources */,
