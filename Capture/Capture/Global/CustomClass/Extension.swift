@@ -68,4 +68,27 @@ extension UIImage {
     var height : CGFloat{
         return self.size.height
     }
+    
+    func sizeThatFits(size: CGSize) -> CGSize {
+        
+        var imageSize = CGSizeMake(self.size.width / self.scale,
+            self.size.height / self.scale)
+        
+        let widthRatio = imageSize.width / size.width
+        let heightRatio = imageSize.height / size.height
+        
+        if (widthRatio > heightRatio) {
+            imageSize = CGSizeMake(imageSize.width / widthRatio, imageSize.height / widthRatio)
+        } else {
+            imageSize = CGSizeMake(imageSize.width / heightRatio, imageSize.height / heightRatio)
+        }
+        
+        return imageSize
+    }
+}
+
+extension UIImageView {
+    var contentSize: CGSize {
+        return (self.image?.sizeThatFits(self.bounds.size))!
+    }
 }

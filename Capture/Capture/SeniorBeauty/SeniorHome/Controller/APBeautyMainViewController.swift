@@ -16,7 +16,6 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     static let ajustBottomHeight: CGFloat = 90
     var taskManager: SSTaskManager!
     var task: SSTask!
-    var currentImage: UIImage?
     var isNeedAddTask = true
     var paintingView: PaintingView!
     var itemScrollView: APShowItemScrollView!
@@ -84,13 +83,10 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     //MARK: beautyMainMiddleView delegate
     func compareImageViewTaped(long: UILongPressGestureRecognizer) {
         if long.state == .Began || long.state == .Changed{
-            self.currentImage = ImageModel.sharedInstance.currentImage
-            self.isNeedAddTask = false
-            ImageModel.sharedInstance.currentImage = ImageModel.sharedInstance.rawImage
+            self.mainMiddleView.apMainMiddleScrollView.imageView.image = ImageModel.sharedInstance.rawImage
             
         } else if long.state == .Ended || long.state == .Cancelled {
-            self.isNeedAddTask = false
-            ImageModel.sharedInstance.currentImage = self.currentImage
+            self.mainMiddleView.apMainMiddleScrollView.imageView.image = ImageModel.sharedInstance.currentImage
         }
     }
 
@@ -101,6 +97,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     
     func confirmButtonPressed() {
         self.resetBeautyMainViewWithAnimation()
+        ImageModel.sharedInstance.currentImage = APImageHelper.saveViewToImage(self.mainMiddleView.apMainMiddleScrollView.imageView)
     }
     
     //MARK: beautyMainBottomView delegate
@@ -133,9 +130,9 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 self.addItemScrollView(nameArray, identifier: "pic")
                 self.addCancelConfirmView((sender.titleLabel?.text)!)
                 self.switchToDetailViewWithAnimation()
-                paintingView = PaintingView.init(frame: self.mainMiddleView.apMainMiddleScrollView.imageView.frame)
+                paintingView = PaintingView.init(frame: CGRectMake(0, 0, self.mainMiddleView.apMainMiddleScrollView.imageView.width, self.mainMiddleView.apMainMiddleScrollView.imageView.height))
                 paintingView.backgroundColor = UIColor.clearColor()
-                self.mainMiddleView.apMainMiddleScrollView.addSubview(paintingView)
+                self.mainMiddleView.apMainMiddleScrollView.imageView.addSubview(paintingView)
                 paintingView.setstampPicName("pic0")
                 paintingView.imageSize = 30
                 break
@@ -198,6 +195,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
         }
         self.isNeedAddTask = true
         self.mainMiddleView.apMainMiddleScrollView.imageView.image = ImageModel.sharedInstance.currentImage
+        self.mainMiddleView.apMainMiddleScrollView.setImageViewSize()
     }
     
     private func createTaskManager() {
@@ -240,10 +238,12 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 if complete {
                     self.itemScrollView.removeFromSuperview()
                     self.cancelConfirmView.removeFromSuperview()
-                    UIView.animateWithDuration(0.3) { () -> Void in
+                    UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.mainBottomView.setY(kScreenHeight - kBeautyMainBottomHeight)
                         self.mainTopView.setY(0)
-                    }
+                        }, completion: { (complete) -> Void in
+                            self.paintingView.removeFromSuperview()
+                    })
                 }
         }
     }

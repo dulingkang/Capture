@@ -39,12 +39,19 @@ class APBeautyMainMiddleScrollView: UIScrollView, UIScrollViewDelegate {
         self.imageView = UIImageView.init(frame: self.bounds)
         self.imageView.image = ImageModel.sharedInstance.rawImage
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        self.setImageViewSize()
         self.imageView.userInteractionEnabled = true
         self.addSubview(self.imageView)
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return self.imageView
+    }
+    
+    func setImageViewSize() {
+        let imageSize = imageView.contentSize
+        imageView.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height)
+        imageView.center = CGPointMake(self.width / 2, self.height / 2)
     }
 
 }

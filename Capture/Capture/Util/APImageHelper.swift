@@ -8,15 +8,15 @@
 
 struct APImageHelper {
     
-    func saveViewToImage(view: UIView) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+    static func saveViewToImage(imageView: UIImageView) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, true, 0)
+        imageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        let newSize = CGSizeMake(view.width, view.height)
+        let newSize = imageView.image!.size
 
-        UIGraphicsBeginImageContext(newSize)
+        UIGraphicsBeginImageContextWithOptions(newSize, true, 0)
         image.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
         let outputImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
