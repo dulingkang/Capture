@@ -12,7 +12,7 @@ import GPUImage
 class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewDelegate, GestureViewControl{
 
     var cameraManager: APCameraManager!
-    var meiYanFilter: GPUImageBilateralFilter?
+    var meiYanFilter: GPUImageFilter?
     var gpuImageView: GPUImageView?
     var cameraView: APCameraMainView?
     var currentFilterIndex: Int?
@@ -37,9 +37,10 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.addCameraView()
         self.cameraView?.preView.addSubview(self.gpuImageView!)
         self.cameraView?.filterView?.filterCollectionDelegate = self
-        self.cameraView?.apCameraMainViewDelegate = self
+        self.cameraView?.delegate = self
         self.filterModel = FilterModel.sharedInstance
         
+        currentFilterIndex = 0
         self.addGestureView()
     }
     
@@ -58,7 +59,7 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.groupFilter?.addTarget(self.gpuImageView)
     }
 
-    //MARK: cameraMainView protocol
+    //MARK: cameraMainView delegate
     func browsePhoto(array: NSArray) {
         self.photoArray = array as! [UIImage]
     }
@@ -73,6 +74,17 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
                 }
             }
         }
+    }
+    
+    func switchCamera() {
+        self.cameraManager.rotateCamera()
+        if self.cameraManager.backFacingCameraPresent {
+            meiYanFilter = GPUImageFilter.init()
+            
+        } else {
+            meiYanFilter = GPUImageBilateralFilter.init()
+        }
+        self.switchFilter(currentFilterIndex!)
     }
     
     func closeMainView() {

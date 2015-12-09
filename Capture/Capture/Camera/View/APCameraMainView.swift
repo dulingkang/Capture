@@ -12,6 +12,7 @@ protocol APCameraMainViewDelegate {
     func takePhoto()
     func browsePhoto(array: NSArray)
     func closeMainView()
+    func switchCamera()
 }
 
 class APCameraMainView: UIView {
@@ -25,7 +26,7 @@ class APCameraMainView: UIView {
     var photoNumber: Int?
     var numberLabel: UILabel?
     var tmpPhotoArray: [UIImage] = []
-    var apCameraMainViewDelegate: APCameraMainViewDelegate?
+    var delegate: APCameraMainViewDelegate?
     var bottomHeight = kCameraBottomHeight
     
     override init(frame: CGRect) {
@@ -39,19 +40,19 @@ class APCameraMainView: UIView {
     
     //MARK: - event response
     func topButtonPressed(button: UIButton) {
-        
+        self.delegate?.switchCamera()
     }
     
     func browsePhoto() {
-        self.apCameraMainViewDelegate?.browsePhoto(self.tmpPhotoArray)
+        self.delegate?.browsePhoto(self.tmpPhotoArray)
     }
     
     func triggerButtonPressed(sender: UIButton) {
-        self.apCameraMainViewDelegate?.takePhoto()
+        self.delegate?.takePhoto()
     }
     
     func closeButtonPressed(sender: UIButton) {
-        self.apCameraMainViewDelegate?.closeMainView()
+        self.delegate?.closeMainView()
     }
     
     //MARK: - public method
@@ -170,11 +171,14 @@ class APCameraMainView: UIView {
     }
     
     func addTopButtons() {
-        let normalNameArray = ["xiaoka_ratio_normal_01", "xiaoka_black_normal", "timer_normal", "flash_normal", "switchNormal"]
-        let pressNameArray = ["xiaoka_ratio_press_01", "xiaoka_black_press", "timer_press", "flash_press", "switchPress"]
+//        let normalNameArray = ["xiaoka_ratio_normal_01", "xiaoka_black_normal", "timer_normal", "flash_normal", "switchNormal"]
+//        let pressNameArray = ["xiaoka_ratio_press_01", "xiaoka_black_press", "timer_press", "flash_press", "switchPress"]
+        let normalNameArray = ["switchNormal"]
+        let pressNameArray = ["switchPress"]
         for index in 0...normalNameArray.count-1 {
-            let floatIndex: CGFloat = CGFloat(index)
-            let button = UIButton.init(frame: CGRectMake(kScreenWidth*floatIndex/5, 0, kScreenWidth/5, kNavigationHeight))
+//            let floatIndex: CGFloat = CGFloat(index)
+//            let button = UIButton.init(frame: CGRectMake(kScreenWidth*floatIndex/5, 0, kScreenWidth/5, kNavigationHeight))
+            let button = UIButton.init(frame: CGRectMake(kScreenWidth - kButtonClickWidth, 0, kButtonClickWidth, kNavigationHeight))
             button.tag = kCameraViewTopButtonStartTag + index
             let imageNomal = normalNameArray[index]
             let imagePress = pressNameArray[index]
@@ -214,15 +218,5 @@ class APCameraMainView: UIView {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
 
 
