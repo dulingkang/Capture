@@ -85,9 +85,11 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     //MARK: beautyMainMiddleView delegate
     func compareImageViewTaped(long: UILongPressGestureRecognizer) {
         if long.state == .Began || long.state == .Changed{
+            paintingView?.alpha = 0.0
             self.mainMiddleView.apMainMiddleScrollView.imageView.image = ImageModel.sharedInstance.rawImage
             
         } else if long.state == .Ended || long.state == .Cancelled {
+            paintingView?.alpha = 1.0
             self.mainMiddleView.apMainMiddleScrollView.imageView.image = ImageModel.sharedInstance.currentImage
         }
     }
@@ -125,16 +127,17 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 break
             case .Magic:
                 var nameArray: [String] = []
-                for i in 0...6 {
+                for i in 0...7 {
                     let string = "pic" + String(i)
                     nameArray.append(string)
                 }
                 self.addItemScrollView(nameArray, identifier: "pic")
                 self.addCancelConfirmView((sender.titleLabel?.text)!)
                 self.switchToDetailViewWithAnimation()
-                if paintingView == nil {
-                    paintingView = PaintingView.init(frame: CGRectMake(0, 0, self.mainMiddleView.apMainMiddleScrollView.imageView.width, self.mainMiddleView.apMainMiddleScrollView.imageView.height))
+                if paintingView != nil {
+                    paintingView?.removeFromSuperview()
                 }
+                paintingView = PaintingView.init(frame: CGRectMake(0, 0, self.mainMiddleView.apMainMiddleScrollView.imageView.width, self.mainMiddleView.apMainMiddleScrollView.imageView.height))
                 paintingView!.backgroundColor = UIColor.clearColor()
                 self.mainMiddleView.apMainMiddleScrollView.imageView.addSubview(paintingView!)
                 paintingView!.setstampPicName("pic0")
@@ -182,7 +185,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     }
     
     private func addMainBottomView() {
-        self.mainBottomView = APBeautyMainBottomView.init(frame: CGRectMake(10, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth, kBeautyMainBottomHeight))
+        self.mainBottomView = APBeautyMainBottomView.init(frame: CGRectMake(10, kScreenHeight - kBeautyMainBottomHeight, kScreenWidth - 20, kBeautyMainBottomHeight))
         self.mainBottomView.apBeautyMainBottomViewdelegate = self
         self.view.addSubview(self.mainBottomView)
         mainBackBottomView = UIView.init(frame: CGRectMake(0, kScreenHeight, kScreenWidth, kBeautyMainBottomHeight))

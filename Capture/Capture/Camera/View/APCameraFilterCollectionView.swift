@@ -45,6 +45,7 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
     var filterCollectionDelegate: APCameraFilterDelegate?
     var filterModel: FilterModel!
     var picNameArray: NSMutableArray!
+    var currentIndexPath: NSIndexPath!
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -97,7 +98,14 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
         self.filterCollectionDelegate?.switchFilter(indexPath.row)
     }
     
-    //MARK: private method
+    //MARK: - public method
+    func didSelectCollectionCell(index: Int) {
+        currentIndexPath = NSIndexPath.init(forRow: index, inSection: 0)
+        self.scrollToItemAtIndexPath(currentIndexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+        
+    }
+    
+    //MARK: - private method
     func config() {
         self.filterModel = FilterModel.sharedInstance
         self.picNameArray = NSMutableArray.init(capacity: self.filterModel.filterList.count)

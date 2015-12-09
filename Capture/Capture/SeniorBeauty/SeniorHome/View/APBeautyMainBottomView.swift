@@ -8,8 +8,8 @@
 
 import UIKit
 
-let kBeautyMainBottomButtonCount: Int = 7
-let kBeautyMainBottomButtomWidth: CGFloat = kScreenWidth/6
+let kBeautyMainBottomButtonCount: Int = 4
+let kBeautyMainBottomButtomWidth: CGFloat = (kScreenWidth - 20)/4
 
 protocol APBeautyMainBottomViewDelegate {
     func beautyBottomButtonPressed(sender: UIButton)

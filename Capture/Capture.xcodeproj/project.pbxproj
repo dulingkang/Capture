@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1EF78E1C17D04600AE325C /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF78D1C17D04600AE325C /* GestureView.swift */; };
+		3A1EF7921C17D06600AE325C /* NotifyAnimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF7911C17D06600AE325C /* NotifyAnimateView.swift */; };
 		3A5C84621BEB186000712ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84611BEB186000712ED1 /* AppDelegate.swift */; };
 		3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84791BEB1B1600712ED1 /* HomeViewController.swift */; };
 		3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C847B1BEC462E00712ED1 /* GlobalDef.swift */; };
@@ -143,6 +145,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A1EF78D1C17D04600AE325C /* GestureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureView.swift; sourceTree = "<group>"; };
+		3A1EF7911C17D06600AE325C /* NotifyAnimateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyAnimateView.swift; sourceTree = "<group>"; };
 		3A5C845E1BEB186000712ED1 /* Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5C84611BEB186000712ED1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A5C84791BEB1B1600712ED1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -555,6 +559,8 @@
 		3ADBF6961BEF4DB2004E58F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3A1EF7911C17D06600AE325C /* NotifyAnimateView.swift */,
+				3A1EF78D1C17D04600AE325C /* GestureView.swift */,
 				3ADBF69E1BEF869D004E58F6 /* APCameraMainView.swift */,
 				3ADBF6A21BEF886A004E58F6 /* APCameraFilterCollectionView.swift */,
 			);
@@ -837,7 +843,9 @@
 				3ADC4D331BF8B8E4008B0440 /* APImageHelper.swift in Sources */,
 				3AB67F8F1C0FEE7500D15A49 /* APBottomButtonModel.swift in Sources */,
 				3AB67FA21C0FEF0F00D15A49 /* FilterListViewController.swift in Sources */,
+				3A1EF7921C17D06600AE325C /* NotifyAnimateView.swift in Sources */,
 				3A8283D51C0561C5004E339F /* ImageModel.swift in Sources */,
+				3A1EF78E1C17D04600AE325C /* GestureView.swift in Sources */,
 				3ADA31721BF4D73E0090DA94 /* APCameraManager.swift in Sources */,
 				3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */,
 				3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */,

@@ -15,7 +15,6 @@
 	
     CGPoint        lastPoint_;              //上一个点坐标
     CGFloat        imageSize_;              //图片外接圆直径
-    int            maxScaleRatio_ ;         //图片最大压缩比例
     NSTimer       *touchEndTimer_;          //手指离开屏幕时间定时器
     CGFloat        lastImageSize_;          //上个点所绘制图片大小
     CGSize         layerSize_;              //依据图片计算出的显示每个小图的layer大小

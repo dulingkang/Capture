@@ -16,7 +16,6 @@
 @synthesize operationArray = operationArray_;
 @synthesize stampPicName = stampPicName_;
 @synthesize imageSize = imageSize_;
-@synthesize maxScaleRatio = maxScaleRatio_;
 @synthesize touchEndTimer = touchEndTimer_;
 
 #define kTimerWaitTime     1  //手指离开屏幕，等待时间
@@ -71,7 +70,7 @@
     animation.duration = 0.1;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [layer addAnimation:animation forKey:@"transform"];
-    layer.opacity = 0.6;
+    layer.opacity = 0.9;
     CALayer *superLayer = [[self.layer sublayers] lastObject];
     [superLayer addSublayer:layer];
 }
@@ -92,18 +91,22 @@
 //    //curpoint处需要画的随机图片名
 //    NSString *picName = [NSString stringWithFormat:@"%@_%d.png",self.stampPicName,index];
     
-//    index = [Common getRandomNumber:30 to:80];//随机大小
+    NSInteger index = 30 + (arc4random()%(100 + 1 - 30 + 1));
     UIImage *curImage = [UIImage imageNamed:self.stampPicName];
-//    float height = curImage.size.height * maxScaleRatio_ /100.0 * index  /100.0;
-//    float width = curImage.size.width * maxScaleRatio_/100.0 *index/100.0;
-    layerSize_ = CGSizeMake(40, 40);
-    imageSize_ = ccpDistance(CGPointMake(0, 0), CGPointMake(40, 40));
+    layerSize_ = CGSizeMake(index, index);
+    imageSize_ = ccpDistance(CGPointMake(0, 0), CGPointMake(index, index));
     
     //curpoint处需要画的图片旋转角度
-//    curImage = [curImage imageRotatedByDegrees:[Common getRandomNumber:0 to:35] * 10];
+    curImage = [curImage imageRotatedByDegrees:[self getRandomNumber:0 to:35] * 10];
     return curImage;
     return nil;
 }
+
+- (NSInteger)getRandomNumber:(NSInteger)from to:(NSInteger)to
+{
+    return from + (arc4random()%(to + 1 - from + 1));
+}
+
 /**
  * @brief 
  * 更新撤销和恢复图片
