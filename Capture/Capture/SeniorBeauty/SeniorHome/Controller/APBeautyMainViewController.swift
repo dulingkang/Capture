@@ -127,7 +127,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 break
             case .Magic:
                 var nameArray: [String] = []
-                for i in 0...7 {
+                for i in 0...8 {
                     let string = "pic" + String(i)
                     nameArray.append(string)
                 }

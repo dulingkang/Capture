@@ -16,12 +16,7 @@ class NotifyAnimateView: NSObject {
     var labelWidth: CGFloat!
     var labelHeight: CGFloat = 30
     
-    class var sharedInstance: NotifyAnimateView {
-        struct Singleton {
-            static let instance = NotifyAnimateView()
-        }
-        return Singleton.instance
-    }
+    static let sharedInstance = NotifyAnimateView()
     override init() {
         super.init()
         labelWidth = kScreenWidth * 0.4

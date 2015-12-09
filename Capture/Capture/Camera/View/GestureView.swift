@@ -11,7 +11,6 @@ import UIKit
 protocol GestureViewControl {
     func leftSwipe()
     func rightSwipe()
-    func tapScreen()
 }
 
 class GestureView: UIView, UIGestureRecognizerDelegate {
@@ -29,10 +28,10 @@ class GestureView: UIView, UIGestureRecognizerDelegate {
     }
     
     // MARK: Gesture actions
-    func tapPressed(tap: UITapGestureRecognizer) {
-    
-        self.gestureControl?.tapScreen()
-    }
+//    func tapPressed(tap: UITapGestureRecognizer) {
+//    
+//        self.gestureControl?.tapScreen()
+//    }
     
     func leftSwipe(swipe: UISwipeGestureRecognizer) {
 
@@ -46,8 +45,8 @@ class GestureView: UIView, UIGestureRecognizerDelegate {
     
     //MARK: Private method
     func addGestures() {
-        let tap = UITapGestureRecognizer.init(target: self, action: "tapPressed:")
-        self.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer.init(target: self, action: "tapPressed:")
+//        self.addGestureRecognizer(tap)
         
         let leftSwipe = UISwipeGestureRecognizer.init(target: self, action: "leftSwipe:")
         leftSwipe.direction = UISwipeGestureRecognizerDirection.Left

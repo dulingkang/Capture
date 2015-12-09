@@ -9,7 +9,7 @@
 import UIKit
 import GPUImage
 
-class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewDelegate{
+class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewDelegate, GestureViewControl{
 
     var cameraManager: APCameraManager!
     var meiYanFilter: GPUImageBilateralFilter?
@@ -20,6 +20,7 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     var lookupFilter: GPUImageCustomLookupFilter?
     var filterModel: FilterModel!
     var photoArray: [UIImage] = []
+    var gestureView: GestureView?
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -38,6 +39,8 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.cameraView?.filterView?.filterCollectionDelegate = self
         self.cameraView?.apCameraMainViewDelegate = self
         self.filterModel = FilterModel.sharedInstance
+        
+        self.addGestureView()
     }
     
     //MARK: - Delegate
@@ -54,7 +57,7 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
         self.cameraManager.addTarget(self.groupFilter)
         self.groupFilter?.addTarget(self.gpuImageView)
     }
-    
+
     //MARK: cameraMainView protocol
     func browsePhoto(array: NSArray) {
         self.photoArray = array as! [UIImage]
@@ -74,6 +77,15 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     
     func closeMainView() {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    //MARK: gestureview delegate
+    func leftSwipe() {
+        cameraView?.filterView?.filterCellScrollToLeft(true)
+    }
+    
+    func rightSwipe() {
+        cameraView?.filterView?.filterCellScrollToLeft(false)
     }
     
     //MARK: - private method
@@ -98,6 +110,18 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
             self.cameraView = APCameraMainView.init(frame: self.view.bounds)
         }
         self.view.addSubview(self.cameraView!)
+    }
+    
+    func addGestureView() {
+        var height = kCameraBottomHeight
+        if kScreenHeight == kIphone4sHeight {
+            height = kCameraBottom4SHeight
+        }
+        if gestureView == nil {
+            gestureView = GestureView.init(frame: CGRectMake(0, kNavigationHeight, kScreenWidth, kScreenHeight - kNavigationHeight - height - kCameraFilterHeight))
+        }
+        gestureView?.gestureControl = self
+        self.view.addSubview(gestureView!)
     }
 }
 

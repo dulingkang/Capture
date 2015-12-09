@@ -18,7 +18,7 @@ class APShowItemScrollView: UIScrollView {
     
     var imageNameArray: [String] = []
     let imageWidth: CGFloat = 35
-    let margin: CGFloat = 5
+    let margin: CGFloat = 6
     var imageIdentitier: String?
     var itemScrolldelegate: APShowItemScrollViewDelegate?
     
@@ -35,7 +35,7 @@ class APShowItemScrollView: UIScrollView {
     private func initViews() {
         self.backgroundColor = UIColor.clearColor()
         let count = self.imageNameArray.count
-        self.contentSize = CGSizeMake(imageWidth * CGFloat(count), imageWidth)
+        self.contentSize = CGSizeMake((imageWidth + margin) * CGFloat(count), imageWidth)
         for i in 0..<count {
             let imageButton = UIButton.init(frame: CGRectMake(CGFloat(i) * (imageWidth + margin), 0, imageWidth, imageWidth))
             imageButton.userInteractionEnabled = true

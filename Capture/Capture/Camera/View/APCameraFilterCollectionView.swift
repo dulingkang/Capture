@@ -45,7 +45,7 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
     var filterCollectionDelegate: APCameraFilterDelegate?
     var filterModel: FilterModel!
     var picNameArray: NSMutableArray!
-    var currentIndexPath: NSIndexPath!
+    var currentIndexPath: NSIndexPath?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -86,23 +86,46 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
 
     //MARK: UICollectionView delegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let visibleCells = self.visibleCells() 
-        for oneCell in visibleCells {
-            oneCell.layer.borderWidth = 0
-        }
+        currentIndexPath = indexPath;
+        self.changeSelectedStates()
+    
+        var visiblePathArray = self.indexPathsForVisibleItems()
+        visiblePathArray = visiblePathArray.sort({$0.row < $1.row})
         
-        let cell = self.cellForItemAtIndexPath(indexPath)
-        cell!.layer.borderColor = UIColor.orangeColor().CGColor
-        cell!.layer.borderWidth = 2
-        self.scrollToItemAtIndexPath(indexPath, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true)
+        var needScrollToCenterIndexPath: NSIndexPath!
+        if (indexPath.row == visiblePathArray.first?.row) {
+            needScrollToCenterIndexPath = visiblePathArray[visiblePathArray.count - 2]
+             self.scrollToItemAtIndexPath(needScrollToCenterIndexPath, atScrollPosition: .Right, animated: true)
+        } else if (indexPath.row == visiblePathArray.last?.row) {
+            needScrollToCenterIndexPath = visiblePathArray[1]
+            self.scrollToItemAtIndexPath(needScrollToCenterIndexPath, atScrollPosition: .Left, animated: true)
+        }
+        let notifyAnimate = NotifyAnimateView.sharedInstance
+        notifyAnimate.showNotify(filterModel.filterList[indexPath.row].title)
         self.filterCollectionDelegate?.switchFilter(indexPath.row)
     }
     
     //MARK: - public method
     func didSelectCollectionCell(index: Int) {
         currentIndexPath = NSIndexPath.init(forRow: index, inSection: 0)
-        self.scrollToItemAtIndexPath(currentIndexPath, atScrollPosition: .CenteredHorizontally, animated: true)
-        
+        self.scrollToItemAtIndexPath(currentIndexPath!, atScrollPosition: .CenteredHorizontally, animated: true)
+        self.performSelector("changeSelectedStates", withObject: nil, afterDelay: 0.3)
+    }
+    
+    func filterCellScrollToLeft(isFromRightToLeft: Bool) {
+        if currentIndexPath == nil {
+            currentIndexPath = NSIndexPath.init(forRow: 0, inSection: 0)
+        }
+        var row: Int = 0
+        if isFromRightToLeft {
+            row = currentIndexPath!.row + 1
+        } else {
+            row = currentIndexPath!.row - 1
+        }
+        row = row < 0 ? 0 : row
+        row = row > picNameArray.count - 1 ? picNameArray.count - 1 : row
+        currentIndexPath = NSIndexPath.init(forRow: row, inSection: 0)
+        self.collectionView(self, didSelectItemAtIndexPath: currentIndexPath!)
     }
     
     //MARK: - private method
@@ -116,6 +139,15 @@ class APCameraFilterCollectionView: UICollectionView, UICollectionViewDataSource
         self.dataSource = self
         self.showsHorizontalScrollIndicator = false
         self.backgroundColor = UIColor.clearColor()
+    }
+    
+    private func changeSelectedStates() {
+        for cell in self.visibleCells() {
+            cell.layer.borderWidth = 0
+        }
+        let currentCell = self.cellForItemAtIndexPath(currentIndexPath!)
+        currentCell?.layer.borderWidth = 1
+        currentCell?.layer.borderColor = UIColor.orangeColor().CGColor
     }
 
 }
