@@ -23,16 +23,15 @@
 @end
 
 @implementation FilterControl
-@synthesize SelectedIndex, progressColor ,tapedColor;
+@synthesize progressColor ,tapedColor;
 
--(id) initWithFrame:(CGRect) frame{
+-(id)initWithFrame:(CGRect) frame{
     if (self = [super initWithFrame:frame]) {
         [self setBackgroundColor:[UIColor clearColor]];
         
         UITapGestureRecognizer *gest = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(ItemSelected:)];
         [self addGestureRecognizer:gest];
-        
-        SelectedIndex=0;
+        _selectedIndex = 3;
         progressColor=[UIColor clearColor];
         tapedColor=[UIColor whiteColor];
         CGPoint point = [self getCenterPointForIndex2:COUNT];
@@ -47,30 +46,20 @@
     int i;
     for (i = 0; i < COUNT; i++) {
         centerPoint = [self getCenterPointForIndex2:i];
-        if (i + 1 == SelectedIndex) {
+        NSLog(@"i:%d", i);
+
+        if (i + 1 == _selectedIndex) {
             CGContextSetFillColorWithColor(context, tapedColor.CGColor);
+            NSLog(@"draw:%d", i);
         }
         else
         {
             CGContextSetFillColorWithColor(context, progressColor.CGColor);
+            NSLog(@"clear:%d", i);
         }
         CGContextSetStrokeColorWithColor(context, tapedColor.CGColor);
         CGContextSetLineWidth(context, 1.0);
-        if (i==0) {
-            CGContextAddArc(context, centerPoint.x, rect.size.height / 2, 4, 0, 2*M_PI, 0);
-        }
-        if (i==1) {
-            CGContextAddArc(context, centerPoint.x, rect.size.height / 2, 6, 0, 2*M_PI, 0);
-        }
-        if (i==2) {
-            CGContextAddArc(context, centerPoint.x, rect.size.height / 2, 8, 0, 2*M_PI, 0);
-        }
-        if (i==3) {
-            CGContextAddArc(context, centerPoint.x, rect.size.height / 2, 10, 0, 2*M_PI, 0);
-        }
-        if (i==4) {
-            CGContextAddArc(context, centerPoint.x, rect.size.height / 2, 12, 0, 2*M_PI, 0);
-        }
+        CGContextAddArc(context, centerPoint.x, rect.size.height / 2, 2*(2+i), 0, 2*M_PI, 0);
         CGContextDrawPath(context, kCGPathFillStroke);
     }
 }
@@ -85,14 +74,6 @@
     x = x +(j + 2) * ROUND_RADIUS + roundSpace * j + roundSpace;
 
     return CGPointMake(x, j==0?self.frame.size.height-55-SELECTED_DISTANCE:self.frame.size.height-55);
-}
-
--(void) setSelectedIndex:(int)index{
-    SelectedIndex = index;
-    [self setNeedsDisplay];
-    if ([self.delegate respondsToSelector:@selector(selectedFilterIndex:)]) {
-        [_delegate selectedFilterIndex:index];
-    }
 }
 
 -(int)getSelectedInPoint:(CGPoint)point{
@@ -121,9 +102,15 @@
         return 22.0;
     }
 }
--(void) ItemSelected: (UITapGestureRecognizer *) tap {
-    SelectedIndex = [self getSelectedInPoint:[tap locationInView:self]];
-    [self setSelectedIndex:SelectedIndex];
+-(void)ItemSelected: (UITapGestureRecognizer *) tap {
+    NSInteger index = [self getSelectedInPoint:[tap locationInView:self]];
+    if (index != _selectedIndex) {
+        _selectedIndex = index;
+        [self setNeedsDisplay];
+        if ([self.delegate respondsToSelector:@selector(selectedFilterIndex:)]) {
+            [_delegate selectedFilterIndex:_selectedIndex];
+        }
+    }
 }
 
 -(CGPoint)getCenterPointForIndex:(int) i{

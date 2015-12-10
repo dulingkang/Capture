@@ -20,5 +20,5 @@ struct APBottomButtonModel {
 }
 
 enum APBottomButtonType: Int {
-    case Edit = 0, Filter, Magic, Frame, Mosaic, Ballon, Text
+    case Edit = 0, Filter, Magic, Mosaic
 }

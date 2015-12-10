@@ -16,9 +16,8 @@
 @interface FilterControl : UIControl
 
 -(id)initWithFrame:(CGRect) frame;
--(void)setSelectedIndex:(int)index;
 
-@property (nonatomic, readonly) int SelectedIndex;
+@property (nonatomic, readonly) NSInteger selectedIndex;
 @property (nonatomic, weak)id <FilterControlDelegate> delegate;
 
 @end

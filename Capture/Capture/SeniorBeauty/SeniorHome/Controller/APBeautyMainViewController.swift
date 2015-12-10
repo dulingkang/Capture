@@ -127,7 +127,7 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 break
             case .Magic:
                 var nameArray: [String] = []
-                for i in 0...8 {
+                for i in 0...9 {
                     let string = "pic" + String(i)
                     nameArray.append(string)
                 }
@@ -143,18 +143,12 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
                 paintingView!.setstampPicName("pic0")
                 paintingView!.imageSize = 30
                 break
-            case .Frame:
-                break
             case .Mosaic:
                 self.addMosaicView()
                 self.addCancelConfirmView((sender.titleLabel?.text)!)
                 self.addFilterControlView()
                 self.switchToDetailViewWithAnimation()
                 mosaicView!.setPathColor(UIColor.whiteColor(), strokeColor: UIColor.blackColor())
-                break
-            case .Ballon:
-                break
-            case .Text:
                 break
             }
         }
@@ -220,8 +214,10 @@ class APBeautyMainViewController: UIViewController, APBeautyMainTopViewDelegate,
     }
     
     private func addFilterControlView() {
-        filterControlView = FilterControl.init(frame: CGRectMake(kScreenWidth/4, 0, kScreenWidth/2, kBeautyMainBottomHeight))
-        filterControlView!.setSelectedIndex(3)
+        if filterControlView == nil {
+            filterControlView = FilterControl.init(frame: CGRectMake(kScreenWidth/4, 0, kScreenWidth/2, kBeautyMainBottomHeight))
+        }
+        filterControlView?.delegate = self
         mainBackBottomView.addSubview(filterControlView!)
     }
     
