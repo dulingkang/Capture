@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A08B15C1C60687700864F1A /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA316D1BF4D5910090DA94 /* GPUImage.framework */; };
+		3A08B15D1C60687700864F1A /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA316D1BF4D5910090DA94 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A1EF78E1C17D04600AE325C /* GestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF78D1C17D04600AE325C /* GestureView.swift */; };
 		3A1EF7921C17D06600AE325C /* NotifyAnimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EF7911C17D06600AE325C /* NotifyAnimateView.swift */; };
+		3A473B2B1C5C9AFB00199576 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA316D1BF4D5910090DA94 /* GPUImage.framework */; };
 		3A5C84621BEB186000712ED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84611BEB186000712ED1 /* AppDelegate.swift */; };
 		3A5C847A1BEB1B1600712ED1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C84791BEB1B1600712ED1 /* HomeViewController.swift */; };
 		3A5C847C1BEC462E00712ED1 /* GlobalDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5C847B1BEC462E00712ED1 /* GlobalDef.swift */; };
@@ -37,8 +40,6 @@
 		3A6829C41C069E080011B3D8 /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6829C31C069E080011B3D8 /* SSButton.swift */; };
 		3A784D401BF5BB0F00F679D2 /* GPUImageCustomLookupFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A784D3F1BF5BB0E00F679D2 /* GPUImageCustomLookupFilter.swift */; };
 		3A784D421BF5BDCF00F679D2 /* FilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A784D411BF5BDCF00F679D2 /* FilterOperation.swift */; };
-		3A784D431BF5CAF900F679D2 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA316D1BF4D5910090DA94 /* GPUImage.framework */; };
-		3A784D451BF5CE4700F679D2 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA316D1BF4D5910090DA94 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A8283D01C048004004E339F /* SSTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283CF1C048004004E339F /* SSTask.swift */; };
 		3A8283D51C0561C5004E339F /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8283D41C0561C5004E339F /* ImageModel.swift */; };
 		3AAE5D611C11AB6900BAEFD8 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAE5D5F1C11AB6900BAEFD8 /* PaintingView.m */; };
@@ -86,6 +87,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A08B15E1C60687700864F1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCE209E41943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
 		3A784D461BF5CE4700F679D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */;
@@ -107,23 +115,16 @@
 			remoteGlobalIDString = BCE209E51943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
 		};
-		3ADA316E1BF4D60F0090DA94 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3ADA31641BF4D5910090DA94 /* GPUImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCE209E41943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3A784D481BF5CE4700F679D2 /* Embed Frameworks */ = {
+		3A08B1601C60687700864F1A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3A784D451BF5CE4700F679D2 /* GPUImage.framework in Embed Frameworks */,
+				3A08B15D1C60687700864F1A /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,7 +244,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A784D431BF5CAF900F679D2 /* GPUImage.framework in Frameworks */,
+				3A473B2B1C5C9AFB00199576 /* GPUImage.framework in Frameworks */,
+				3A08B15C1C60687700864F1A /* GPUImage.framework in Frameworks */,
 				3A5C84AF1BEC547D00712ED1 /* CoreMotion.framework in Frameworks */,
 				3A5C84AD1BEC546800712ED1 /* MessageUI.framework in Frameworks */,
 				3A5C84AB1BEC544C00712ED1 /* AVFoundation.framework in Frameworks */,
@@ -686,13 +688,13 @@
 				3A5C845A1BEB186000712ED1 /* Sources */,
 				3A5C845B1BEB186000712ED1 /* Frameworks */,
 				3A5C845C1BEB186000712ED1 /* Resources */,
-				3A784D481BF5CE4700F679D2 /* Embed Frameworks */,
+				3A08B1601C60687700864F1A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3ADA316F1BF4D60F0090DA94 /* PBXTargetDependency */,
 				3A784D471BF5CE4700F679D2 /* PBXTargetDependency */,
+				3A08B15F1C60687700864F1A /* PBXTargetDependency */,
 			);
 			name = Capture;
 			productName = Capture;
@@ -833,15 +835,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3A08B15F1C60687700864F1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImageFramework;
+			targetProxy = 3A08B15E1C60687700864F1A /* PBXContainerItemProxy */;
+		};
 		3A784D471BF5CE4700F679D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GPUImageFramework;
 			targetProxy = 3A784D461BF5CE4700F679D2 /* PBXContainerItemProxy */;
-		};
-		3ADA316F1BF4D60F0090DA94 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GPUImageFramework;
-			targetProxy = 3ADA316E1BF4D60F0090DA94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -9,10 +9,14 @@
 import UIKit
 import GPUImage
 
+//class FilterType<FilterClass: GPUImageOutput where FilterClass: GPUImageInput> {
+//    var internalFilter: FilterClass?
+//}
+
 class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewDelegate, GestureViewControl{
 
     var cameraManager: APCameraManager!
-    var meiYanFilter: GPUImageFilter?
+    var meiYanFilter: GPUImageSmartEyeSkinDetectSmoothCSEnhanceSaveKa!
     var gpuImageView: GPUImageView?
     var cameraView: APCameraMainView?
     var currentFilterIndex: Int?
@@ -26,13 +30,13 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.clearColor()
         self.cameraManager = APCameraManager.init(preset: AVCaptureSessionPresetPhoto, cameraPosition: AVCaptureDevicePosition.Front)
-        self.meiYanFilter = GPUImageBilateralFilter.init()
+            meiYanFilter = GPUImageSmartEyeSkinDetectSmoothCSEnhanceSaveKa.init()
 //        self.meiYanFilter?.blurRadiusInPixels = 1
         self.gpuImageView = GPUImageView.init(frame: CGRectMake(0, 0, kScreenWidth, kScreenWidth*4/3))
         self.gpuImageView?.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
         self.cameraManager.outputImageOrientation = UIInterfaceOrientation.Portrait
         self.cameraManager.addTarget(self.meiYanFilter)
-        self.meiYanFilter?.addTarget(self.gpuImageView)
+        self.meiYanFilter.addTarget(self.gpuImageView)
         self.cameraManager.startCameraCapture()
         self.addCameraView()
         self.cameraView?.preView.addSubview(self.gpuImageView!)
@@ -65,9 +69,9 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     }
     
     func takePhoto() {
-        self.cameraManager.capturePhotoAsImageProcessedUpToFilter(self.groupFilter) { (processedImage, error) -> Void in
+        self.cameraManager.capturePhotoAsImageProcessedUpToFilter(lookupFilter) { (processedImage, error) -> Void in
             if error != nil {
-                print("takePhotoError:%@", error)
+                print("takePhotoError:\(error)")
             } else {
                 if processedImage != nil {
                     self.takePhotoFinished(processedImage)
@@ -78,12 +82,6 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     
     func switchCamera() {
         self.cameraManager.rotateCamera()
-        if self.cameraManager.backFacingCameraPresent {
-            meiYanFilter = GPUImageFilter.init()
-            
-        } else {
-            meiYanFilter = GPUImageBilateralFilter.init()
-        }
         self.switchFilter(currentFilterIndex!)
     }
     
