@@ -968,7 +968,7 @@
 					"-lstdc++",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SH.Capture;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shawn.Capture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Capture/Global/Capture-Bridging-header.h";
 			};
@@ -994,7 +994,7 @@
 					"-lstdc++",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SH.Capture;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shawn.Capture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Capture/Global/Capture-Bridging-header.h";
 			};

@@ -16,7 +16,7 @@ import GPUImage
 class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowLayout, APCameraFilterDelegate , APCameraMainViewDelegate, GestureViewControl{
 
     var cameraManager: APCameraManager!
-    var meiYanFilter: GPUImageSmartEyeSkinDetectSmoothCSEnhanceSaveKa!
+    var meiYanFilter: GPUImageBilateralFilter!
     var gpuImageView: GPUImageView?
     var cameraView: APCameraMainView?
     var currentFilterIndex: Int?
@@ -30,8 +30,8 @@ class APCameraMainViewController: UIViewController,UICollectionViewDelegateFlowL
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.clearColor()
         self.cameraManager = APCameraManager.init(preset: AVCaptureSessionPresetPhoto, cameraPosition: AVCaptureDevicePosition.Front)
-            meiYanFilter = GPUImageSmartEyeSkinDetectSmoothCSEnhanceSaveKa.init()
-//        self.meiYanFilter?.blurRadiusInPixels = 1
+        meiYanFilter = GPUImageBilateralFilter.init()
+        self.meiYanFilter?.blurRadiusInPixels = 0.5
         self.gpuImageView = GPUImageView.init(frame: CGRectMake(0, 0, kScreenWidth, kScreenWidth*4/3))
         self.gpuImageView?.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
         self.cameraManager.outputImageOrientation = UIInterfaceOrientation.Portrait
