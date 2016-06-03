@@ -14,5 +14,6 @@
 #import "PECropViewController.h"
 #import "PaintingView.h"
 #import "FilterControl.h"
+#import "SSGPUImageBeautyFilter.h"
 
 #endif /* Capture_Bridging_Header_h */
